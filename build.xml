@@ -1,0 +1,48 @@
+<!-- ======================================================================= -->
+<project name="klondike" default="main" basedir="./">
+	<!-- =================================================================== -->
+	<!-- get enviroment from OS -->
+	<!-- =================================================================== -->
+	<property environment="env"/> 
+	<!-- =================================================================== -->
+	<!-- set misc properties -->
+	<!-- =================================================================== -->
+	<property name="name" value="klondike"/>
+	<property name="version" value="0.3"/>
+	<!-- =================================================================== -->
+	<!-- clean everything -->
+	<!-- =================================================================== -->
+	<target name="clean" description="remove clutter">
+		<echo message="clean --------------------------------------"/>
+		<delete dir="tmp"/>
+		<delete dir="deploy"/>
+		<echo message="clean --------------------------------------"/>
+	</target>
+	<!-- =================================================================== -->
+	<!-- compile java -->
+	<!-- =================================================================== -->
+	<target name="compile.java" description="compile java">
+		<echo message="compile.java ---------------------------"/>
+		<mkdir dir="tmp/classes"/>
+		<javac srcdir="src" destdir="tmp/classes" debug="on" deprecation="on" includeAntRuntime="false"/>
+		<manifest file="tmp/MANIFEST.MF">
+			<attribute name="Built-By" value="${env.USER}"/>
+			<attribute name="Implementation-Version" value="${version}"/>
+			<attribute name="Main-Class" value="org.dacracot.Solitaire"/>
+		</manifest>
+		<jar jarfile="simulator.jar" basedir="tmp/classes" manifest="tmp/MANIFEST.MF"/>
+		<echo message="compile.java ---------------------------"/>
+	</target>
+	<!-- =================================================================== -->
+	<!-- default -->
+	<!-- =================================================================== -->
+	<target name="main" depends="clean, compile.java" description="default">
+		<copy todir="./">
+			<fileset dir="tmp">
+				<include name="simulator.jar"/>
+			</fileset>
+		</copy>
+	</target>
+	<!-- =================================================================== -->
+</project>
+<!-- ======================================================================= -->
