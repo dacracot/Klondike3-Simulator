@@ -30,6 +30,7 @@ public class Klondike{
 			if (goal.playCard(stack.getUpCard())){
 				stack.removeUpCard();
 				moves++;
+System.out.println("~~ move ~~");
 				}
 			else{
 			
@@ -41,13 +42,15 @@ public class Klondike{
 			//    }
 			
 				if(stack.flip()){ //flopped
-					if (anyMoves == moves)
+					if (anyMoves == moves) {
 						noMoves++;
+						}
 					else{
 						anyMoves = moves;
 						noMoves = 0;
 						}
 					}
+System.out.println("~~ flip ~~");
 				}
 //			stack.showStacks();
 //			goal.showGoals();

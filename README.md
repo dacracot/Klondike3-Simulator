@@ -4,24 +4,16 @@
 
 ## Versions
 - 0.0 show a deck of cards
-	- Start: 20211107
-	- End: 20211107
 - 0.1 shuffle a deck of cards
-	- Start: 20211107
-	- End: 20211107
-- 0.2 create board, goal, stack
-	- Start: 20211107
-	- End:
+- 0.2 create goal, stack
 
-board
-	7 down and up
+## board
+- 7 down and up
 
-stack
-	1 down and up
-
-goal
-	4 up
-
+## play
+- play to goal
+- play to board
+- play variance
 
 ArrayList
 	to append .addAll(another list)

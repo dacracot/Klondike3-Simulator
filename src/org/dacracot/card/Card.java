@@ -39,11 +39,11 @@ public class Card implements Comparable<Card> {
 		}
 	//-----------------------------------------------
 	private void drawBack(){
-		System.err.format("|•••|");
+		System.err.format("|•%1s%1s•|",valueToString(),SUIT.getChar());
 		}
 	//-----------------------------------------------
 	private void drawFront(){
-		System.err.format("|%2s%1s|",valueToString(),SUIT.getChar());
+		System.err.format("| %1s%1s |",valueToString(),SUIT.getChar());
 		}
 	//-----------------------------------------------
 	public void draw(){
