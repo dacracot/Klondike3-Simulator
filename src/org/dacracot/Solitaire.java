@@ -8,23 +8,20 @@ public class Solitaire {
 	//-----------------------------------------------
 	public static void main(String[] args){
 		String params = String.join(" ",args);
-		int cards = 3;
-		int tries = 10;
-		boolean debug = false;
 		if (!params.isEmpty()){
 			if (params.indexOf("--one") != -1){
-				cards = 1;
+				Global.cards = 1;
 				}
 			if (params.indexOf("--three") != -1){
-				cards = 3;
+				Global.cards = 3;
 				}
 			if (params.indexOf("--attempts") != -1){
 				Scanner cli = new Scanner(params);
 				if ("--attempts".equals(cli.findInLine("--attempts"))){
-					tries = cli.nextInt();
+					Global.tries = cli.nextInt();
 					}
 				}
-			debug = (params.indexOf("--debug") != -1);
+			Global.debug = (params.indexOf("--debug") != -1);
 			}
 		else{
 			System.out.println("usage: [--one|--three] [--attempts #] [--debug] ");
@@ -35,11 +32,11 @@ public class Solitaire {
 			System.out.println("");
 			}
 		System.out.println("");
-		System.out.println("running: turn "+cards+" cards and "+tries+" attempts "+(debug?"with":"without")+" debug");
+		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug");
 		System.out.println("");
 		//-------------------------------------------
-		for(int i=0; i<tries; i++){
- 			Player player = new Player(cards);
+		for(int i=0; i<Global.tries; i++){
+ 			Player player = new Player(Global.cards);
  			player.run();
  			}
 		Score.result();
