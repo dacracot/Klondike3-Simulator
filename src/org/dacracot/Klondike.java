@@ -22,18 +22,18 @@ public class Klondike{
 		stack = new Stack(deck.getStack(),flips);
 		}
 	//-----------------------------------------------
-	private void showAll(){
-		System.out.println("~~~~~~~~~~~~~~~~~~");
+	private void showAll(String title){
+		System.err.println("~~~~~~~~~~~~~~~~~~");
+		System.err.println("~~~ "+title+" ~~~~~~~~~");
 		goal.show();
 		board.show();
 		stack.show();
-		System.out.println("~~~~~~~~~~~~~~~~~~");
+		System.err.println("~~~~~~~~~~~~~~~~~~");
 		}
 	//-----------------------------------------------
 	public boolean play(){
-		showAll();
 		stack.flip();
-		showAll();
+		showAll("begin");
 		int moves = 0;
 		int anyMoves = 0;
 		int noMoves = 0;
@@ -41,7 +41,7 @@ public class Klondike{
 			if (goal.playCard(stack.getUpCard())){
 				stack.removeUpCard();
 				moves++;
-System.out.println("~~ move ~~");
+				showAll("move");
 				}
 			else{
 			
@@ -61,7 +61,7 @@ System.out.println("~~ move ~~");
 						noMoves = 0;
 						}
 					}
-System.out.println("~~ flip ~~");
+				showAll("flip");
 				}
 //			stack.showStacks();
 //			goal.showGoals();
@@ -69,14 +69,14 @@ System.out.println("~~ flip ~~");
 				System.err.println();
 				System.err.println("WINNER");
 				System.err.println();
-				showAll();
+				showAll("WINNER");
 				return(true);
 				}
 			else if(noMoves > 3){
 				System.err.println();
 				System.err.println("LOSER");
 				System.err.println();
-				showAll();
+				showAll("LOSER");
 				return(false);
 				}
 // try{System.in.read();}catch(Exception e){}

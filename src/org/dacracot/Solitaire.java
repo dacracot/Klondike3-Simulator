@@ -20,7 +20,6 @@ public class Solitaire {
 			System.out.println();
 			}
 		for(int i=0; i<tries; i++){
-			if((i%report)==0) System.out.println("\n tried "+i);
  			Player player = new Player(cards);
  			player.run();
  			}

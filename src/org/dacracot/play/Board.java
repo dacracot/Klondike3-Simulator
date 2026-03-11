@@ -26,33 +26,25 @@ public class Board {
 		sevenXseven(d);
 		}
 	//-----------------------------------------------
+	private void initColumn(Deck deck, ArrayList<Card> column, int size){
+		Card temp;
+		for (int i = 0; i < size; i++){
+			temp = deck.getCard(0);
+			temp.setHidden(true);
+			column.add(temp);
+			deck.removeCard(0);
+			}
+		column.get(column.size() - 1).flip();
+		}
+	//-----------------------------------------------
 	private void sevenXseven(Deck deck){
-		column_1.add(deck.getCard(0));
-		deck.removeCard(0);
-		for (int i = 0; i < 2; i++){
-			column_2.add(deck.getCard(0));
-			deck.removeCard(0);
-			}
-		for (int i = 0; i < 3; i++){
-			column_3.add(deck.getCard(0));
-			deck.removeCard(0);
-			}
-		for (int i = 0; i < 4; i++){
-			column_4.add(deck.getCard(0));
-			deck.removeCard(0);
-			}
-		for (int i = 0; i < 5; i++){
-			column_5.add(deck.getCard(0));
-			deck.removeCard(0);
-			}
-		for (int i = 0; i < 6; i++){
-			column_6.add(deck.getCard(0));
-			deck.removeCard(0);
-			}
-		for (int i = 0; i < 7; i++){
-			column_7.add(deck.getCard(0));
-			deck.removeCard(0);
-			}
+		initColumn(deck,column_1,1);
+		initColumn(deck,column_2,2);
+		initColumn(deck,column_3,3);
+		initColumn(deck,column_4,4);
+		initColumn(deck,column_5,5);
+		initColumn(deck,column_6,6);
+		initColumn(deck,column_7,7);
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card c){
