@@ -20,6 +20,7 @@ public class Solitaire {
 				if ("--attempts".equals(cli.findInLine("--attempts"))){
 					Global.tries = cli.nextInt();
 					}
+				cli.close();
 				}
 			Global.debug = (params.indexOf("--debug") != -1);
 			}
