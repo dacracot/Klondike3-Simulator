@@ -23,12 +23,14 @@ public class Klondike{
 		}
 	//-----------------------------------------------
 	private void showAll(String title){
-		System.err.println("~~~~~~~~~~~~~~~~~~");
-		System.err.println("~~~ "+title+" ~~~~~~~~~");
-		goal.show();
-		board.show();
-		stack.show();
-		System.err.println("~~~~~~~~~~~~~~~~~~");
+		if (Global.debug){
+			System.err.println("~~~~~~~~~~~~~~~~~~");
+			System.err.println("~~~ "+title+" ~~~~~~~~~");
+			goal.show();
+			board.show();
+			stack.show();
+			System.err.println("~~~~~~~~~~~~~~~~~~");
+			}
 		}
 	//-----------------------------------------------
 	public boolean play(){
@@ -44,8 +46,6 @@ public class Klondike{
 				showAll("move stack to goal");
 				}
 			else{
-			
-			// if (board.moveCards()){moves++;}
 			
 			// if (board.playCard(stack.getUpCard())){
 			//    stack.removeUpCard();
@@ -63,19 +63,11 @@ public class Klondike{
 					}
 				showAll("flip");
 				}
-//			stack.showStacks();
-//			goal.showGoals();
 			if (goal.winner()){
-				System.err.println();
-				System.err.println("WINNER");
-				System.err.println();
 				showAll("WINNER");
 				return(true);
 				}
 			else if(noMoves > 3){
-				System.err.println();
-				System.err.println("LOSER");
-				System.err.println();
 				showAll("LOSER");
 				return(false);
 				}
