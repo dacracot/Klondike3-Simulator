@@ -1,4 +1,4 @@
-package org.dacracot.play;
+package org.dacracot.table;
 //---------------------------------------------------
 import org.dacracot.card.Card;
 //---------------------------------------------------
@@ -69,7 +69,9 @@ public class Stack {
 		return(down.size());
 		}
 	//-----------------------------------------------
-	public void showStacks(){
+	public void show(){
+		System.err.println("======================");
+		System.err.println("=== Stack ============");
 		showStack(down);
 		System.err.println("----------------------");
 		showStack(up);

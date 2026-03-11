@@ -1,6 +1,9 @@
 # Solitaire simulator for finding the best strategy...
 
 ---
+## How To:
+- run `ant`
+- run `java -jar simulator.jar 3 10`
 
 ## Versions
 - 0.0 show a deck of cards
