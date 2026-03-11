@@ -1,4 +1,4 @@
-package org.dacracot.play;
+package org.dacracot.table;
 //---------------------------------------------------
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;

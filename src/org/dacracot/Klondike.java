@@ -2,9 +2,9 @@ package org.dacracot;
 //---------------------------------------------------
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;
-import org.dacracot.play.Goal;
-import org.dacracot.play.Board;
-import org.dacracot.play.Stack;
+import org.dacracot.table.Goal;
+import org.dacracot.table.Board;
+import org.dacracot.table.Stack;
 //---------------------------------------------------
 public class Klondike{
 	//-----------------------------------------------
@@ -41,7 +41,7 @@ public class Klondike{
 			if (goal.playCard(stack.getUpCard())){
 				stack.removeUpCard();
 				moves++;
-				showAll("move");
+				showAll("move stack to goal");
 				}
 			else{
 			
