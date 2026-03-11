@@ -8,7 +8,7 @@ public class Solitaire {
 		int won = 0;
 		int cards = 0;
 		int tries = 0;
-		if (args.length == 3){
+		if (args.length == 2){
 			cards = Integer.parseInt(args[0]);  // how many cards to flip
 			tries = Integer.parseInt(args[1]); 	// number of games to play
 			}
