@@ -5,7 +5,6 @@ public class Solitaire {
 	public Solitaire(){}
 	//-----------------------------------------------
 	public static void main(String[] args){
-		int won = 0;
 		int cards = 0;
 		int tries = 0;
 		if (args.length == 2){
