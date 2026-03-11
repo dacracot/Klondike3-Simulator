@@ -61,7 +61,9 @@ public class Goal {
 		System.err.println();
 		}
 	//-----------------------------------------------
-	public void showGoals(){
+	public void show(){
+		System.err.println("======================");
+		System.err.println("=== Goal =============");
 		showGoal(spades);
 		System.err.println("----------------------");
 		showGoal(diamonds);
