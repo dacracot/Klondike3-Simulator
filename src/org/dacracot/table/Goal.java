@@ -1,4 +1,4 @@
-package org.dacracot.play;
+package org.dacracot.table;
 //---------------------------------------------------
 import org.dacracot.card.Card;
 //---------------------------------------------------
@@ -61,7 +61,9 @@ public class Goal {
 		System.err.println();
 		}
 	//-----------------------------------------------
-	public void showGoals(){
+	public void show(){
+		System.err.println("======================");
+		System.err.println("=== Goal =============");
 		showGoal(spades);
 		System.err.println("----------------------");
 		showGoal(diamonds);

@@ -1,27 +1,43 @@
 package org.dacracot;
 //---------------------------------------------------
+import java.util.Scanner;
+//---------------------------------------------------
 public class Solitaire {
 	//-----------------------------------------------
 	public Solitaire(){}
 	//-----------------------------------------------
 	public static void main(String[] args){
-		int won = 0;
-		int cards = 0;
-		int tries = 0;
-		int report = 0;
-		if (args.length == 3){
-			cards = Integer.parseInt(args[0]);  // how many cards to flip
-			tries = Integer.parseInt(args[1]); 	// number of games to play
-			report = Integer.parseInt(args[2]); // reporting interval
+		String params = String.join(" ",args);
+		if (!params.isEmpty()){
+			if (params.indexOf("--one") != -1){
+				Global.cards = 1;
+				}
+			if (params.indexOf("--three") != -1){
+				Global.cards = 3;
+				}
+			if (params.indexOf("--attempts") != -1){
+				Scanner cli = new Scanner(params);
+				if ("--attempts".equals(cli.findInLine("--attempts"))){
+					Global.tries = cli.nextInt();
+					}
+				cli.close();
+				}
+			Global.debug = (params.indexOf("--debug") != -1);
 			}
 		else{
-			System.out.println();
-			System.out.println("parameters: cards games report");
-			System.out.println();
+			System.out.println("usage: [--one|--three] [--attempts #] [--debug] ");
+			System.out.println("    --one: Turn only one card each play.");
+			System.out.println("    --three: Turn three cards each play.");
+			System.out.println("    --attempts: Number of games to attempt.");
+			System.out.println("    --debug: Verbose output about each game.");
+			System.out.println("");
 			}
-		for(int i=0; i<tries; i++){
-			if((i%report)==0) System.out.println("\n tried "+i);
- 			Player player = new Player(cards);
+		System.out.println("");
+		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug");
+		System.out.println("");
+		//-------------------------------------------
+		for(int i=0; i<Global.tries; i++){
+ 			Player player = new Player(Global.cards);
  			player.run();
  			}
 		Score.result();
