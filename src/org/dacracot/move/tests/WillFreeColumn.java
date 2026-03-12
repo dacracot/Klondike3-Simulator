@@ -3,6 +3,7 @@ package org.dacracot.move.tests;
 public class WillFreeColumn implements TieBreaker {
 	//-----------------------------------------------
 	//-----------------------------------------------
+	@Override
 	public int score() {
 		return(0);
 		}

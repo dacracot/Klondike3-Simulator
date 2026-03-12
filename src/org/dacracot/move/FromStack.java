@@ -2,10 +2,12 @@ package org.dacracot.move;
 //---------------------------------------------------
 public class FromStack implements From {
 	//-----------------------------------------------
+	@Override
 	public int toBoard() {
 		return(0);
 		}
 	//-----------------------------------------------
+	@Override
 	public int toGoal() {
 		return(0);
 		}

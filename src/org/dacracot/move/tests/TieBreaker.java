@@ -1,10 +1,9 @@
 package org.dacracot.move.tests;
 //---------------------------------------------------
-public abstract class TieBreaker {
+public interface TieBreaker {
 	//-----------------------------------------------
 	//-----------------------------------------------
-	public abstract int score() {
-		}
+	public abstract int score();
 	//-----------------------------------------------
 	}
 //---------------------------------------------------

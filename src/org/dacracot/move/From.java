@@ -1,13 +1,11 @@
 package org.dacracot.move;
 //---------------------------------------------------
-public abstract class From {
+public interface From {
 	//-----------------------------------------------
 	//-----------------------------------------------
-	public abstract int toBoard() {
-		}
+	public abstract int toBoard();
 	//-----------------------------------------------
-	public abstract int toGoal() {
-		}
+	public abstract int toGoal();
 	//-----------------------------------------------
 	}
 //---------------------------------------------------
