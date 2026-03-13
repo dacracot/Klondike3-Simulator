@@ -7,7 +7,7 @@ public class FromStack implements From {
 	private Klondike game;
 	//-----------------------------------------------
 	public FromStack (Klondike game) {
-		game = this.game;
+		this.game = game;
 		}
 	//-----------------------------------------------
 	@Override

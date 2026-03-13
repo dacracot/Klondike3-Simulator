@@ -12,7 +12,7 @@ public class FromBoard implements From {
 	private ArrayList<TieBreaker> tests;
 	//-----------------------------------------------
 	public FromBoard (Klondike game) {
-		game = this.game;
+		this.game = game;
 		tests = new ArrayList<TieBreaker>();
 		tests.add(new WillFreeColumn());
 		tests.add(new MoreFaceDown());

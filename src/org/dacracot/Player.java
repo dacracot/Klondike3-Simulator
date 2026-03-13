@@ -18,11 +18,20 @@ public class Player implements Runnable {
 		FromBoard fromBoard = new FromBoard(game);
 		FromGoal fromGoal = new FromGoal(game);
 		//-------------------------------------------
-		while(fromStack.toGoal()) {
+		int loops = 0;
+		int flops = 0;
+		while(flops < 3) {
+			if (fromStack.toGoal()) {
+				flops = 0;
+				}
+			if (game.stack.flip()) {
+				flops++;
+				}
 			if (game.goal.winner()) {
 				System.out.println("winner");
 				break;
 				}
+			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			}
 		System.out.println("loser");
 		//-------------------------------------------

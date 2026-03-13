@@ -7,7 +7,7 @@ public class FromGoal implements From {
 	private Klondike game;
 	//-----------------------------------------------
 	public FromGoal (Klondike game) {
-		game = this.game;
+		this.game = game;
 		}
 	//-----------------------------------------------
 	@Override
