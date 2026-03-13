@@ -12,11 +12,12 @@
 - 0.3 create board, play stack to goal
 
 ## play
-- [ ] board to board
-- [ ] board to goal
-- [ ] goal to board
-- [ ] stack to board
 - [x] stack to goal
+- [ ] board to goal
+- [ ] board to board
+- [ ] stack to board
+- [?] goal to board
 
+---
 ArrayList
 	to append .addAll(another list)
