@@ -40,7 +40,6 @@ public class Solitaire {
  			Player player = new Player(Global.cards);
  			player.run();
  			}
-		Score.result();
 		}
 	//-----------------------------------------------
 }
