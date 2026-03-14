@@ -54,7 +54,12 @@ public class Stack {
 	//-----------------------------------------------
 	public Card getUpCard(){
 		if (up.size() == 0) flip();
-		return(up.get((up.size()-1)));
+		try {
+			return(up.get((up.size()-1)));
+			}
+		catch(IndexOutOfBoundsException e) {
+			return(null);
+			}
 		}
 	//-----------------------------------------------
 	public void removeUpCard(){
