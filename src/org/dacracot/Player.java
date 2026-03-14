@@ -4,7 +4,7 @@ import org.dacracot.move.FromStack;
 import org.dacracot.move.FromBoard;
 import org.dacracot.move.FromGoal;
 //---------------------------------------------------
-public class Player implements Runnable {
+public class Player {
 	//-----------------------------------------------
 	private int cards;
 	//-----------------------------------------------
@@ -12,7 +12,7 @@ public class Player implements Runnable {
 		this.cards = cards;
 		}
 	//-----------------------------------------------
-	public void run() {
+	public boolean run() {
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
@@ -31,12 +31,11 @@ public class Player implements Runnable {
 				flops++;
 				}
 			if (game.goal.winner()) {
-				System.out.println("winner");
-				break;
+				return(true);
 				}
 			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			}
-		System.out.println("loser");
+		return(false);
 		//-------------------------------------------
 		}
 	//-----------------------------------------------
