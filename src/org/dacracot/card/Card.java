@@ -1,7 +1,7 @@
 package org.dacracot.card;
 //---------------------------------------------------
 //---------------------------------------------------
-public class Card implements Comparable<Card> {
+public class Card {
 	//-----------------------------------------------
 	private final Suit SUIT;
 	//-----------------------------------------------
@@ -71,7 +71,7 @@ public class Card implements Comparable<Card> {
 	public boolean stringEquals(Card card){
 		String inquery = card.toString();
 		String self = this.toString();
-		return (self.equals(inquery);
+		return (self.equals(inquery));
 		}
 	//-----------------------------------------------
 }

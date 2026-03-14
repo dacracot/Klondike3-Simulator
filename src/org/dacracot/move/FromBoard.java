@@ -2,6 +2,7 @@ package org.dacracot.move;
 //---------------------------------------------------
 import java.util.ArrayList;
 import org.dacracot.Klondike;
+import org.dacracot.card.Card;
 import org.dacracot.move.tests.MoreFaceDown;
 import org.dacracot.move.tests.TieBreaker;
 import org.dacracot.move.tests.WillFreeColumn;
