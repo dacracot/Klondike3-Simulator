@@ -152,30 +152,31 @@ public class Board {
 		return(false);
 		}
 	//-----------------------------------------------
-	private void showColumn(ArrayList<Card> g){
+	private void showColumn(ArrayList<Card> g, StringBuffer sb){
 		for(int i=0; i<g.size(); i++){
-			g.get(i).draw();
+			sb.append(g.get(i).draw());
 			}
-		System.err.println();
 		}
 	//-----------------------------------------------
-	public void show(){
-		System.err.println("======================");
-		System.err.println("=== Board ============");
-		showColumn(column_1);
-		System.err.println("----------------------");
-		showColumn(column_2);
-		System.err.println("----------------------");
-		showColumn(column_3);
-		System.err.println("----------------------");
-		showColumn(column_4);
-		System.err.println("----------------------");
-		showColumn(column_5);
-		System.err.println("----------------------");
-		showColumn(column_6);
-		System.err.println("----------------------");
-		showColumn(column_7);
-		System.err.println("======================");
+	public String show(){
+		StringBuffer sb = new StringBuffer();
+		sb.append("======================\n");
+		sb.append("=== Board ============\n");
+		showColumn(column_1,sb);
+		sb.append("\n----------------------\n");
+		showColumn(column_2,sb);
+		sb.append("\n----------------------\n");
+		showColumn(column_3,sb);
+		sb.append("\n----------------------\n");
+		showColumn(column_4,sb);
+		sb.append("\n----------------------\n");
+		showColumn(column_5,sb);
+		sb.append("\n----------------------\n");
+		showColumn(column_6,sb);
+		sb.append("\n----------------------\n");
+		showColumn(column_7,sb);
+		sb.append("\n======================\n");
+		return(sb.toString());
 		}
 	//-----------------------------------------------
 }

@@ -54,24 +54,25 @@ public class Goal {
 		return(false);
 		}
 	//-----------------------------------------------
-	private void showGoal(ArrayList<Card> g){
+	private void showGoal(ArrayList<Card> g, StringBuffer sb){
 		for(int i=0; i<g.size(); i++){
-			g.get(i).draw();
+			sb.append(g.get(i).draw());
 			}
-		System.err.println();
 		}
 	//-----------------------------------------------
-	public void show(){
-		System.err.println("======================");
-		System.err.println("=== Goal =============");
-		showGoal(spades);
-		System.err.println("----------------------");
-		showGoal(diamonds);
-		System.err.println("----------------------");
-		showGoal(clubs);
-		System.err.println("----------------------");
-		showGoal(hearts);
-		System.err.println("======================");
+	public String show(){
+		StringBuffer sb = new StringBuffer();
+		sb.append("======================\n");
+		sb.append("=== Goal =============\n");
+		showGoal(spades,sb);
+		sb.append("\n----------------------\n");
+		showGoal(diamonds,sb);
+		sb.append("\n----------------------\n");
+		showGoal(clubs,sb);
+		sb.append("\n----------------------\n");
+		showGoal(hearts,sb);
+		sb.append("\n======================\n");
+		return(sb.toString());
 		}
 	//-----------------------------------------------
 	public boolean winner(){
