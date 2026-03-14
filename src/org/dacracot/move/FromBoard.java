@@ -25,7 +25,15 @@ public class FromBoard implements From {
 	//-----------------------------------------------
 	@Override
 	public boolean toGoal() {
-		return(false);
+		boolean played = false;
+		ArrayList<Card> upCards = game.board.getUpCardsFromBottom();
+		for(Card upCard : upCards) {
+			if (game.goal.playCard(upCard)) {
+				game.board.removeCard(upCard);
+				played = true;
+				}
+			}
+		return(played);
 		}
 	//-----------------------------------------------
 	}

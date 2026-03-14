@@ -24,6 +24,9 @@ public class Player implements Runnable {
 			if (fromStack.toGoal()) {
 				flops = 0;
 				}
+			if (fromBoard.toGoal()) {
+				flops = 0;
+				}
 			if (game.stack.flip()) {
 				flops++;
 				}
