@@ -27,6 +27,9 @@ public class Player {
 			if (fromBoard.toGoal()) {
 				flops = 0;
 				}
+			if (fromBoard.toBoard()) {
+				flops = 0;
+				}
 			if (game.stack.flip()) {
 				flops++;
 				}

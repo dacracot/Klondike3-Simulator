@@ -141,9 +141,19 @@ public class Board {
 		return(up);
 		}
 	//-----------------------------------------------
-	public boolean playCard(Card c){
+	public boolean playCard(Card bottom, Card top){
 		try{
-			return(true);
+
+// bottom & top in same column > ignore
+
+// opposite colors
+// sequential values
+
+// split ArrayList
+// join ArrayList
+
+// flip
+
 			}
 		catch(Exception e){
 			System.err.println(e);
