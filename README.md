@@ -13,10 +13,9 @@
 
 ## play
 - [x] stack to goal
-- [ ] board to goal
+- [x] board to goal
 - [ ] board to board
 - [ ] stack to board
-- [?] goal to board
 
 ---
 ArrayList
