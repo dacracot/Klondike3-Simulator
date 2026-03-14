@@ -52,44 +52,58 @@ public class Board {
 		Card bottomUpCard;
 		try {
 			bottomUpCard = column_1.get(column_1.size()-1);
-			if (card.stringEquals(bottomUpCard))
+			if (card.stringEquals(bottomUpCard)) {
 				column_1.remove(column_1.size()-1);
+				column_1.get(column_1.size()-1).setHidden(false);
+				}
 			}
 		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 		try {
 			bottomUpCard = column_2.get(column_2.size()-1);
-			if (card.stringEquals(bottomUpCard))
+			if (card.stringEquals(bottomUpCard)) {
 				column_2.remove(column_2.size()-1);
+				column_2.get(column_2.size()-1).setHidden(false);
+				}
 			}
 		catch(IndexOutOfBoundsException e) {}
 		try {
 			bottomUpCard = column_3.get(column_3.size()-1);
-			if (card.stringEquals(bottomUpCard))
+			if (card.stringEquals(bottomUpCard)) {
 				column_3.remove(column_3.size()-1);
+				column_3.get(column_3.size()-1).setHidden(false);
+				}
 			}
 		catch(IndexOutOfBoundsException e) {}
 		try {
 			bottomUpCard = column_4.get(column_4.size()-1);
-			if (card.stringEquals(bottomUpCard))
+			if (card.stringEquals(bottomUpCard)) {
 				column_4.remove(column_4.size()-1);
+				column_4.get(column_4.size()-1).setHidden(false);
+				}
 			}
 		catch(IndexOutOfBoundsException e) {}
 		try {
 			bottomUpCard = column_5.get(column_5.size()-1);
-			if (card.stringEquals(bottomUpCard))
+			if (card.stringEquals(bottomUpCard)) {
 				column_5.remove(column_5.size()-1);
+				column_5.get(column_5.size()-1).setHidden(false);
+				}
 			}
 		catch(IndexOutOfBoundsException e) {}
 		try {
 			bottomUpCard = column_6.get(column_6.size()-1);
-			if (card.stringEquals(bottomUpCard))
+			if (card.stringEquals(bottomUpCard)) {
 				column_6.remove(column_6.size()-1);
+				column_6.get(column_6.size()-1).setHidden(false);
+				}
 			}
 		catch(IndexOutOfBoundsException e) {}
 		try {
 			bottomUpCard = column_7.get(column_7.size()-1);
-			if (card.stringEquals(bottomUpCard))
+			if (card.stringEquals(bottomUpCard)) {
 				column_7.remove(column_7.size()-1);
+				column_7.get(column_7.size()-1).setHidden(false);
+				}
 			}
 		catch(IndexOutOfBoundsException e) {}
 		}

@@ -54,7 +54,7 @@ public class Solitaire {
  			between.toDays(),
  			between.toHoursPart(),
  			between.toMinutesPart(),
- 			between.getSecondsPart()
+ 			between.toSecondsPart()
  			);
 		System.out.println("");
 		}
