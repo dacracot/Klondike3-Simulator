@@ -1,6 +1,8 @@
 package org.dacracot;
 //---------------------------------------------------
 import java.util.Scanner;
+import java.time.Duration;
+import java.time.Instant;
 //---------------------------------------------------
 public class Solitaire {
 	//-----------------------------------------------
@@ -34,13 +36,27 @@ public class Solitaire {
 			}
 		System.out.println("");
 		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug");
-		System.out.println("");
 		//-------------------------------------------
+		int winner = 0;
+		Instant start = Instant.now();
 		for(int i=0; i<Global.tries; i++){
  			Player player = new Player(Global.cards);
- 			player.run();
+ 			if (player.run())
+ 				winner++;
  			}
-		Score.result();
+ 		Instant end = Instant.now();
+		System.out.println("");
+		System.out.println("success: won "+winner+" of "+Global.tries+" for "+String.format("%3.3f",(((1.0*winner)/Global.tries)*100))+"%");
+ 		Duration between = Duration.between(start, end);
+		System.out.println("");
+ 		System.out.format(
+ 			"duration: %dD, %02d:%02d:%02d",
+ 			between.toDays(),
+ 			between.toHoursPart(),
+ 			between.toMinutesPart(),
+ 			between.toSecondsPart()
+ 			);
+		System.out.println("");
 		}
 	//-----------------------------------------------
 }

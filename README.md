@@ -9,14 +9,14 @@
 - 0.0 show a deck of cards
 - 0.1 shuffle a deck of cards
 - 0.2 create goal, stack
-
-## board
-- 7 down and up
+- 0.3 create board, play stack to goal
 
 ## play
-- play to goal
-- play to board
-- play variance
+- [x] stack to goal
+- [x] board to goal
+- [ ] board to board
+- [ ] stack to board
 
+---
 ArrayList
 	to append .addAll(another list)

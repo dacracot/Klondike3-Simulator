@@ -10,11 +10,11 @@ public class Klondike{
 	//-----------------------------------------------
 	private int flips;
 	private Deck deck;
-	private Goal goal;
-	private Board board;
-	private Stack stack;
+	public Goal goal;
+	public Board board;
+	public Stack stack;
 	//-----------------------------------------------
-	public Klondike(int f){
+	public Klondike(int f) {
 		flips = f;
 		deck = new Deck();
 		goal = new Goal();
@@ -22,7 +22,7 @@ public class Klondike{
 		stack = new Stack(deck.getStack(),flips);
 		}
 	//-----------------------------------------------
-	private void showAll(String title){
+	public void showAll(String title) {
 		if (Global.debug){
 			System.err.println("~~~~~~~~~~~~~~~~~~");
 			System.err.println("~~~ "+title+" ~~~~~~~~~");
@@ -31,50 +31,6 @@ public class Klondike{
 			stack.show();
 			System.err.println("~~~~~~~~~~~~~~~~~~");
 			}
-		}
-	//-----------------------------------------------
-	public boolean play(){
-		stack.flip();
-		showAll("begin");
-		int moves = 0;
-		int anyMoves = 0;
-		int noMoves = 0;
-		while((stack.sizeDown() + stack.sizeUp()) > 0){
-			if (goal.playCard(stack.getUpCard())){
-				stack.removeUpCard();
-				moves++;
-				showAll("move stack to goal");
-				}
-			else{
-			
-			// if (board.playCard(stack.getUpCard())){
-			//    stack.removeUpCard();
-			//    moves++;
-			//    }
-			
-				if(stack.flip()){ //flopped
-					if (anyMoves == moves) {
-						noMoves++;
-						}
-					else{
-						anyMoves = moves;
-						noMoves = 0;
-						}
-					}
-				showAll("flip");
-				}
-			if (goal.winner()){
-				showAll("WINNER");
-				return(true);
-				}
-			else if(noMoves > 3){
-				showAll("LOSER");
-				return(false);
-				}
-// try{System.in.read();}catch(Exception e){}
-			}
-		System.err.println("Huh?");
-		return(false);
 		}
 	//-----------------------------------------------
 }
