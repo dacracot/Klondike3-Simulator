@@ -53,13 +53,13 @@ public class Board {
 		try {
 			bottomUpCard = column_1.get(column_1.size()-1);
 			if (card.stringEquals(bottomUpCard))
-				column_1.get(column_1.size()-1);
+				column_1.remove(column_1.size()-1);
 			}
 		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 		try {
 			bottomUpCard = column_2.get(column_2.size()-1);
 			if (card.stringEquals(bottomUpCard))
-				column_2.get(column_2.size()-1);
+				column_2.remove(column_2.size()-1);
 			}
 		catch(IndexOutOfBoundsException e) {}
 		try {
