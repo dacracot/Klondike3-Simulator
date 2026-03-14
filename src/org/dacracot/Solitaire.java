@@ -52,9 +52,9 @@ public class Solitaire {
  		System.out.format(
  			"duration: %dD, %02d:%02d:%02d",
  			between.toDays(),
- 			between.toHours(),
- 			between.toMinutes(),
- 			between.getSeconds()
+ 			between.toHoursPart(),
+ 			between.toMinutesPart(),
+ 			between.getSecondsPart()
  			);
 		System.out.println("");
 		}
