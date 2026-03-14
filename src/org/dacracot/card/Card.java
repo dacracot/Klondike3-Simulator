@@ -18,6 +18,10 @@ public class Card {
 		this.hidden = hidden;
 		}
 	//-----------------------------------------------
+	public Suit.Color getColor(){
+		return SUIT.getColor();
+		}
+	//-----------------------------------------------
 	public Suit getSuit(){
 		return SUIT;
 		}

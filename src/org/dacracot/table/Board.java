@@ -108,6 +108,53 @@ public class Board {
 		catch(IndexOutOfBoundsException e) {}
 		}
 	//-----------------------------------------------
+	public ArrayList<Card> getUpCardsFromTop() {
+		ArrayList<Card> up = new ArrayList<Card>();
+		for(Card card : column_1) {
+			if (!card.isHidden()) {
+				up.add(card);
+				break;
+				}
+			}
+		for(Card card : column_2) {
+			if (!card.isHidden()) {
+				up.add(card);
+				break;
+				}
+			}
+		for(Card card : column_3) {
+			if (!card.isHidden()) {
+				up.add(card);
+				break;
+				}
+			}
+		for(Card card : column_4) {
+			if (!card.isHidden()) {
+				up.add(card);
+				break;
+				}
+			}
+		for(Card card : column_5) {
+			if (!card.isHidden()) {
+				up.add(card);
+				break;
+				}
+			}
+		for(Card card : column_6) {
+			if (!card.isHidden()) {
+				up.add(card);
+				break;
+				}
+			}
+		for(Card card : column_7) {
+			if (!card.isHidden()) {
+				up.add(card);
+				break;
+				}
+			}
+		return(up);
+		}
+	//-----------------------------------------------
 	public ArrayList<Card> getUpCardsFromBottom() {
 		ArrayList<Card> up = new ArrayList<Card>();
 		try {
@@ -148,6 +195,16 @@ public class Board {
 
 // opposite colors
 // sequential values
+
+
+System.err.println("bottom: "+bottom.getValue()+" "+bottom.getColor());
+System.err.println("top:    "+top.getValue()+" "+top.getColor());
+if ((bottom.getColor() != top.getColor()) && (top.getValue() == (bottom.getValue() - 1))){
+	System.err.println("MATCHED FOR MOVE");
+	}
+System.err.println("+++++++++++++++++++++++");
+
+
 
 // split ArrayList
 // join ArrayList

@@ -25,7 +25,7 @@ public class FromBoard implements From {
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
 		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
 		for(Card bottomUpCard : bottomUpCards) {
-			for Card topUpCard : topUpCards) {
+			for(Card topUpCard : topUpCards) {
 				if (game.board.playCard(bottomUpCard,topUpCard)) {
 					played = true;
 					}

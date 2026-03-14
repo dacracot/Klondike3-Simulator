@@ -4,7 +4,7 @@ public enum Suit {
 	//-----------------------------------------------
 	SPADES, HEARTS, DIAMONDS, CLUBS;
 	//-----------------------------------------------
-	enum Color {RED, BLACK}
+	public enum Color {RED, BLACK}
 	//-----------------------------------------------
 	public Color getColor(){
 		switch(this){
