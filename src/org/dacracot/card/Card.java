@@ -38,19 +38,19 @@ public class Card {
 		this.hidden = hidden;
 		}
 	//-----------------------------------------------
-	private void drawBack(){
-		System.err.format("|•%1s%1s•|",valueToString(),SUIT.getChar());
+	private String drawBack(){
+		return(String.format("|•%1s%1s•|",valueToString(),SUIT.getChar()));
 		}
 	//-----------------------------------------------
-	private void drawFront(){
-		System.err.format("| %1s%1s |",valueToString(),SUIT.getChar());
+	private String drawFront(){
+		return(String.format("| %1s%1s |",valueToString(),SUIT.getChar()));
 		}
 	//-----------------------------------------------
-	public void draw(){
+	public String draw(){
 		if(hidden){
-			drawBack();
+			return(drawBack());
 		} else { 
-			drawFront();
+			return(drawFront());
 		}
 	}
 	//-----------------------------------------------

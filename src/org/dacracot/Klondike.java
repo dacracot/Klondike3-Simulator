@@ -23,13 +23,15 @@ public class Klondike{
 		}
 	//-----------------------------------------------
 	public void showAll(String title) {
+		StringBuffer sb = new StringBuffer();
+		sb.append("~~~~~~~~~~~~~~~~~~\n");
+		sb.append("~~~ "+title+" ~~~~~~~~~\n");
+		sb.append(goal.show());
+		sb.append(board.show());
+		sb.append(stack.show());
+		sb.append("~~~~~~~~~~~~~~~~~~\n");
 		if (Global.debug){
-			System.err.println("~~~~~~~~~~~~~~~~~~");
-			System.err.println("~~~ "+title+" ~~~~~~~~~");
-			goal.show();
-			board.show();
-			stack.show();
-			System.err.println("~~~~~~~~~~~~~~~~~~");
+			System.err.println(sb.toString());
 			}
 		}
 	//-----------------------------------------------
