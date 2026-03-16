@@ -188,6 +188,20 @@ public class Board {
 		return(up);
 		}
 	//-----------------------------------------------
+	public boolean playCard(Card source) {
+		ArrayList<Card> destinationColumn = null;
+		Card destination = destinationColumn.get(destinationColumn.size()-1);
+		boolean playable = (
+			(destination.getColor() != source.getColor())
+			&&
+			(source.getValue() == (destination.getValue() - 1))
+			);
+		if (playable) {
+			destinationColumn.add(source);
+			}
+		return(playable);
+		}
+	//-----------------------------------------------
 	public boolean playCard(Card destination, Card source) {
 		ArrayList<Card> destinationColumn = null;
 		ArrayList<Card> sourceColumn = null;

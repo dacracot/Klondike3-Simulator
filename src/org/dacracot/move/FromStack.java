@@ -12,6 +12,10 @@ public class FromStack implements From {
 	//-----------------------------------------------
 	@Override
 	public boolean toBoard() {
+		if (game.board.playCard(game.stack.getUpCard())){
+			game.stack.removeUpCard();
+			return(true);
+			}
 		return(false);
 		}
 	//-----------------------------------------------
