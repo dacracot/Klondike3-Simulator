@@ -188,38 +188,44 @@ public class Board {
 		return(up);
 		}
 	//-----------------------------------------------
-	public boolean playCard(Card bottom, Card top){
-		try{
-
-// bottom & top in same column > ignore
-
-// opposite colors
-// sequential values
-
-
-System.err.println("bottom: "+bottom.getValue()+" "+bottom.getColor());
-System.err.println("top:    "+top.getValue()+" "+top.getColor());
-if ((bottom.getColor() != top.getColor()) && (top.getValue() == (bottom.getValue() - 1))){
-	System.err.println("MATCHED FOR MOVE");
-	}
-System.err.println("+++++++++++++++++++++++");
-
-
-
-// split ArrayList
-// join ArrayList
-
-// flip
-
+	public boolean playCard(Card destination, Card source) {
+		ArrayList<Card> destinationColumn = null;
+		ArrayList<Card> sourceColumn = null;
+		boolean playable = (
+			(destination.getColor() != source.getColor())
+			&&
+			(source.getValue() == (destination.getValue() - 1))
+			);
+		if (playable) {
+			// it can only be in one
+			if (column_1.contains(destination)) destinationColumn = column_1;
+			if (column_2.contains(destination)) destinationColumn = column_2;
+			if (column_3.contains(destination)) destinationColumn = column_3;
+			if (column_4.contains(destination)) destinationColumn = column_4;
+			if (column_5.contains(destination)) destinationColumn = column_5;
+			if (column_6.contains(destination)) destinationColumn = column_6;
+			if (column_7.contains(destination)) destinationColumn = column_7;
+			// it can only be in one
+			if (column_1.contains(source)) sourceColumn = column_1;
+			if (column_2.contains(source)) sourceColumn = column_2;
+			if (column_3.contains(source)) sourceColumn = column_3;
+			if (column_4.contains(source)) sourceColumn = column_4;
+			if (column_5.contains(source)) sourceColumn = column_5;
+			if (column_6.contains(source)) sourceColumn = column_6;
+			if (column_7.contains(source)) sourceColumn = column_7;
+			// --
+			for (Card c : sourceColumn) {
+				if (!c.isHidden()) {
+					if (sourceColumn.remove(c)) {
+						destinationColumn.add(c);
+						}
+					}
+				}
 			}
-		catch(Exception e){
-			System.err.println(e);
-			System.exit(1);
-			}
-		return(false);
+		return(playable);
 		}
 	//-----------------------------------------------
-	private void showColumn(ArrayList<Card> g, StringBuffer sb){
+	private void showColumn(ArrayList<Card> g, StringBuffer sb) {
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
 			}

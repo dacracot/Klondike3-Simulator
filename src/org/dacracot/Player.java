@@ -27,8 +27,8 @@ public class Player {
 			if (fromBoard.toGoal()) {
 				flops = 0;
 				}
-			if (fromBoard.toBoard()) {
-				flops = 0;
+			while(fromBoard.toBoard()) {
+				// no all hidden columns
 				}
 			if (game.stack.flip()) {
 				flops++;
