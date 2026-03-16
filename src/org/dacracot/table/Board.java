@@ -214,13 +214,15 @@ public class Board {
 			if (column_6.contains(source)) sourceColumn = column_6;
 			if (column_7.contains(source)) sourceColumn = column_7;
 			// --
+			ArrayList<Card> deletion = new ArrayList<Card>();
 			for (Card c : sourceColumn) {
 				if (!c.isHidden()) {
-					if (sourceColumn.remove(c)) {
-						destinationColumn.add(c);
-						}
+					destinationColumn.add(c);
+					deletion.add(c);
 					}
 				}
+			sourceColumn.removeAll(deletion);
+			sourceColumn.get(sourceColumn.size()-1).setHidden(false);
 			}
 		return(playable);
 		}
