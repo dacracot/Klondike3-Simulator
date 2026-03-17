@@ -89,17 +89,20 @@ public class Board {
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card source) {
-		ArrayList<Card> destinationColumn = null;
-		Card destination = destinationColumn.get(destinationColumn.size()-1);
-		boolean playable = (
-			(destination.getColor() != source.getColor())
-			&&
-			(source.getValue() == (destination.getValue() - 1))
-			);
-		if (playable) {
-			destinationColumn.add(source);
+		boolean playable = false;
+		for(int i=0; i<SEVEN; i++) {
+			Card destination = columns.get(i).get(columns.get(i).size()-1);
+			playable = (
+				(destination.getColor() != source.getColor())
+				&&
+				(source.getValue() == (destination.getValue() - 1))
+				);
+			if (playable) {
+				columns.get(i).add(source);
+				break;
+				}
 			}
-	return(playable);
+		return(playable);
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card destination, Card source) {
