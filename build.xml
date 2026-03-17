@@ -25,6 +25,9 @@
 		<echo message="clean --------------------------------------"/>
 		<delete dir="tmp"/>
 		<delete dir="deploy"/>
+		<delete>
+			<fileset dir="." includes="**/debug.*"/>
+		</delete>
 		<echo message="clean --------------------------------------"/>
 	</target>
 	<!-- =================================================================== -->
