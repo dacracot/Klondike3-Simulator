@@ -48,13 +48,23 @@ public class Board {
 		initColumn(deck,column_7,7);
 		}
 	//-----------------------------------------------
+	public boolean bottomsUp(ArrayList<Card> c){
+		if (c.isEmpty()) {
+			return(false);
+			}
+		else {
+			c.get(c.size()-1).setHidden(false);
+			return(true);
+			}
+		}
+	//-----------------------------------------------
 	public void removeCard(Card card) {
 		Card bottomUpCard;
 		try {
 			bottomUpCard = column_1.get(column_1.size()-1);
 			if (card.stringEquals(bottomUpCard)) {
 				column_1.remove(column_1.size()-1);
-				column_1.get(column_1.size()-1).setHidden(false);
+				bottomsUp(column_1);
 				}
 			}
 		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
@@ -62,7 +72,7 @@ public class Board {
 			bottomUpCard = column_2.get(column_2.size()-1);
 			if (card.stringEquals(bottomUpCard)) {
 				column_2.remove(column_2.size()-1);
-				column_2.get(column_2.size()-1).setHidden(false);
+				bottomsUp(column_2);
 				}
 			}
 		catch(IndexOutOfBoundsException e) {}
@@ -70,7 +80,7 @@ public class Board {
 			bottomUpCard = column_3.get(column_3.size()-1);
 			if (card.stringEquals(bottomUpCard)) {
 				column_3.remove(column_3.size()-1);
-				column_3.get(column_3.size()-1).setHidden(false);
+				bottomsUp(column_3);
 				}
 			}
 		catch(IndexOutOfBoundsException e) {}
@@ -78,7 +88,7 @@ public class Board {
 			bottomUpCard = column_4.get(column_4.size()-1);
 			if (card.stringEquals(bottomUpCard)) {
 				column_4.remove(column_4.size()-1);
-				column_4.get(column_4.size()-1).setHidden(false);
+				bottomsUp(column_4);
 				}
 			}
 		catch(IndexOutOfBoundsException e) {}
@@ -86,7 +96,7 @@ public class Board {
 			bottomUpCard = column_5.get(column_5.size()-1);
 			if (card.stringEquals(bottomUpCard)) {
 				column_5.remove(column_5.size()-1);
-				column_5.get(column_5.size()-1).setHidden(false);
+				bottomsUp(column_5);
 				}
 			}
 		catch(IndexOutOfBoundsException e) {}
@@ -94,7 +104,7 @@ public class Board {
 			bottomUpCard = column_6.get(column_6.size()-1);
 			if (card.stringEquals(bottomUpCard)) {
 				column_6.remove(column_6.size()-1);
-				column_6.get(column_6.size()-1).setHidden(false);
+				bottomsUp(column_6);
 				}
 			}
 		catch(IndexOutOfBoundsException e) {}
@@ -102,7 +112,7 @@ public class Board {
 			bottomUpCard = column_7.get(column_7.size()-1);
 			if (card.stringEquals(bottomUpCard)) {
 				column_7.remove(column_7.size()-1);
-				column_7.get(column_7.size()-1).setHidden(false);
+				bottomsUp(column_7);
 				}
 			}
 		catch(IndexOutOfBoundsException e) {}
@@ -188,18 +198,23 @@ public class Board {
 		return(up);
 		}
 	//-----------------------------------------------
+	public boolean canPlayCard(Card destination, Card source) {
+		return(false);
+		}
+	//-----------------------------------------------
 	public boolean playCard(Card source) {
-		ArrayList<Card> destinationColumn = null;
-		Card destination = destinationColumn.get(destinationColumn.size()-1);
-		boolean playable = (
-			(destination.getColor() != source.getColor())
-			&&
-			(source.getValue() == (destination.getValue() - 1))
-			);
-		if (playable) {
-			destinationColumn.add(source);
-			}
-		return(playable);
+return(false);
+// 		ArrayList<Card> destinationColumn = null;
+// 		Card destination = destinationColumn.get(destinationColumn.size()-1);
+// 		boolean playable = (
+// 			(destination.getColor() != source.getColor())
+// 			&&
+// 			(source.getValue() == (destination.getValue() - 1))
+// 			);
+// 		if (playable) {
+// 			destinationColumn.add(source);
+// 			}
+//		return(playable);
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card destination, Card source) {
@@ -236,7 +251,11 @@ public class Board {
 					}
 				}
 			sourceColumn.removeAll(deletion);
-			sourceColumn.get(sourceColumn.size()-1).setHidden(false);
+			if (!bottomsUp(sourceColumn)) {
+//
+// king's exception for empty column
+//
+				}
 			}
 		return(playable);
 		}
