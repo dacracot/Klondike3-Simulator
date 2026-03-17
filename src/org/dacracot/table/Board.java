@@ -1,29 +1,21 @@
 package org.dacracot.table;
 //---------------------------------------------------
 import java.lang.IndexOutOfBoundsException;
+import java.util.ArrayList;
+import java.util.Vector;
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;
-//---------------------------------------------------
-import java.util.ArrayList;
+import org.dacracot.util.TypedArray;
 //---------------------------------------------------
 public class Board {
 	//-----------------------------------------------
-	ArrayList<Card> column_1;
-	ArrayList<Card> column_2;
-	ArrayList<Card> column_3;
-	ArrayList<Card> column_4;
-	ArrayList<Card> column_5;
-	ArrayList<Card> column_6;
-	ArrayList<Card> column_7;
+	private final int SEVEN = 7;
+	private TypedArray<ArrayList<Card>> columns = new TypedArray(SEVEN);
 	//-----------------------------------------------
 	public Board(Deck d){
-		column_1 = new ArrayList<Card>();
-		column_2 = new ArrayList<Card>();
-		column_3 = new ArrayList<Card>();
-		column_4 = new ArrayList<Card>();
-		column_5 = new ArrayList<Card>();
-		column_6 = new ArrayList<Card>();
-		column_7 = new ArrayList<Card>();
+		for(int i=0; i<SEVEN; i++) {
+			columns.add(i, new ArrayList<Card>());
+			}
 		sevenXseven(d);
 		}
 	//-----------------------------------------------
@@ -39,13 +31,9 @@ public class Board {
 		}
 	//-----------------------------------------------
 	private void sevenXseven(Deck deck){
-		initColumn(deck,column_1,1);
-		initColumn(deck,column_2,2);
-		initColumn(deck,column_3,3);
-		initColumn(deck,column_4,4);
-		initColumn(deck,column_5,5);
-		initColumn(deck,column_6,6);
-		initColumn(deck,column_7,7);
+		for(int i=0; i<SEVEN; i++) {
+			initColumn(deck,columns.get(i),(i+1));
+			}
 		}
 	//-----------------------------------------------
 	public boolean bottomsUp(ArrayList<Card> c){
@@ -60,106 +48,26 @@ public class Board {
 	//-----------------------------------------------
 	public void removeCard(Card card) {
 		Card bottomUpCard;
-		try {
-			bottomUpCard = column_1.get(column_1.size()-1);
-			if (card.stringEquals(bottomUpCard)) {
-				column_1.remove(column_1.size()-1);
-				bottomsUp(column_1);
+		for(int i=0; i<SEVEN; i++) {
+			try {
+				bottomUpCard = columns.get(i).get(columns.get(i).size()-1);
+				if (card.stringEquals(bottomUpCard)) {
+					columns.get(i).remove(columns.get(i).size()-1);
+					bottomsUp(columns.get(i));
+					}
 				}
+			catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 			}
-		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
-		try {
-			bottomUpCard = column_2.get(column_2.size()-1);
-			if (card.stringEquals(bottomUpCard)) {
-				column_2.remove(column_2.size()-1);
-				bottomsUp(column_2);
-				}
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			bottomUpCard = column_3.get(column_3.size()-1);
-			if (card.stringEquals(bottomUpCard)) {
-				column_3.remove(column_3.size()-1);
-				bottomsUp(column_3);
-				}
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			bottomUpCard = column_4.get(column_4.size()-1);
-			if (card.stringEquals(bottomUpCard)) {
-				column_4.remove(column_4.size()-1);
-				bottomsUp(column_4);
-				}
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			bottomUpCard = column_5.get(column_5.size()-1);
-			if (card.stringEquals(bottomUpCard)) {
-				column_5.remove(column_5.size()-1);
-				bottomsUp(column_5);
-				}
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			bottomUpCard = column_6.get(column_6.size()-1);
-			if (card.stringEquals(bottomUpCard)) {
-				column_6.remove(column_6.size()-1);
-				bottomsUp(column_6);
-				}
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			bottomUpCard = column_7.get(column_7.size()-1);
-			if (card.stringEquals(bottomUpCard)) {
-				column_7.remove(column_7.size()-1);
-				bottomsUp(column_7);
-				}
-			}
-		catch(IndexOutOfBoundsException e) {}
 		}
 	//-----------------------------------------------
 	public ArrayList<Card> getUpCardsFromTop() {
 		ArrayList<Card> up = new ArrayList<Card>();
-		for(Card card : column_1) {
-			if (!card.isHidden()) {
-				up.add(card);
-				break;
-				}
-			}
-		for(Card card : column_2) {
-			if (!card.isHidden()) {
-				up.add(card);
-				break;
-				}
-			}
-		for(Card card : column_3) {
-			if (!card.isHidden()) {
-				up.add(card);
-				break;
-				}
-			}
-		for(Card card : column_4) {
-			if (!card.isHidden()) {
-				up.add(card);
-				break;
-				}
-			}
-		for(Card card : column_5) {
-			if (!card.isHidden()) {
-				up.add(card);
-				break;
-				}
-			}
-		for(Card card : column_6) {
-			if (!card.isHidden()) {
-				up.add(card);
-				break;
-				}
-			}
-		for(Card card : column_7) {
-			if (!card.isHidden()) {
-				up.add(card);
-				break;
+		for(int i=0; i<SEVEN; i++) {
+			for(Card card : columns.get(i)) {
+				if (!card.isHidden()) {
+					up.add(card);
+					break;
+					}
 				}
 			}
 		return(up);
@@ -167,34 +75,12 @@ public class Board {
 	//-----------------------------------------------
 	public ArrayList<Card> getUpCardsFromBottom() {
 		ArrayList<Card> up = new ArrayList<Card>();
-		try {
-			up.add(column_1.get(column_1.size()-1));
+		for(int i=0; i<SEVEN; i++) {
+			try {
+				up.add(columns.get(i).get(columns.get(i).size()-1));
+				}
+			catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 			}
-		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
-		try {
-			up.add(column_2.get(column_2.size()-1));
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			up.add(column_3.get(column_3.size()-1));
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			up.add(column_4.get(column_4.size()-1));
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			up.add(column_5.get(column_5.size()-1));
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			up.add(column_6.get(column_6.size()-1));
-			}
-		catch(IndexOutOfBoundsException e) {}
-		try {
-			up.add(column_7.get(column_7.size()-1));
-			}
-		catch(IndexOutOfBoundsException e) {}
 		return(up);
 		}
 	//-----------------------------------------------
@@ -203,18 +89,17 @@ public class Board {
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card source) {
-return(false);
-// 		ArrayList<Card> destinationColumn = null;
-// 		Card destination = destinationColumn.get(destinationColumn.size()-1);
-// 		boolean playable = (
-// 			(destination.getColor() != source.getColor())
-// 			&&
-// 			(source.getValue() == (destination.getValue() - 1))
-// 			);
-// 		if (playable) {
-// 			destinationColumn.add(source);
-// 			}
-//		return(playable);
+		ArrayList<Card> destinationColumn = null;
+		Card destination = destinationColumn.get(destinationColumn.size()-1);
+		boolean playable = (
+			(destination.getColor() != source.getColor())
+			&&
+			(source.getValue() == (destination.getValue() - 1))
+			);
+		if (playable) {
+			destinationColumn.add(source);
+			}
+	return(playable);
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card destination, Card source) {
@@ -226,22 +111,18 @@ return(false);
 			(source.getValue() == (destination.getValue() - 1))
 			);
 		if (playable) {
-			// it can only be in one
-			if (column_1.contains(destination)) destinationColumn = column_1;
-			if (column_2.contains(destination)) destinationColumn = column_2;
-			if (column_3.contains(destination)) destinationColumn = column_3;
-			if (column_4.contains(destination)) destinationColumn = column_4;
-			if (column_5.contains(destination)) destinationColumn = column_5;
-			if (column_6.contains(destination)) destinationColumn = column_6;
-			if (column_7.contains(destination)) destinationColumn = column_7;
-			// it can only be in one
-			if (column_1.contains(source)) sourceColumn = column_1;
-			if (column_2.contains(source)) sourceColumn = column_2;
-			if (column_3.contains(source)) sourceColumn = column_3;
-			if (column_4.contains(source)) sourceColumn = column_4;
-			if (column_5.contains(source)) sourceColumn = column_5;
-			if (column_6.contains(source)) sourceColumn = column_6;
-			if (column_7.contains(source)) sourceColumn = column_7;
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(destination)) {
+					destinationColumn = columns.get(i);
+					break; // it can only be one
+					}
+				}
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(source)) {
+					sourceColumn = columns.get(i);
+					break; // it can only be one
+					}
+				}
 			// --
 			ArrayList<Card> deletion = new ArrayList<Card>();
 			for (Card c : sourceColumn) {
@@ -270,19 +151,10 @@ return(false);
 		StringBuffer sb = new StringBuffer();
 		sb.append("======================\n");
 		sb.append("=== Board ============\n");
-		showColumn(column_1,sb);
-		sb.append("\n----------------------\n");
-		showColumn(column_2,sb);
-		sb.append("\n----------------------\n");
-		showColumn(column_3,sb);
-		sb.append("\n----------------------\n");
-		showColumn(column_4,sb);
-		sb.append("\n----------------------\n");
-		showColumn(column_5,sb);
-		sb.append("\n----------------------\n");
-		showColumn(column_6,sb);
-		sb.append("\n----------------------\n");
-		showColumn(column_7,sb);
+		for(int i=0; i<SEVEN; i++) {
+			showColumn(columns.get(i),sb);
+			if (i != (SEVEN-1)) sb.append("\n----------------------\n");
+			}
 		sb.append("\n======================\n");
 		return(sb.toString());
 		}
