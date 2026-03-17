@@ -1,8 +1,7 @@
 package org.dacracot.table;
 //---------------------------------------------------
-import org.dacracot.card.Card;
-//---------------------------------------------------
 import java.util.ArrayList;
+import org.dacracot.card.Card;
 //---------------------------------------------------
 public class Stack {
 	//-----------------------------------------------

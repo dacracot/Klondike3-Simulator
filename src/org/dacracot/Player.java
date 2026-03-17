@@ -17,6 +17,7 @@ public class Player {
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
 		FromGoal fromGoal = new FromGoal(game);
+		game.showAll("Ready to Play");
 		//-------------------------------------------
 		int loops = 0;
 		int flops = 0;
@@ -24,19 +25,23 @@ public class Player {
 			if (fromStack.toGoal()) {
 				flops = 0;
 				}
+			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			if (fromBoard.toGoal()) {
 				flops = 0;
 				}
+			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			while(fromBoard.toBoard()) {
-				// nothing to do here
+				game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				}
 			while(fromStack.toBoard()) {
-				// nothing to do here
+				game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				}
 			if (game.stack.flip()) {
 				flops++;
 				}
+			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			if (game.goal.winner()) {
+				game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				return(true);
 				}
 			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
