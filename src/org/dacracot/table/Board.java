@@ -84,10 +84,6 @@ public class Board {
 		return(up);
 		}
 	//-----------------------------------------------
-	public boolean canPlayCard(Card destination, Card source) {
-		return(false);
-		}
-	//-----------------------------------------------
 	public boolean playCard(Card source) {
 		boolean playable = false;
 		int index = -1;

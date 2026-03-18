@@ -14,9 +14,7 @@
 ## play
 - [x] stack to goal
 - [x] board to goal
-- [ ] board to board
-- [ ] stack to board
+- [x] board to board
+- [x] stack to board
 
 ---
-ArrayList
-	to append .addAll(another list)

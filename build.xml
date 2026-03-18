@@ -41,7 +41,7 @@
 			<attribute name="Built-By" value="${env.USER}"/>
 			<attribute name="Implementation-Title" value="Solitaire"/>
 			<attribute name="Implementation-Version" value="${version}"/>
-			<attribute name="Implementation-Vendor" value="${version}"/>
+			<attribute name="Implementation-Vendor" value="${env.USER}"/>
 			<attribute name="Main-Class" value="org.dacracot.Solitaire"/>
 		</manifest>
 		<jar jarfile="simulator.jar" basedir="tmp/classes" manifest="tmp/MANIFEST.MF"/>

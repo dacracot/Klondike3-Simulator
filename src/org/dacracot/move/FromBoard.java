@@ -1,7 +1,6 @@
 package org.dacracot.move;
 //---------------------------------------------------
 import java.util.ArrayList;
-import java.util.Spliterator;
 import org.dacracot.Klondike;
 import org.dacracot.card.Card;
 import org.dacracot.move.tests.MoreFaceDown;
@@ -22,8 +21,6 @@ public class FromBoard implements From {
 	//-----------------------------------------------
 	@Override
 	public boolean toBoard() {
-		boolean movement = false;
-		boolean swap = false;
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
 		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
 		for(Card bottomUpCard : bottomUpCards) {
