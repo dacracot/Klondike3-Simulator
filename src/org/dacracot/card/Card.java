@@ -1,7 +1,7 @@
 package org.dacracot.card;
 //---------------------------------------------------
 //---------------------------------------------------
-public class Card implements Comparable<Card> {
+public class Card {
 	//-----------------------------------------------
 	private final Suit SUIT;
 	//-----------------------------------------------
@@ -16,6 +16,10 @@ public class Card implements Comparable<Card> {
 		this.SUIT = suit;
 		this.VALUE = value;
 		this.hidden = hidden;
+		}
+	//-----------------------------------------------
+	public Suit.Color getColor(){
+		return SUIT.getColor();
 		}
 	//-----------------------------------------------
 	public Suit getSuit(){
@@ -38,19 +42,19 @@ public class Card implements Comparable<Card> {
 		this.hidden = hidden;
 		}
 	//-----------------------------------------------
-	private void drawBack(){
-		System.err.format("|•%1s%1s•|",valueToString(),SUIT.getChar());
+	private String drawBack(){
+		return(String.format("|•%1s%1s•|",valueToString(),SUIT.getChar()));
 		}
 	//-----------------------------------------------
-	private void drawFront(){
-		System.err.format("| %1s%1s |",valueToString(),SUIT.getChar());
+	private String drawFront(){
+		return(String.format("| %1s%1s |",valueToString(),SUIT.getChar()));
 		}
 	//-----------------------------------------------
-	public void draw(){
+	public String draw(){
 		if(hidden){
-			drawBack();
+			return(drawBack());
 		} else { 
-			drawFront();
+			return(drawFront());
 		}
 	}
 	//-----------------------------------------------
@@ -64,26 +68,15 @@ public class Card implements Comparable<Card> {
 		}
 	}
 	//-----------------------------------------------
-	/**
-	 * Compares this card with some other card. Per the specifications, a negative
-	 * integer, zero, or a positive integer will be returned if this card is less
-	 * than, equal to, or greater than the given card respectively. Specifically,
-	 * the number returned is this card's value minus the given card's value. 
-	 */
-	@Override
-	public int compareTo(Card card) {
-		return VALUE - card.getValue();
-	}
+	public String toString() {
+		return(String.format("| %1s%1s |",this.valueToString(),this.getSuit().getChar()));
+		}
 	//-----------------------------------------------
-	/**
-	 * Compares the color of this card with some other card.
-	 * @param card The card to be compared with.
-	 * @return <code>true</code> if this card and the other card have the same
-	 * color, otherwise <code>false</code>.
-	 */
-	public boolean colorEquals(Card card){
-		return SUIT.getColor() == card.getSuit().getColor();
-	}
+	public boolean stringEquals(Card card){
+		String inquery = card.toString();
+		String self = this.toString();
+		return (self.equals(inquery));
+		}
 	//-----------------------------------------------
 }
 //---------------------------------------------------

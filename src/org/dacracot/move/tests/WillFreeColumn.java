@@ -1,11 +1,12 @@
-package org.dacracot;
+package org.dacracot.move.tests;
 //---------------------------------------------------
-public class Global {
+public class WillFreeColumn implements TieBreaker {
 	//-----------------------------------------------
-	public static int cards = 3;
-	public static int tries = 10;
-	public static boolean debug = false;
-	public static StringBuffer activeGame = new StringBuffer();
+	//-----------------------------------------------
+	@Override
+	public int score() {
+		return(0);
+		}
 	//-----------------------------------------------
 	}
 //---------------------------------------------------

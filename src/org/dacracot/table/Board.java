@@ -1,28 +1,20 @@
 package org.dacracot.table;
 //---------------------------------------------------
+import java.lang.IndexOutOfBoundsException;
+import java.util.ArrayList;
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;
-//---------------------------------------------------
-import java.util.ArrayList;
+import org.dacracot.util.TypedArray;
 //---------------------------------------------------
 public class Board {
 	//-----------------------------------------------
-	ArrayList<Card> column_1;
-	ArrayList<Card> column_2;
-	ArrayList<Card> column_3;
-	ArrayList<Card> column_4;
-	ArrayList<Card> column_5;
-	ArrayList<Card> column_6;
-	ArrayList<Card> column_7;
+	private final int SEVEN = 7;
+	private TypedArray<ArrayList<Card>> columns = new TypedArray(SEVEN);
 	//-----------------------------------------------
 	public Board(Deck d){
-		column_1 = new ArrayList<Card>();
-		column_2 = new ArrayList<Card>();
-		column_3 = new ArrayList<Card>();
-		column_4 = new ArrayList<Card>();
-		column_5 = new ArrayList<Card>();
-		column_6 = new ArrayList<Card>();
-		column_7 = new ArrayList<Card>();
+		for(int i=0; i<SEVEN; i++) {
+			columns.add(i, new ArrayList<Card>());
+			}
 		sevenXseven(d);
 		}
 	//-----------------------------------------------
@@ -38,50 +30,167 @@ public class Board {
 		}
 	//-----------------------------------------------
 	private void sevenXseven(Deck deck){
-		initColumn(deck,column_1,1);
-		initColumn(deck,column_2,2);
-		initColumn(deck,column_3,3);
-		initColumn(deck,column_4,4);
-		initColumn(deck,column_5,5);
-		initColumn(deck,column_6,6);
-		initColumn(deck,column_7,7);
+		for(int i=0; i<SEVEN; i++) {
+			initColumn(deck,columns.get(i),(i+1));
+			}
 		}
 	//-----------------------------------------------
-	public boolean playCard(Card c){
-		try{
+	public boolean bottomsUp(ArrayList<Card> c){
+		if (c.isEmpty()) {
+			return(false);
+			}
+		else {
+			c.get(c.size()-1).setHidden(false);
 			return(true);
 			}
-		catch(Exception e){
-			System.err.println(e);
-			System.exit(1);
+		}
+	//-----------------------------------------------
+	public void removeCard(Card card) {
+		Card bottomUpCard;
+		for(int i=0; i<SEVEN; i++) {
+			try {
+				bottomUpCard = columns.get(i).get(columns.get(i).size()-1);
+				if (card.stringEquals(bottomUpCard)) {
+					columns.get(i).remove(columns.get(i).size()-1);
+					bottomsUp(columns.get(i));
+					}
+				}
+			catch(IndexOutOfBoundsException e) {} // empty columns have no up card
+			}
+		}
+	//-----------------------------------------------
+	public ArrayList<Card> getUpCardsFromTop() {
+		ArrayList<Card> up = new ArrayList<Card>();
+		for(int i=0; i<SEVEN; i++) {
+			for(Card card : columns.get(i)) {
+				if (!card.isHidden()) {
+					up.add(card);
+					break;
+					}
+				}
+			}
+		return(up);
+		}
+	//-----------------------------------------------
+	public ArrayList<Card> getUpCardsFromBottom() {
+		ArrayList<Card> up = new ArrayList<Card>();
+		for(int i=0; i<SEVEN; i++) {
+			try {
+				up.add(columns.get(i).get(columns.get(i).size()-1));
+				}
+			catch(IndexOutOfBoundsException e) {} // empty columns have no up card
+			}
+		return(up);
+		}
+	//-----------------------------------------------
+	public boolean playCard(Card source) {
+		boolean playable = false;
+		int index = -1;
+		for(int i=0; i<SEVEN; i++) {
+			index = columns.get(i).size()-1;
+			if (index < 0) return(false);
+			Card destination = columns.get(i).get(index);
+			playable = (
+				(destination.getColor() != source.getColor())
+				&&
+				(source.getValue() == (destination.getValue() - 1))
+				);
+			if (playable) {
+				columns.get(i).add(source);
+				break;
+				}
+			}
+		return(playable);
+		}
+	//-----------------------------------------------
+	public boolean playKingFromStack(Card source) {
+		if (source.getValue() == 13) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).isEmpty()) {
+					columns.get(i).add(source);
+					return(true);
+					}
+				}
 			}
 		return(false);
 		}
 	//-----------------------------------------------
-	private void showColumn(ArrayList<Card> g){
-		for(int i=0; i<g.size(); i++){
-			g.get(i).draw();
+	public boolean playKingFromBoard(Card source) {
+		ArrayList<Card> sourceColumn = null;
+		if (source.getValue() == 13) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(source)) {
+					sourceColumn = columns.get(i);
+					if (sourceColumn.indexOf(source) == 0) { // ignore if already on top of column
+						return(false);
+						}
+					break;
+					}
+				}
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).isEmpty()) {
+					columns.get(i).add(source);
+					sourceColumn.remove(source);
+					return(true);
+					}
+				}
+			// --
+			bottomsUp(sourceColumn);
 			}
-		System.err.println();
+		return(false);
 		}
 	//-----------------------------------------------
-	public void show(){
-		System.err.println("======================");
-		System.err.println("=== Board ============");
-		showColumn(column_1);
-		System.err.println("----------------------");
-		showColumn(column_2);
-		System.err.println("----------------------");
-		showColumn(column_3);
-		System.err.println("----------------------");
-		showColumn(column_4);
-		System.err.println("----------------------");
-		showColumn(column_5);
-		System.err.println("----------------------");
-		showColumn(column_6);
-		System.err.println("----------------------");
-		showColumn(column_7);
-		System.err.println("======================");
+	public boolean playCard(Card destination, Card source) {
+		ArrayList<Card> destinationColumn = null;
+		ArrayList<Card> sourceColumn = null;
+		boolean playable = (
+			(destination.getColor() != source.getColor())
+			&&
+			(source.getValue() == (destination.getValue() - 1))
+			);
+		if (playable) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(destination)) {
+					destinationColumn = columns.get(i);
+					break; // it can only be one
+					}
+				}
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(source)) {
+					sourceColumn = columns.get(i);
+					break; // it can only be one
+					}
+				}
+			// --
+			ArrayList<Card> deletion = new ArrayList<Card>();
+			for (Card c : sourceColumn) {
+				if (!c.isHidden()) {
+					destinationColumn.add(c);
+					deletion.add(c);
+					}
+				}
+			sourceColumn.removeAll(deletion);
+			bottomsUp(sourceColumn);
+			}
+		return(playable);
+		}
+	//-----------------------------------------------
+	private void showColumn(ArrayList<Card> g, StringBuffer sb) {
+		for(int i=0; i<g.size(); i++){
+			sb.append(g.get(i).draw());
+			}
+		}
+	//-----------------------------------------------
+	public String show(){
+		StringBuffer sb = new StringBuffer();
+		sb.append("======================\n");
+		sb.append("=== Board ============\n");
+		for(int i=0; i<SEVEN; i++) {
+			showColumn(columns.get(i),sb);
+			if (i != (SEVEN-1)) sb.append("\n----------------------\n");
+			}
+		sb.append("\n======================\n");
+		return(sb.toString());
 		}
 	//-----------------------------------------------
 }

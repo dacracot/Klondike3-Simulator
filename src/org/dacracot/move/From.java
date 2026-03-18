@@ -1,11 +1,10 @@
-package org.dacracot;
+package org.dacracot.move;
 //---------------------------------------------------
-public class Global {
+public interface From {
 	//-----------------------------------------------
-	public static int cards = 3;
-	public static int tries = 10;
-	public static boolean debug = false;
-	public static StringBuffer activeGame = new StringBuffer();
+	public abstract boolean toBoard();
+	//-----------------------------------------------
+	public abstract boolean toGoal();
 	//-----------------------------------------------
 	}
 //---------------------------------------------------

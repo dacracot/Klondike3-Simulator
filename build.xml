@@ -7,8 +7,17 @@
 	<!-- =================================================================== -->
 	<!-- set misc properties -->
 	<!-- =================================================================== -->
-	<property name="name" value="klondike"/>
-	<property name="version" value="0.3"/>
+	<property name="name" value="Solitaire"/>
+    <exec executable="git" outputproperty="git-tag">
+        <arg line="describe --tags --abbrev=0"/>
+    </exec>
+    <exec executable="git" outputproperty="git-branch">
+        <arg line="rev-parse --abbrev-ref HEAD"/>
+    </exec>
+    <exec executable="git" outputproperty="git-commit">
+        <arg line="rev-parse --short=11 HEAD"/>
+    </exec>
+	<property name="version" value="${git-tag}:${git-branch}:${git-commit}"/>
 	<!-- =================================================================== -->
 	<!-- clean everything -->
 	<!-- =================================================================== -->
@@ -16,6 +25,9 @@
 		<echo message="clean --------------------------------------"/>
 		<delete dir="tmp"/>
 		<delete dir="deploy"/>
+		<delete>
+			<fileset dir="." includes="**/debug.*"/>
+		</delete>
 		<echo message="clean --------------------------------------"/>
 	</target>
 	<!-- =================================================================== -->
@@ -27,7 +39,9 @@
 		<javac srcdir="src" destdir="tmp/classes" debug="on" deprecation="on" includeAntRuntime="false"/>
 		<manifest file="tmp/MANIFEST.MF">
 			<attribute name="Built-By" value="${env.USER}"/>
+			<attribute name="Implementation-Title" value="Solitaire"/>
 			<attribute name="Implementation-Version" value="${version}"/>
+			<attribute name="Implementation-Vendor" value="${env.USER}"/>
 			<attribute name="Main-Class" value="org.dacracot.Solitaire"/>
 		</manifest>
 		<jar jarfile="simulator.jar" basedir="tmp/classes" manifest="tmp/MANIFEST.MF"/>

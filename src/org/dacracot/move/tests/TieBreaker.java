@@ -1,11 +1,9 @@
-package org.dacracot;
+package org.dacracot.move.tests;
 //---------------------------------------------------
-public class Global {
+public interface TieBreaker {
 	//-----------------------------------------------
-	public static int cards = 3;
-	public static int tries = 10;
-	public static boolean debug = false;
-	public static StringBuffer activeGame = new StringBuffer();
+	//-----------------------------------------------
+	public abstract int score();
 	//-----------------------------------------------
 	}
 //---------------------------------------------------
