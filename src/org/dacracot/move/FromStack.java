@@ -1,5 +1,6 @@
 package org.dacracot.move;
 //---------------------------------------------------
+import org.dacracot.card.Card;
 import org.dacracot.Klondike;
 //---------------------------------------------------
 public class FromStack implements From {
@@ -12,11 +13,13 @@ public class FromStack implements From {
 	//-----------------------------------------------
 	@Override
 	public boolean toBoard() {
-		if (game.board.playKingFromStack(game.stack.getUpCard())){
+		Card upCard = game.stack.getUpCard();
+		if (upCard == null) return(false);
+		if (game.board.playKingFromStack(upCard)){
 			game.stack.removeUpCard();
 			return(true);
 			}
-		if (game.board.playCard(game.stack.getUpCard())){
+		if (game.board.playCard(upCard)){
 			game.stack.removeUpCard();
 			return(true);
 			}
@@ -25,7 +28,9 @@ public class FromStack implements From {
 	//-----------------------------------------------
 	@Override
 	public boolean toGoal() {
-		if (game.goal.playCard(game.stack.getUpCard())){
+		Card upCard = game.stack.getUpCard();
+		if (upCard == null) return(false);
+		if (game.goal.playCard(upCard)){
 			game.stack.removeUpCard();
 			return(true);
 			}
