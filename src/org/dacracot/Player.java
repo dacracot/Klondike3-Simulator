@@ -25,26 +25,25 @@ public class Player {
 			if (fromStack.toGoal()) {
 				flops = 0;
 				}
-			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+			game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			if (fromBoard.toGoal()) {
 				flops = 0;
 				}
-			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+			game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			while(fromBoard.toBoard()) {
-				game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+				game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				}
 			while(fromStack.toBoard()) {
-				game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+				game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				}
 			if (game.stack.flip()) {
 				flops++;
 				}
-			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+			game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			if (game.goal.winner()) {
-				game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+				game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				return(true);
 				}
-			game.showAll("loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 			}
 		return(false);
 		//-------------------------------------------

@@ -131,11 +131,10 @@ public class Board {
 				if (columns.get(i).isEmpty()) {
 					columns.get(i).add(source);
 					sourceColumn.remove(source);
+					bottomsUp(sourceColumn);
 					return(true);
 					}
 				}
-			// --
-			bottomsUp(sourceColumn);
 			}
 		return(false);
 		}
@@ -161,7 +160,6 @@ public class Board {
 					break; // it can only be one
 					}
 				}
-			// --
 			ArrayList<Card> deletion = new ArrayList<Card>();
 			for (Card c : sourceColumn) {
 				if (!c.isHidden()) {
