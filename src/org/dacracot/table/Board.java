@@ -2,7 +2,6 @@ package org.dacracot.table;
 //---------------------------------------------------
 import java.lang.IndexOutOfBoundsException;
 import java.util.ArrayList;
-import java.util.Vector;
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;
 import org.dacracot.util.TypedArray;
