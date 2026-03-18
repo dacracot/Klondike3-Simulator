@@ -105,7 +105,19 @@ public class Board {
 		return(playable);
 		}
 	//-----------------------------------------------
-	public boolean playKing(Card source) {
+	public boolean playKingFromStack(Card source) {
+		if (source.getValue() == 13) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).isEmpty()) {
+					columns.get(i).add(source);
+					return(true);
+					}
+				}
+			}
+		return(false);
+		}
+	//-----------------------------------------------
+	public boolean playKingFromBoard(Card source) {
 		ArrayList<Card> sourceColumn = null;
 		if (source.getValue() == 13) {
 			for(int i=0; i<SEVEN; i++) {
