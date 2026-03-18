@@ -39,11 +39,18 @@ public class Solitaire {
 		//-------------------------------------------
 		int winner = 0;
 		Instant start = Instant.now();
+		//-------------------------------------------
 		for(int i=0; i<Global.tries; i++){
  			Player player = new Player(Global.cards);
- 			if (player.run())
+ 			if (player.run()) {
  				winner++;
- 			}
+ 				System.out.println("================== WINNER ==================");
+ 				System.out.println(Global.activeGame);
+ 				}
+  			Global.activeGame.delete(0, Global.activeGame.length());
+			System.out.println("Game "+i+" of "+Global.tries);
+			}
+		//-------------------------------------------
  		Instant end = Instant.now();
 		System.out.println("");
 		System.out.println("success: won "+winner+" of "+Global.tries+" for "+String.format("%3.3f",(((1.0*winner)/Global.tries)*100))+"%");
