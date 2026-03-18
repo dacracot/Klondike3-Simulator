@@ -8,6 +8,10 @@ public class FromBoard implements From {
 	//-----------------------------------------------
 	private Klondike game;
 	//-----------------------------------------------
+	public FromBoard (Klondike game) {
+		this.game = game;
+		}
+	//-----------------------------------------------
 	@Override
 	public boolean toBoard() {
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
