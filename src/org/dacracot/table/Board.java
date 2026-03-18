@@ -105,6 +105,28 @@ public class Board {
 		return(playable);
 		}
 	//-----------------------------------------------
+	public boolean playKing(Card source) {
+		ArrayList<Card> sourceColumn = null;
+		if (source.getValue() == 13) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(source)) {
+					sourceColumn = columns.get(i);
+					break;
+					}
+				}
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).isEmpty()) {
+					columns.get(i).add(source);
+					sourceColumn.remove(source);
+					return(true);
+					}
+				}
+			// --
+			bottomsUp(sourceColumn);
+			}
+		return(false);
+		}
+	//-----------------------------------------------
 	public boolean playCard(Card destination, Card source) {
 		ArrayList<Card> destinationColumn = null;
 		ArrayList<Card> sourceColumn = null;
@@ -135,11 +157,7 @@ public class Board {
 					}
 				}
 			sourceColumn.removeAll(deletion);
-			if (!bottomsUp(sourceColumn)) {
-//
-// king's exception for empty column
-//
-				}
+			bottomsUp(sourceColumn);
 			}
 		return(playable);
 		}
