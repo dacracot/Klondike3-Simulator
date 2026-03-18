@@ -90,8 +90,11 @@ public class Board {
 	//-----------------------------------------------
 	public boolean playCard(Card source) {
 		boolean playable = false;
+		int index = -1;
 		for(int i=0; i<SEVEN; i++) {
-			Card destination = columns.get(i).get(columns.get(i).size()-1);
+			index = columns.get(i).size()-1;
+			if (index < 0) return(false);
+			Card destination = columns.get(i).get(index);
 			playable = (
 				(destination.getColor() != source.getColor())
 				&&
@@ -103,6 +106,43 @@ public class Board {
 				}
 			}
 		return(playable);
+		}
+	//-----------------------------------------------
+	public boolean playKingFromStack(Card source) {
+		if (source.getValue() == 13) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).isEmpty()) {
+					columns.get(i).add(source);
+					return(true);
+					}
+				}
+			}
+		return(false);
+		}
+	//-----------------------------------------------
+	public boolean playKingFromBoard(Card source) {
+		ArrayList<Card> sourceColumn = null;
+		if (source.getValue() == 13) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(source)) {
+					sourceColumn = columns.get(i);
+					if (sourceColumn.indexOf(source) == 0) { // ignore if already on top of column
+						return(false);
+						}
+					break;
+					}
+				}
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).isEmpty()) {
+					columns.get(i).add(source);
+					sourceColumn.remove(source);
+					return(true);
+					}
+				}
+			// --
+			bottomsUp(sourceColumn);
+			}
+		return(false);
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card destination, Card source) {
@@ -135,11 +175,7 @@ public class Board {
 					}
 				}
 			sourceColumn.removeAll(deletion);
-			if (!bottomsUp(sourceColumn)) {
-//
-// king's exception for empty column
-//
-				}
+			bottomsUp(sourceColumn);
 			}
 		return(playable);
 		}
