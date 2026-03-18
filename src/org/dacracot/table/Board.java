@@ -90,8 +90,11 @@ public class Board {
 	//-----------------------------------------------
 	public boolean playCard(Card source) {
 		boolean playable = false;
+		int index = -1;
 		for(int i=0; i<SEVEN; i++) {
-			Card destination = columns.get(i).get(columns.get(i).size()-1);
+			index = columns.get(i).size()-1;
+			if (index < 0) return(false);
+			Card destination = columns.get(i).get(index);
 			playable = (
 				(destination.getColor() != source.getColor())
 				&&
