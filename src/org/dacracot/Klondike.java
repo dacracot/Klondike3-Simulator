@@ -30,6 +30,7 @@ public class Klondike{
 		sb.append(board.show());
 		sb.append(stack.show());
 		sb.append("~~~~~~~~~~~~~~~~~~\n");
+		Global.activeGame.append(sb);
 		if (Global.debug){
 			System.err.println(sb.toString());
 			}

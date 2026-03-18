@@ -46,6 +46,7 @@ public class Solitaire {
  				winner++;
  				System.out.println("================== WINNER ==================");
  				System.out.println(Global.activeGame);
+ 				System.out.println("================== WINNER ==================");
  				}
   			Global.activeGame.delete(0, Global.activeGame.length());
 			System.out.println("Game "+i+" of "+Global.tries);
