@@ -123,6 +123,9 @@ public class Board {
 			for(int i=0; i<SEVEN; i++) {
 				if (columns.get(i).contains(source)) {
 					sourceColumn = columns.get(i);
+					if (sourceColumn.indexOf(source) == 0) { // ignore if already on top of column
+						return(false);
+						}
 					break;
 					}
 				}
