@@ -20,7 +20,11 @@ public class Deck {
 	//-----------------------------------------------
 	private void shuffle(long seed){
 		ArrayList<Card> tmp = new ArrayList<Card>();
-		Random r = new Random(seed);
+		Random r = null;
+		if (seed == -1L)
+			r = new Random();
+		else
+			r = new Random(seed);
 		int max = 52;
 		while(deck.size() > 0){
 			tmp.add(deck.remove(r.nextInt(max--)));

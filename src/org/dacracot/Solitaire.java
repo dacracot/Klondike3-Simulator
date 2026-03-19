@@ -43,7 +43,7 @@ public class Solitaire {
 			System.out.println("");
 			}
 		System.out.println("");
-		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug");
+		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug "+((Global.seed==-1L)?"without a seed":("with "+Global.seed+" seed")));
 		//-------------------------------------------
 		int winner = 0;
 		Instant start = Instant.now();
