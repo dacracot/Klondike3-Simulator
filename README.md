@@ -6,7 +6,7 @@
   - Using Apache Ant to build project with default build.xml.
     - Targets are "clean" and "compile.java".  Default runs both.
 - run `java -jar simulator.jar`
-  - usage: `[--one|--three] [--attempts #] [--debug]`
+  - usage: `[--one|--three] [--attempts #] [--debug] [--seed #]`
     - `--one`: Turn only one card each play.
     - `--three`: Turn three cards each play.
     - `--attempts`: Number of games to attempt.
@@ -41,7 +41,7 @@
 ## Example Output
 - Output from a no parameter run:
 
-		usage: [--one|--three] [--attempts #] [--debug] 
+		usage: [--one|--three] [--attempts #] [--debug] [--seed #]
 			--one: Turn only one card each play.
 			--three: Turn three cards each play.
 			--attempts: Number of games to attempt.
