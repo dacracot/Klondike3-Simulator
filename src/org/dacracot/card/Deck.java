@@ -1,13 +1,13 @@
 package org.dacracot.card;
 //---------------------------------------------------
-import java.util.Random;
+import org.dacracot.Global;
 import java.util.ArrayList;
 //---------------------------------------------------
 public class Deck {
 	//-----------------------------------------------
 	ArrayList<Card> deck;
 	//-----------------------------------------------
-	public Deck(long seed){
+	public Deck(){
 		deck = new ArrayList<Card>();
 		int ndx = 0;
 		for(Suit suit : Suit.values()){
@@ -15,19 +15,14 @@ public class Deck {
 				deck.add(new Card(suit, i, false));
 				}
 			}
-		shuffle(seed);
+		shuffle();
 		}
 	//-----------------------------------------------
-	private void shuffle(long seed){
+	private void shuffle(){
 		ArrayList<Card> tmp = new ArrayList<Card>();
-		Random r = null;
-		if (seed == -1L)
-			r = new Random();
-		else
-			r = new Random(seed);
 		int max = 52;
 		while(deck.size() > 0){
-			tmp.add(deck.remove(r.nextInt(max--)));
+			tmp.add(deck.remove(Global.random.nextInt(max--)));
 			}
 		deck = tmp;
 		}

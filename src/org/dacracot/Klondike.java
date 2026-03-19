@@ -14,9 +14,9 @@ public class Klondike{
 	public Board board;
 	public Stack stack;
 	//-----------------------------------------------
-	public Klondike(int f,long seed) {
+	public Klondike(int f) {
 		flips = f;
-		deck = new Deck(seed);
+		deck = new Deck();
 		goal = new Goal();
 		board = new Board(deck);
 		stack = new Stack(deck.getStack(),flips);
