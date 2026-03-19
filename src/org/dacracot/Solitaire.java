@@ -42,7 +42,7 @@ public class Solitaire {
 			Global.debug = (params.indexOf("--debug") != -1);
 			}
 		else{
-			System.out.println("usage: [--one|--three] [--attempts #] [--debug] ");
+			System.out.println("usage: [--one|--three] [--attempts #] [--debug]  [--seed #]");
 			System.out.println("    --one: Turn only one card each play.");
 			System.out.println("    --three: Turn three cards each play.");
 			System.out.println("    --attempts: Number of games to attempt.");
