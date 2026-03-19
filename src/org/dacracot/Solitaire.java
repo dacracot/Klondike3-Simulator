@@ -1,14 +1,17 @@
 package org.dacracot;
 //---------------------------------------------------
-import java.util.Scanner;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Random;
+import java.util.Scanner;
 //---------------------------------------------------
 public class Solitaire {
 	//-----------------------------------------------
 	public Solitaire(){}
 	//-----------------------------------------------
 	public static void main(String[] args){
+		boolean seeded = false;
+		Long seed = -1L;
 		String params = String.join(" ",args);
 		if (!params.isEmpty()){
 			if (params.indexOf("--one") != -1){
@@ -24,6 +27,18 @@ public class Solitaire {
 					}
 				cli.close();
 				}
+			if (params.indexOf("--seed") != -1){
+				Scanner cli = new Scanner(params);
+				if ("--seed".equals(cli.findInLine("--seed"))){
+					seeded = true;
+					seed = cli.nextLong();
+					Global.random = new Random(seed); // seeded Random
+					}
+				cli.close();
+				}
+			else {
+				Global.random = new Random(); // truly Random
+				}
 			Global.debug = (params.indexOf("--debug") != -1);
 			}
 		else{
@@ -32,10 +47,12 @@ public class Solitaire {
 			System.out.println("    --three: Turn three cards each play.");
 			System.out.println("    --attempts: Number of games to attempt.");
 			System.out.println("    --debug: Verbose output about each game.");
+			System.out.println("    --seed: Random seed for repeatable play.");
 			System.out.println("");
+			Global.random = new Random(); // truly Random for no parameters
 			}
 		System.out.println("");
-		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug");
+		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug "+(seeded?("with "+seed+" seed"):"without a seed"));
 		//-------------------------------------------
 		int winner = 0;
 		Instant start = Instant.now();
