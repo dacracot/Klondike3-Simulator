@@ -24,6 +24,13 @@ public class Solitaire {
 					}
 				cli.close();
 				}
+			if (params.indexOf("--seed") != -1){
+				Scanner cli = new Scanner(params);
+				if ("--seed".equals(cli.findInLine("--seed"))){
+					Global.seed = cli.nextLong();
+					}
+				cli.close();
+				}
 			Global.debug = (params.indexOf("--debug") != -1);
 			}
 		else{
@@ -32,6 +39,7 @@ public class Solitaire {
 			System.out.println("    --three: Turn three cards each play.");
 			System.out.println("    --attempts: Number of games to attempt.");
 			System.out.println("    --debug: Verbose output about each game.");
+			System.out.println("    --seed: Random seed for repeatable play.");
 			System.out.println("");
 			}
 		System.out.println("");
@@ -41,7 +49,7 @@ public class Solitaire {
 		Instant start = Instant.now();
 		//-------------------------------------------
 		for(int i=0; i<Global.tries; i++){
- 			Player player = new Player(Global.cards);
+ 			Player player = new Player(Global.cards, Global.seed);
  			if (player.run()) {
  				winner++;
  				System.out.println("================== WINNER ==================");

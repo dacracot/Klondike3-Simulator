@@ -7,13 +7,15 @@ import org.dacracot.move.FromGoal;
 public class Player {
 	//-----------------------------------------------
 	private int cards;
+	private long seed;
 	//-----------------------------------------------
-	public Player(int cards){
+	public Player(int cards, long seed){
 		this.cards = cards;
+		this.seed = seed;
 		}
 	//-----------------------------------------------
 	public boolean run() {
-		Klondike game = new Klondike(cards);
+		Klondike game = new Klondike(cards,seed);
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
 		FromGoal fromGoal = new FromGoal(game);

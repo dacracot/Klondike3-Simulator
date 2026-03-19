@@ -7,7 +7,7 @@ public class Deck {
 	//-----------------------------------------------
 	ArrayList<Card> deck;
 	//-----------------------------------------------
-	public Deck(){
+	public Deck(long seed){
 		deck = new ArrayList<Card>();
 		int ndx = 0;
 		for(Suit suit : Suit.values()){
@@ -15,12 +15,12 @@ public class Deck {
 				deck.add(new Card(suit, i, false));
 				}
 			}
-		shuffle();
+		shuffle(seed);
 		}
 	//-----------------------------------------------
-	private void shuffle(){
+	private void shuffle(long seed){
 		ArrayList<Card> tmp = new ArrayList<Card>();
-		Random r = new Random();
+		Random r = new Random(seed);
 		int max = 52;
 		while(deck.size() > 0){
 			tmp.add(deck.remove(r.nextInt(max--)));
