@@ -49,6 +49,7 @@ public class Solitaire {
 			System.out.println("    --debug: Verbose output about each game.");
 			System.out.println("    --seed: Random seed for repeatable play.");
 			System.out.println("");
+			Global.random = new Random(); // truly Random for no parameters
 			}
 		System.out.println("");
 		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug "+(seeded?("with "+seed+" seed"):"without a seed"));
