@@ -1,6 +1,6 @@
 package org.dacracot.card;
 //---------------------------------------------------
-import java.util.Random;
+import org.dacracot.Global;
 import java.util.ArrayList;
 //---------------------------------------------------
 public class Deck {
@@ -20,10 +20,9 @@ public class Deck {
 	//-----------------------------------------------
 	private void shuffle(){
 		ArrayList<Card> tmp = new ArrayList<Card>();
-		Random r = new Random();
 		int max = 52;
 		while(deck.size() > 0){
-			tmp.add(deck.remove(r.nextInt(max--)));
+			tmp.add(deck.remove(Global.random.nextInt(max--)));
 			}
 		deck = tmp;
 		}
