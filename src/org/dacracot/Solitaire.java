@@ -11,7 +11,7 @@ public class Solitaire {
 	//-----------------------------------------------
 	public static void main(String[] args){
 		boolean seeded = false;
-		Long seed = -1L;
+		long seed = -1L;
 		String params = String.join(" ",args);
 		if (!params.isEmpty()){
 			if (params.indexOf("--one") != -1){
