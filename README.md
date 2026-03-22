@@ -1,6 +1,17 @@
 # Solitaire simulator for finding the best strategy...
 
 ---
+
+## Versions
+- 1.0
+  - Very basic play using s2g, b2g, b2b, s2b only.
+  - No effort to using smart alternatives.
+    - For example | 9♠︎ | and | 9♣︎ | are both playable on | 10♥︎ |, but nothing but first encounter will choose one over the other.
+- 1.1
+  - Play is the same as 1.0, but deck shuffling can be repeatable via the seed parameter.
+- 1.2
+  - Play changed from {s2g, b2g, b2b, s2b} to {s2g, b2b, b2g, s2b} sequencing.  Winning percentage increased from 7.915% to 8.590%.
+
 ## How To:
 - run `ant`
   - Using Apache Ant to build project with default build.xml.
@@ -22,21 +33,14 @@
     - Write standard error to debug.err.
     	- Without the debug switch, only errors will be output. With debug, all games are output.
 
-## Versions
-- 1.0
-  - Very basic play using s2g, b2g, b2b, s2b only.
-  - No effort to using smart alternatives.
-    - For example | 9♠︎ | and | 9♣︎ | are both playable on | 10♥︎ |, but nothing but first encounter will choose one over the other.
-- 1.1
-  - Play is the same as 1.0, but deck shuffling can be repeatable via the seed parameter.
-
 ## Legend
 - |•A♦︎•|: Ace of Diamonds face down.
 - | A♦︎ |: Ace of Diamonds face up.
-- s2g: Stack to Goal
-- b2g: Board to Goal
-- b2b: Board to Board
-- s2b: Stack to Board
+- b2b: from Board to Board
+- b2g: from Board to Goal
+- g2b: from Goal to Board
+- s2b: from Stack to Board
+- s2g: from Stack to Goal
 
 ## Example Output
 - Output from a no parameter run:
