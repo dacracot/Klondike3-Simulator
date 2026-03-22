@@ -21,6 +21,7 @@ public class Player {
 		//-------------------------------------------
 		int loops = 0;
 		int flops = 0;
+		// Play until there are no moves for three loops.
 		while(flops < 3) {
 			if (fromStack.toGoal()) { // s2g
 				flops = 0;
