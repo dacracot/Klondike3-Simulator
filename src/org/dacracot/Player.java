@@ -23,29 +23,38 @@ public class Player {
 		int flops = 0;
 		// Play until there are no moves for three loops.
 		while(flops < 3) {
-			if (fromStack.toGoal()) { // s2g
+			// Play only one (or none) from stack to goal
+			if (fromStack.toGoal()) {
+				// Played a card
 				flops = 0;
 				}
 			game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
-			while(fromBoard.toBoard()) { // b2b
+			// Play board to board until no more moves available
+			while(fromBoard.toBoard()) {
 				game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				}
-			if (fromBoard.toGoal()) { // b2g
+			// Play only one (or none) from board to goal
+			if (fromBoard.toGoal()) {
+				// Played a card
 				flops = 0;
 				}
 			game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
-			while(fromStack.toBoard()) { // s2b
+			// Play stack to board until no more moves available
+			while(fromStack.toBoard()) {
 				game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				}
+			// Turn over the stack
 			if (game.stack.flip()) {
 				flops++;
 				}
 			game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+			// Did we win by putting all cards in the goal?
 			if (game.goal.winner()) {
 				game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
 				return(true);
 				}
 			}
+		// Game is lost.
 		return(false);
 		//-------------------------------------------
 		}
