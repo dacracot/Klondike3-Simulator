@@ -21,9 +21,9 @@ public class FromBoard implements From {
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
 		// Get a list of the face-up top most cards starting with originally shortest column.
 		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
-		// Loop thru bottom cards.
+		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
-			// Loop thru top cards.
+			// Loop thru top up cards.
 			for(Card topUpCard : topUpCards) {
 				// Play any kings to any empty colum.
 				if (game.board.playKingFromBoard(topUpCard)) {
@@ -48,7 +48,7 @@ public class FromBoard implements From {
 		boolean played = false;
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
-		// Loop thru top cards.
+		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
 			// Play card on goal.
 			if (game.goal.playCard(bottomUpCard)) {
