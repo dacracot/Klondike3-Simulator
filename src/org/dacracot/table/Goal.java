@@ -65,13 +65,9 @@ public class Goal {
 		sb.append("======================\n");
 		sb.append("=== Goal =============\n");
 		showGoal(spades,sb);
-// 		sb.append("\n----------------------\n");
 		showGoal(diamonds,sb);
-// 		sb.append("\n----------------------\n");
 		showGoal(clubs,sb);
-// 		sb.append("\n----------------------\n");
 		showGoal(hearts,sb);
-// 		sb.append("\n======================\n");
 		return(sb.toString());
 		}
 	//-----------------------------------------------

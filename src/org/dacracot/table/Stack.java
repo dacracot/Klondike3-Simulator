@@ -78,9 +78,7 @@ public class Stack {
 		sb.append("======================\n");
 		sb.append("=== Stack ============\n");
 		showStack(down,sb);
-// 		sb.append("\n----------------------\n");
 		showStack(up,sb);
-// 		sb.append("\n======================\n");
 		return(sb.toString());
 		}
 	//-----------------------------------------------

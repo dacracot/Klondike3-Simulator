@@ -186,9 +186,7 @@ public class Board {
 		sb.append("=== Board ============\n");
 		for(int i=0; i<SEVEN; i++) {
 			showColumn(columns.get(i),sb);
-// 			if (i != (SEVEN-1)) sb.append("\n----------------------\n");
 			}
-// 		sb.append("\n======================\n");
 		return(sb.toString());
 		}
 	//-----------------------------------------------
