@@ -34,7 +34,7 @@
     - Write standard error to debug.err.
     	- Without the debug switch, only errors will be output. With debug, all games are output.
 - run `java -jar simulator.jar --three --attempts 1000000 --seed 1111` to determine your success rate verses the current record.
-	- One million games takes approximately one hour (without debug) on M2 MacBook Air.
+	- One million games takes between twenty and 50 minutes (without debug) on M2 MacBook Air.
 
 ## Legend
 - |•A♦︎•|: Ace of Diamonds face down.
