@@ -10,9 +10,6 @@ public class Card {
 	private boolean hidden;
 	//-----------------------------------------------
 	public Card(Suit suit, int value, boolean hidden){
-		if(value < 1 || value > 13){
-			throw new IllegalArgumentException("Value out of range.");
-			}
 		this.SUIT = suit;
 		this.VALUE = value;
 		this.hidden = hidden;
