@@ -57,6 +57,7 @@ public class Goal {
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
 			}
+ 		sb.append("\n");
 		}
 	//-----------------------------------------------
 	public String show(){
@@ -64,13 +65,9 @@ public class Goal {
 		sb.append("======================\n");
 		sb.append("=== Goal =============\n");
 		showGoal(spades,sb);
-		sb.append("\n----------------------\n");
 		showGoal(diamonds,sb);
-		sb.append("\n----------------------\n");
 		showGoal(clubs,sb);
-		sb.append("\n----------------------\n");
 		showGoal(hearts,sb);
-		sb.append("\n======================\n");
 		return(sb.toString());
 		}
 	//-----------------------------------------------
