@@ -44,12 +44,6 @@ public class Stack {
 		return(flopped);
 		}
 	//-----------------------------------------------
-	private void showStack(ArrayList<Card> g, StringBuffer sb){
-		for(int i=0; i<g.size(); i++){
-			sb.append(g.get(i).draw());
-			}
-		}
-	//-----------------------------------------------
 	public Card getUpCard(){
 		if (up.size() == 0) flip();
 		try {
@@ -72,14 +66,21 @@ public class Stack {
 		return(down.size());
 		}
 	//-----------------------------------------------
+	private void showStack(ArrayList<Card> g, StringBuffer sb){
+		for(int i=0; i<g.size(); i++){
+			sb.append(g.get(i).draw());
+			}
+ 		sb.append("\n");
+		}
+	//-----------------------------------------------
 	public String show(){
 		StringBuffer sb = new StringBuffer();
 		sb.append("======================\n");
 		sb.append("=== Stack ============\n");
 		showStack(down,sb);
-		sb.append("\n----------------------\n");
+// 		sb.append("\n----------------------\n");
 		showStack(up,sb);
-		sb.append("\n======================\n");
+// 		sb.append("\n======================\n");
 		return(sb.toString());
 		}
 	//-----------------------------------------------
