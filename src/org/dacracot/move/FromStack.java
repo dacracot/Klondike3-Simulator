@@ -37,7 +37,7 @@ public class FromStack implements From {
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the stack to the board.
+	// Move a card from the stack to the goal.
 	//
 	@Override
 	public boolean toGoal() {
