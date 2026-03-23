@@ -177,7 +177,7 @@ public class Board {
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
 			}
- 		sb.append("\n");
+		sb.append("\n");
 		}
 	//-----------------------------------------------
 	public String show(){
