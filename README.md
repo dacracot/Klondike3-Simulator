@@ -1,5 +1,5 @@
 # Solitaire simulator for finding the best strategy...
-# Current record is 8.590%.
+# Current record is 12.154%.
 
 ---
 
@@ -12,6 +12,15 @@
   - Play is the same as 1.0, but deck shuffling can be repeatable via the seed parameter.
 - 1.2
   - Play changed from {s2g, b2g, b2b, s2b} to {s2g, b2b, b2g, s2b} sequencing.  Winning percentage increased from 7.915% to 8.590%.
+- 1.3
+  - Adopted the 6-level greedy action priority from Bjarnason, Fern, Tadepalli, [*Lower Bounding Klondike Solitaire with Monte-Carlo Planning*, ICAPS 2009](https://ojs.aaai.org/index.php/ICAPS/article/view/13363) (pg. 3):
+    1. tableau → foundation that reveals a face-down card
+    2. any other move to a foundation
+    3. tableau → tableau that reveals a face-down card
+    4. deck → tableau
+    5. foundation → tableau (not implemented)
+    6. tableau → tableau that does not reveal
+  - After any move, re-evaluate from priority 1.  Winning percentage increased from 8.590% to 12.154% (three-card draw, 100k games, seed 1111).
 
 ## How To:
 - run `ant`
