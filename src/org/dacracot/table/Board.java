@@ -139,6 +139,29 @@ public class Board {
 		return(false);
 		}
 	//-----------------------------------------------
+	public boolean columnHasHidden(Card c) {
+		for(int i=0; i<SEVEN; i++) {
+			if (columns.get(i).contains(c)) {
+				for (Card card : columns.get(i)) {
+					if (card.isHidden()) return(true);
+					}
+				return(false);
+				}
+			}
+		return(false);
+		}
+	//-----------------------------------------------
+	public boolean removeCardWouldReveal(Card c) {
+		for(int i=0; i<SEVEN; i++) {
+			ArrayList<Card> col = columns.get(i);
+			if (col.contains(c)) {
+				if (col.indexOf(c) != col.size()-1) return(false);
+				return (col.size() >= 2) && col.get(col.size()-2).isHidden();
+				}
+			}
+		return(false);
+		}
+	//-----------------------------------------------
 	public boolean playCard(Card destination, Card source) {
 		ArrayList<Card> destinationColumn = null;
 		ArrayList<Card> sourceColumn = null;

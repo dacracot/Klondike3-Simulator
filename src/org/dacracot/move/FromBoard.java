@@ -41,6 +41,48 @@ public class FromBoard implements From {
 		}
 	//-----------------------------------------------
 	//
+	// Move a card from the board to the board, but only if the source's
+	// column has face-down cards (so that the move reveals a new card).
+	//
+	public boolean toBoardReveal() {
+		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
+		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
+		for(Card bottomUpCard : bottomUpCards) {
+			for(Card topUpCard : topUpCards) {
+				if (!game.board.columnHasHidden(topUpCard)) continue;
+				if (game.board.playKingFromBoard(topUpCard)) {
+					return(true);
+					}
+				if (game.board.playCard(bottomUpCard,topUpCard)) {
+					return(true);
+					}
+				}
+			}
+		return(false);
+		}
+	//-----------------------------------------------
+	//
+	// Move a card from the board to the board, only when the source's
+	// column has no face-down cards (no reveal happens).
+	//
+	public boolean toBoardNoReveal() {
+		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
+		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
+		for(Card bottomUpCard : bottomUpCards) {
+			for(Card topUpCard : topUpCards) {
+				if (game.board.columnHasHidden(topUpCard)) continue;
+				if (game.board.playKingFromBoard(topUpCard)) {
+					return(true);
+					}
+				if (game.board.playCard(bottomUpCard,topUpCard)) {
+					return(true);
+					}
+				}
+			}
+		return(false);
+		}
+	//-----------------------------------------------
+	//
 	// Move a card from the board to the goal.
 	//
 	@Override
@@ -59,6 +101,23 @@ public class FromBoard implements From {
 			// Play all playable cards, return true.
 			}
 		// Return false if no play as available.
+		return(played);
+		}
+	//-----------------------------------------------
+	//
+	// Move a card from the board to the goal, but only when removing
+	// the card would reveal a face-down card underneath it.
+	//
+	public boolean toGoalReveal() {
+		boolean played = false;
+		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
+		for(Card bottomUpCard : bottomUpCards) {
+			if (!game.board.removeCardWouldReveal(bottomUpCard)) continue;
+			if (game.goal.playCard(bottomUpCard)) {
+				game.board.removeCard(bottomUpCard);
+				played = true;
+				}
+			}
 		return(played);
 		}
 	//-----------------------------------------------

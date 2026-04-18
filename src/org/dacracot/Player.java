@@ -21,29 +21,55 @@ public class Player {
 		//-------------------------------------------
 		int loops = 0;
 		int flops = 0;
-		// Play until there are no moves for three loops.
+		// Prioritized greedy action selection following Bjarnason, Fern,
+		// Tadepalli 2009 ("Lower Bounding Klondike Solitaire with
+		// Monte-Carlo Planning", ICAPS-09, pg. 3):
+		//   1. tableau -> foundation that reveals a face-down card
+		//   2. any other move to a foundation stack
+		//   3. tableau -> tableau that reveals a face-down card
+		//   4. deck -> tableau
+		//   5. foundation -> tableau (not implemented)
+		//   6. tableau -> tableau that does not reveal
+		// After each move, re-evaluate from priority 1.
 		while(flops < 3) {
-			// Play only one (or none) from stack to goal
-			if (fromStack.toGoal()) {
-				// Played a card
-				flops = 0;
+			boolean moved = true;
+			while(moved) {
+				moved = false;
+				if (fromBoard.toGoalReveal()) {
+					flops = 0;
+					moved = true;
+					game.showAll("b2g+  >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+					continue;
+					}
+				if (fromBoard.toGoal()) {
+					flops = 0;
+					moved = true;
+					game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+					continue;
+					}
+				if (fromStack.toGoal()) {
+					flops = 0;
+					moved = true;
+					game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+					continue;
+					}
+				if (fromBoard.toBoardReveal()) {
+					moved = true;
+					game.showAll("b2b+  >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+					continue;
+					}
+				if (fromStack.toBoard()) {
+					moved = true;
+					game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+					continue;
+					}
+				if (fromBoard.toBoardNoReveal()) {
+					moved = true;
+					game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+					continue;
+					}
 				}
-			game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
-			// Play board to board until no more moves available
-			while(fromBoard.toBoard()) {
-				game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
-				}
-			// Play only one (or none) from board to goal
-			if (fromBoard.toGoal()) {
-				// Played a card
-				flops = 0;
-				}
-			game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
-			// Play stack to board until no more moves available
-			while(fromStack.toBoard()) {
-				game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
-				}
-			// Turn over the stack
+			// Turn over the stack.
 			if (game.stack.flip()) {
 				flops++;
 				}
