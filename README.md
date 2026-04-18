@@ -1,5 +1,5 @@
 # Solitaire simulator for finding the best strategy...
-# Current record is 12.188%.
+# Current record is 12.154%.
 
 ---
 
@@ -20,7 +20,7 @@
     4. deck → tableau
     5. foundation → tableau (not implemented)
     6. tableau → tableau that does not reveal
-  - After any move, re-evaluate from priority 1.  Winning percentage increased from 8.590% to 12.188% (three-card draw, 100k games, seed 1111).
+  - After any move, re-evaluate from priority 1.  Winning percentage increased from 8.590% to 12.154% (three-card draw, 100k games, seed 1111).
 
 ## How To:
 - run `ant`

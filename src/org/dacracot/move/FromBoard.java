@@ -49,12 +49,23 @@ public class FromBoard implements From {
 		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
 		for(Card bottomUpCard : bottomUpCards) {
 			for(Card topUpCard : topUpCards) {
-				if (!game.board.columnHasHidden(topUpCard)) continue;
-				if (game.board.playKingFromBoard(topUpCard)) {
-					return(true);
+				if (topUpCard.getValue() == 13) {
+					// playKingFromBoard moves only the king; it reveals iff
+					// the king is the bottom-most face-up card (i.e. hidden
+					// card directly beneath it).
+					if (!game.board.removeCardWouldReveal(topUpCard)) continue;
+					if (game.board.playKingFromBoard(topUpCard)) {
+						return(true);
+						}
 					}
-				if (game.board.playCard(bottomUpCard,topUpCard)) {
-					return(true);
+				else {
+					// playCard moves the whole face-up run; it reveals iff
+					// the column has any hidden card (bottomsUp flips the
+					// new bottom after the run is stripped).
+					if (!game.board.columnHasHidden(topUpCard)) continue;
+					if (game.board.playCard(bottomUpCard,topUpCard)) {
+						return(true);
+						}
 					}
 				}
 			}
@@ -70,12 +81,17 @@ public class FromBoard implements From {
 		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
 		for(Card bottomUpCard : bottomUpCards) {
 			for(Card topUpCard : topUpCards) {
-				if (game.board.columnHasHidden(topUpCard)) continue;
-				if (game.board.playKingFromBoard(topUpCard)) {
-					return(true);
+				if (topUpCard.getValue() == 13) {
+					if (game.board.removeCardWouldReveal(topUpCard)) continue;
+					if (game.board.playKingFromBoard(topUpCard)) {
+						return(true);
+						}
 					}
-				if (game.board.playCard(bottomUpCard,topUpCard)) {
-					return(true);
+				else {
+					if (game.board.columnHasHidden(topUpCard)) continue;
+					if (game.board.playCard(bottomUpCard,topUpCard)) {
+						return(true);
+						}
 					}
 				}
 			}
@@ -109,16 +125,15 @@ public class FromBoard implements From {
 	// the card would reveal a face-down card underneath it.
 	//
 	public boolean toGoalReveal() {
-		boolean played = false;
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
 		for(Card bottomUpCard : bottomUpCards) {
 			if (!game.board.removeCardWouldReveal(bottomUpCard)) continue;
 			if (game.goal.playCard(bottomUpCard)) {
 				game.board.removeCard(bottomUpCard);
-				played = true;
+				return(true);
 				}
 			}
-		return(played);
+		return(false);
 		}
 	//-----------------------------------------------
 	}
