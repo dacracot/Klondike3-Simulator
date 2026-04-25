@@ -40,19 +40,24 @@ public class Solitaire {
 				Global.random = new Random(); // truly Random
 				}
 			Global.debug = (params.indexOf("--debug") != -1);
+			Global.quiet = (params.indexOf("--quiet") != -1);
+			if (Global.quiet) {
+				Global.debug = false;
+				}
 			}
 		else{
-			System.out.println("usage: [--one|--three] [--attempts #] [--debug]  [--seed #]");
+			System.out.println("usage: [--one|--three] [--attempts #] [--debug|--quiet]  [--seed #]");
 			System.out.println("    --one: Turn only one card each play.");
 			System.out.println("    --three: Turn three cards each play.");
 			System.out.println("    --attempts: Number of games to attempt.");
 			System.out.println("    --debug: Verbose output about each game.");
+			System.out.println("    --quiet: Minimal output about each game.");
 			System.out.println("    --seed: Random seed for repeatable play.");
 			System.out.println("");
 			Global.random = new Random(); // truly Random for no parameters
 			}
 		System.out.println("");
-		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts "+(Global.debug?"with":"without")+" debug "+(seeded?("with "+seed+" seed"):"without a seed"));
+		System.out.println("running: turn "+Global.cards+" cards and "+Global.tries+" attempts"+(Global.quiet?" quietly ":" ")+(Global.debug?"with":"without")+" debug "+(seeded?("with "+seed+" seed"):"without a seed"));
 		//-------------------------------------------
 		int winner = 0;
 		Instant start = Instant.now();
@@ -61,12 +66,16 @@ public class Solitaire {
  			Player player = new Player(Global.cards);
  			if (player.run()) {
  				winner++;
- 				System.out.println("================== WINNER ==================");
- 				System.out.println(Global.activeGame);
- 				System.out.println("================== WINNER ==================");
+ 				if (!Global.quiet) {
+					System.out.println("================== WINNER ==================");
+					System.out.println(Global.activeGame);
+					System.out.println("================== WINNER ==================");
+					}
  				}
   			Global.activeGame.delete(0, Global.activeGame.length());
-			System.out.println("Game "+i+" of "+Global.tries);
+			if (!Global.quiet) {
+				System.out.println("Game "+i+" of "+Global.tries);
+				}
 			}
 		//-------------------------------------------
  		Instant end = Instant.now();
