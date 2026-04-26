@@ -99,7 +99,7 @@ public class Solitaire {
  				}
   			Global.activeGame.delete(0, Global.activeGame.length());
 			if (!Global.quiet) {
-				System.out.println("Game "+Global.tried+" of "+Global.tries);
+				System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 				}
 			Global.tried++;
 			}
