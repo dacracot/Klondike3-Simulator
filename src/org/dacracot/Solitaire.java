@@ -25,7 +25,6 @@ public class Solitaire {
 				between.toSecondsPart()
 				);
 			System.out.println("");
-			Global.killed = true;
 			}));
 		//-------------------------------------------		
 		boolean seeded = false;
@@ -88,7 +87,7 @@ public class Solitaire {
 			);
 		//-------------------------------------------
 		Global.tried=0;
-		while ( (Global.tried<Global.tries) || (Global.killed) ){
+		while(Global.tried<Global.tries){
  			Player player = new Player(Global.cards);
  			if (player.run()) {
  				Global.winner++;
