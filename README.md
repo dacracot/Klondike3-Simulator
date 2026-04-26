@@ -12,6 +12,10 @@
   - Play is the same as 1.0, but deck shuffling can be repeatable via the seed parameter.
 - 1.2
   - Play changed from {s2g, b2g, b2b, s2b} to {s2g, b2b, b2g, s2b} sequencing.  Winning percentage increased from 7.915% to 8.590%.
+- 1.3
+  - Play unchanged. Cleaner output.
+- 1.4
+  - Play unchanged. Added continuous mode and quiet operation.
 
 ## How To:
 - run `ant`
