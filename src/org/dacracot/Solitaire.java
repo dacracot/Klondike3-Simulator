@@ -102,6 +102,9 @@ public class Solitaire {
 				System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 				}
 			Global.tried++;
+			if ((Global.tried % 1000000) == 0) {
+				System.out.println("progress: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.3f",(((1.0*Global.winner)/Global.tried)*100))+"%");
+				}
 			}
 		//-------------------------------------------
 		}
