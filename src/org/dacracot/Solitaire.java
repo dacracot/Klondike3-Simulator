@@ -14,7 +14,7 @@ public class Solitaire {
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			Instant end = Instant.now();
 			System.out.println("");
-			System.out.println("success: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.3f",(((1.0*Global.winner)/Global.tried)*100))+"%");
+			System.out.println("success: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%");
 			Duration between = Duration.between(Global.start, end);
 			System.out.println("");
 			System.out.format(
@@ -103,7 +103,7 @@ public class Solitaire {
 				}
 			Global.tried++;
 			if ((Global.tried % 1000000) == 0) {
-				System.out.println("progress: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.3f",(((1.0*Global.winner)/Global.tried)*100))+"%");
+				System.out.println("progress: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%");
 				}
 			}
 		//-------------------------------------------
