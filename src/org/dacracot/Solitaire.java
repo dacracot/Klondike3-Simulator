@@ -86,6 +86,7 @@ public class Solitaire {
 			(Global.debug?"with":"without")+" debug "+
 			(seeded?("with "+seed+" seed"):"without a seed")
 			);
+		System.out.println("");
 		//-------------------------------------------
 		Statistics stats = new Statistics();
 		Global.tried=0;
@@ -113,7 +114,7 @@ public class Solitaire {
 					" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%,"+
 					" with a standard deviation of "+String.format("%3.7f",stats.getStdDev())+
 					" across the mean of "+String.format("%3.5f",stats.getMean())+"%"+
-					" after a duration of "+String.format(" %dD, %02d:%02d:%02d",between.toDays(),between.toHoursPart(),between.toMinutesPart(),between.toSecondsPart())
+					" after a duration of "+String.format("%dD, %02d:%02d:%02d",between.toDays(),between.toHoursPart(),between.toMinutesPart(),between.toSecondsPart())
 					);
 				}
 			}

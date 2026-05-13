@@ -6,7 +6,7 @@ public class Statistics {
 	//-----------------------------------------------
 	public void setValue(double value) {
 		Global.valueSum+= value;
-		Global.varianceSum+= Math.pow(value - getMean(), 2);
+		Global.varianceSum+= Math.pow((value - getMean()),2);
 		}
 	//-----------------------------------------------
 	public double getMean() {
