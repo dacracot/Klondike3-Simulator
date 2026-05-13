@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
 import java.util.Scanner;
+import org.dacracot.util.Statistics;
 //---------------------------------------------------
 public class Solitaire {
 	//-----------------------------------------------
@@ -86,6 +87,7 @@ public class Solitaire {
 			(seeded?("with "+seed+" seed"):"without a seed")
 			);
 		//-------------------------------------------
+		Statistics stats = new Statistics();
 		Global.tried=0;
 		while(Global.tried<Global.tries){
  			Player player = new Player(Global.cards);
@@ -102,8 +104,9 @@ public class Solitaire {
 				System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 				}
 			Global.tried++;
+			stats.setValue((((1.0*Global.winner)/Global.tried)*100));
 			if ((Global.tried % 1000000) == 0) {
-				System.out.println("progress: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%");
+				System.out.println("progress: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%, with a standard deviation of "+String.format("%3.7f",stats.getStdDev())+" across the mean of "+String.format("%3.5f",stats.getMean())+"%");
 				}
 			}
 		//-------------------------------------------
