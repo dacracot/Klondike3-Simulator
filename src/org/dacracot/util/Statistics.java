@@ -8,8 +8,10 @@ public class Statistics {
 	//-----------------------------------------------
 	public void setValue(double value) {
 		Global.valueSum+= value;
-		if (value > Global.valueHigh) Global.valueHigh = value;
-		if (value < Global.valueLow) Global.valueLow = value;
+		if (Global.tried > (Global.reportInterval-1)) {
+			if (value > Global.valueHigh) Global.valueHigh = value;
+			if (value < Global.valueLow) Global.valueLow = value;
+			}
 		Global.varianceSum+= Math.pow((value - getMean()),2);
 		}
 	//-----------------------------------------------
@@ -23,7 +25,7 @@ public class Statistics {
 	//-----------------------------------------------
 	public String show() {
 		Duration between = Duration.between(Global.start, Instant.now());
-		return(String.format(
+		return(
 			"stats: won "+Global.winner+
 			" of "+Global.tried+
 			" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%,"+
@@ -32,7 +34,7 @@ public class Statistics {
 			" with max of "+String.format("%3.5f",Global.valueHigh)+"%"+
 			" with min of "+String.format("%3.5f",Global.valueLow)+"%"+
 			" after a duration of "+String.format("%dD, %02d:%02d:%02d",between.toDays(),between.toHoursPart(),between.toMinutesPart(),between.toSecondsPart())
-			));
+			);
 		}
 	//-----------------------------------------------
 }

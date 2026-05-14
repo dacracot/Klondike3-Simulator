@@ -106,7 +106,7 @@ public class Solitaire {
 				}
 			Global.tried++;
 			stats.setValue((((1.0*Global.winner)/Global.tried)*100));
-			if ((Global.tried % 100000) == 0) {
+			if ((Global.tried % Global.reportInterval) == 0) {
 				Duration between = Duration.between(Global.start, Instant.now());
 				System.out.println(stats.show());
 				}
