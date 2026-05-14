@@ -19,7 +19,7 @@ public class Global {
 	public static float varianceSum = 0;
 	public static double valueHigh = 0.0;
 	public static double valueLow = 100.0;
-	public static int reportInterval = 1000000;
+	public static int reportInterval = 100000;
 	//-----------------------------------------------
 	}
 //---------------------------------------------------

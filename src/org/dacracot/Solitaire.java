@@ -11,11 +11,12 @@ public class Solitaire {
 	public Solitaire(){}
 	//-----------------------------------------------
 	public static void main(String[] args){
+		Statistics stats = new Statistics();
 		//-------------------------------------------
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			Instant end = Instant.now();
 			System.out.println("");
-			System.out.println("success: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%");
+			System.out.println("success: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",stats.getPercentage())+"%");
 			Duration between = Duration.between(Global.start, end);
 			System.out.println("");
 			System.out.format(
@@ -88,7 +89,6 @@ public class Solitaire {
 			);
 		System.out.println("");
 		//-------------------------------------------
-		Statistics stats = new Statistics();
 		Global.tried=0;
 		while(Global.tried<Global.tries){
  			Player player = new Player(Global.cards);
@@ -105,7 +105,7 @@ public class Solitaire {
 				System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 				}
 			Global.tried++;
-			stats.setValue((((1.0*Global.winner)/Global.tried)*100));
+			stats.setValue(stats.getPercentage());
 			if ((Global.tried % Global.reportInterval) == 0) {
 				Duration between = Duration.between(Global.start, Instant.now());
 				System.out.println(stats.show());
