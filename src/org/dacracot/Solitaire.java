@@ -106,16 +106,9 @@ public class Solitaire {
 				}
 			Global.tried++;
 			stats.setValue((((1.0*Global.winner)/Global.tried)*100));
-			if ((Global.tried % 1000000) == 0) {
+			if ((Global.tried % 100000) == 0) {
 				Duration between = Duration.between(Global.start, Instant.now());
-				System.out.println(
-					"progress: won "+Global.winner+
-					" of "+Global.tried+
-					" for "+String.format("%3.5f",(((1.0*Global.winner)/Global.tried)*100))+"%,"+
-					" with a standard deviation of "+String.format("%3.7f",stats.getStdDev())+
-					" across the mean of "+String.format("%3.5f",stats.getMean())+"%"+
-					" after a duration of "+String.format("%dD, %02d:%02d:%02d",between.toDays(),between.toHoursPart(),between.toMinutesPart(),between.toSecondsPart())
-					);
+				System.out.println(stats.show());
 				}
 			}
 		//-------------------------------------------
