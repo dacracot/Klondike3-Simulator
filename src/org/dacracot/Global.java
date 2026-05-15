@@ -17,9 +17,11 @@ public class Global {
 	// statistics
 	public static float valueSum = 0;
 	public static float varianceSum = 0;
+	public static float count = 0;
 	public static double valueHigh = 0.0;
 	public static double valueLow = 100.0;
-	public static int reportInterval = 100000;
+	public static int reportInterval = 1000000;
+	public static int waitForSteadyState = reportInterval-100;
 	//-----------------------------------------------
 	}
 //---------------------------------------------------

@@ -101,15 +101,10 @@ public class Solitaire {
 					}
  				}
   			Global.activeGame.delete(0, Global.activeGame.length());
-			if (!Global.quiet) {
-				System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
-				}
+			if (!Global.quiet) System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 			Global.tried++;
-			stats.setValue();
-			if ((Global.tried % Global.reportInterval) == 0) {
-				Duration between = Duration.between(Global.start, Instant.now());
-				System.out.println(stats.show());
-				}
+			if (Global.tried >= Global.waitForSteadyState) stats.setValue();
+			if ((Global.tried % Global.reportInterval) == 0) System.out.println(stats.show());
 			}
 		//-------------------------------------------
 		}

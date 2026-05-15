@@ -8,20 +8,21 @@ public class Statistics {
 	//-----------------------------------------------
 	public void setValue() {
 		double percent = getPercentage();
+		Global.count++;
 		Global.valueSum+= percent;
-		if (Global.tried >= (Global.reportInterval-1)) {
-			if (percent > Global.valueHigh) Global.valueHigh = percent;
-			if (percent < Global.valueLow) Global.valueLow = percent;
-			}
 		Global.varianceSum+= Math.pow((percent - getMean()),2);
+		if (percent > Global.valueHigh) Global.valueHigh = percent;
+		if (percent < Global.valueLow) Global.valueLow = percent;
+// System.out.println(show());
+// System.out.println("count: "+Global.count);
 		}
 	//-----------------------------------------------
 	public double getMean() {
-		return(Global.valueSum/Global.tried);
+		return(Global.valueSum/Global.count);
 		}
 	//-----------------------------------------------
 	public double getStdDev() {
-		return(Math.sqrt(Global.varianceSum/Global.tried));
+		return(Math.sqrt(Global.varianceSum/Global.count));
 		}
 	//-----------------------------------------------
 	public double getPercentage() {
