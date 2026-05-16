@@ -41,7 +41,7 @@
     	- Without the debug switch, only errors will be output. With debug, all games are output.
 - run `java -jar simulator.jar --three --attempts 1000000 --seed 1111` to determine your success rate verses the current record.
 	- One million games takes about 20 minutes (without debug) on M2 MacBook Air.
-	- An even better measurement is a continuous run of 24 hours that shows the percentage, average percentage, standard deviation, maximin, and minimum.
+	- An even better measurement is a continuous run of 24 hours that shows the percentage, average percentage, standard deviation, maximun, and minimum.
 		- run `java -jar simulator.jar --quiet --continuous --seed 1111`
 
 ## Legend
