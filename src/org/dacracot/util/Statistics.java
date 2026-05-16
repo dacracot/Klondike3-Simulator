@@ -8,9 +8,11 @@ public class Statistics {
 	//-----------------------------------------------
 	public void setValue() {
 		double percent = getPercentage();
+		double oldMean = getMean();
 		Global.count++;
 		Global.valueSum+= percent;
-		Global.varianceSum+= Math.pow((percent - getMean()),2);
+		double newMean = getMean();
+		Global.varianceSum+= (percent - oldMean) * (percent - newMean);
 		if (percent > Global.valueHigh) Global.valueHigh = percent;
 		if (percent < Global.valueLow) Global.valueLow = percent;
 		}
@@ -42,4 +44,4 @@ public class Statistics {
 		}
 	//-----------------------------------------------
 }
-//-----------------------------------------------
+//---------------------------------------------------
