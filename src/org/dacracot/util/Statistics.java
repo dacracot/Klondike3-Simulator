@@ -8,11 +8,9 @@ public class Statistics {
 	//-----------------------------------------------
 	public void setValue() {
 		double percent = getPercentage();
-		double oldMean = getMean();
 		Global.count++;
 		Global.valueSum+= percent;
-		double newMean = getMean();
-		Global.varianceSum+= (percent - oldMean) * (percent - newMean);
+		Global.varianceSum+= Math.pow((percent - getMean()),2);
 		if (percent > Global.valueHigh) Global.valueHigh = percent;
 		if (percent < Global.valueLow) Global.valueLow = percent;
 		}
@@ -36,7 +34,7 @@ public class Statistics {
 			" of "+Global.tried+
 			" for "+String.format("%3.5f",getPercentage())+"%,"+
 			" with a standard deviation of "+String.format("%3.7f",getStdDev())+
-			" across the mean of "+String.format("%3.5f",getMean())+"%"+
+			" from the mean of "+String.format("%3.5f",getMean())+"%"+
 			" with max of "+String.format("%3.5f",Global.valueHigh)+"%"+
 			" with min of "+String.format("%3.5f",Global.valueLow)+"%"+
 			" after a duration of "+String.format("%dD, %02d:%02d:%02d",between.toDays(),between.toHoursPart(),between.toMinutesPart(),between.toSecondsPart())
