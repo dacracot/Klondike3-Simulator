@@ -61,6 +61,7 @@ public class Board {
 	//-----------------------------------------------
 	public ArrayList<Card> getUpCardsFromTop() {
 		ArrayList<Card> up = new ArrayList<Card>();
+		// smallest initial to longest initial
 		for(int i=0; i<SEVEN; i++) {
 			for(Card card : columns.get(i)) {
 				if (!card.isHidden()) {
@@ -73,14 +74,15 @@ public class Board {
 		}
 	//-----------------------------------------------
 	public ArrayList<Card> getUpCardsFromBottom() {
-		ArrayList<Card> up = new ArrayList<Card>();
+		ArrayList<Card> bottom = new ArrayList<Card>();
+		// smallest initial to longest initial
 		for(int i=0; i<SEVEN; i++) {
 			try {
-				up.add(columns.get(i).get(columns.get(i).size()-1));
+				bottom.add(columns.get(i).get(columns.get(i).size()-1));
 				}
 			catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 			}
-		return(up);
+		return(bottom);
 		}
 	//-----------------------------------------------
 	public boolean playCard(Card source) {

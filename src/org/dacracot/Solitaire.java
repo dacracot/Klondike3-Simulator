@@ -4,17 +4,19 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
 import java.util.Scanner;
+import org.dacracot.util.Statistics;
 //---------------------------------------------------
 public class Solitaire {
 	//-----------------------------------------------
 	public Solitaire(){}
 	//-----------------------------------------------
 	public static void main(String[] args){
+		Statistics stats = new Statistics();
 		//-------------------------------------------
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			Instant end = Instant.now();
 			System.out.println("");
-			System.out.println("success: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.3f",(((1.0*Global.winner)/Global.tried)*100))+"%");
+			System.out.println("success: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",stats.getPercentage())+"%");
 			Duration between = Duration.between(Global.start, end);
 			System.out.println("");
 			System.out.format(
@@ -85,6 +87,7 @@ public class Solitaire {
 			(Global.debug?"with":"without")+" debug "+
 			(seeded?("with "+seed+" seed"):"without a seed")
 			);
+		System.out.println("");
 		//-------------------------------------------
 		Global.tried=0;
 		while(Global.tried<Global.tries){
@@ -98,10 +101,10 @@ public class Solitaire {
 					}
  				}
   			Global.activeGame.delete(0, Global.activeGame.length());
-			if (!Global.quiet) {
-				System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
-				}
+			if (!Global.quiet) System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 			Global.tried++;
+			if (Global.tried >= Global.waitForSteadyState) stats.setValue();
+			if ((Global.tried % Global.reportInterval) == 0) System.out.println(stats.show());
 			}
 		//-------------------------------------------
 		}
