@@ -88,7 +88,6 @@ public class Solitaire {
 			(seeded?("with "+seed+" seed"):"without a seed")
 			);
 		System.out.println("");
-System.err.println("percent\tcount\tsum\tmean\tmin\tmax");
 		//-------------------------------------------
 		Global.tried=0;
 		while(Global.tried<Global.tries){
