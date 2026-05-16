@@ -13,8 +13,6 @@ public class Statistics {
 		Global.varianceSum+= Math.pow((percent - getMean()),2);
 		if (percent > Global.valueHigh) Global.valueHigh = percent;
 		if (percent < Global.valueLow) Global.valueLow = percent;
-// System.out.println(show());
-// System.out.println("count: "+Global.count);
 		}
 	//-----------------------------------------------
 	public double getMean() {

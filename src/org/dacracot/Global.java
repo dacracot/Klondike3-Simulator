@@ -15,9 +15,9 @@ public class Global {
 	public static boolean quiet = false;
 	public static StringBuffer activeGame = new StringBuffer();
 	// statistics
-	public static float valueSum = 0;
-	public static float varianceSum = 0;
-	public static float count = 0;
+	public static double valueSum = 0;
+	public static double varianceSum = 0;
+	public static int count = 0;
 	public static double valueHigh = 0.0;
 	public static double valueLow = 100.0;
 	public static int reportInterval = 1000000;
