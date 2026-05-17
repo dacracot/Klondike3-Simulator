@@ -30,13 +30,13 @@ public class Statistics {
 	public String show() {
 		Duration between = Duration.between(Global.start, Instant.now());
 		return(
-			"stats: won "+Global.winner+
-			" of "+Global.tried+
-			" for "+String.format("%3.5f",getPercentage())+"%,"+
-			" with a standard deviation of "+String.format("%3.7f",getStdDev())+
-			" from the mean of "+String.format("%3.5f",getMean())+"%"+
-			" with max of "+String.format("%3.5f",Global.valueHigh)+"%"+
-			" with min of "+String.format("%3.5f",Global.valueLow)+"%"+
+			"stats: won "+String.format("%,10d",Global.winner)+
+			" of "+String.format("%,11d",Global.tried)+
+			" for "+String.format("%7.5f",getPercentage())+"%,"+
+			" with a standard deviation of "+String.format("%9.7f",getStdDev())+
+			" from the mean of "+String.format("%7.5f",getMean())+"%"+
+			" with max of "+String.format("%7.5f",Global.valueHigh)+"%"+
+			" with min of "+String.format("%7.5f",Global.valueLow)+"%"+
 			" after a duration of "+String.format("%dD, %02d:%02d:%02d",between.toDays(),between.toHoursPart(),between.toMinutesPart(),between.toSecondsPart())
 			);
 		}

@@ -1,4 +1,4 @@
-# Solitaire simulator for finding the best strategy...
+# Solitaire simulator for finding the best winning strategy...
 # Current record is 8.590%.
 
 ---
@@ -39,10 +39,8 @@
     	- Only winning games will be output.
     - Write standard error to debug.err.
     	- Without the debug switch, only errors will be output. With debug, all games are output.
-- run `java -jar simulator.jar --three --attempts 1000000 --seed 1111` to determine your success rate verses the current record.
-	- One million games takes about 20 minutes (without debug) on M2 MacBook Air.
-	- An even better measurement is a continuous run of 24 hours that shows the percentage, average percentage, standard deviation, maximum, and minimum.
-		- run `java -jar simulator.jar --quiet --continuous --seed 1111`
+- run `java -jar simulator.jar --quiet --attempts 100000000 --seed 1111 > myWinningPercentage.txt` to determine your success rate verses the current record.
+	- Compare your results with winningPercentage.txt and PR your file if better.
 
 ## Legend
 - |•A♦︎•|: Ace of Diamonds face down.

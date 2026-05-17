@@ -16,7 +16,7 @@ public class Solitaire {
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			Instant end = Instant.now();
 			System.out.println("");
-			System.out.println("success: won "+Global.winner+" of "+Global.tried+" for "+String.format("%3.5f",stats.getPercentage())+"%");
+			System.out.println("success: won "+String.format("%,10d",Global.winner)+" of "+String.format("%,10d",Global.tried)+" for "+String.format("%7.5f",stats.getPercentage())+"%");
 			Duration between = Duration.between(Global.start, end);
 			System.out.println("");
 			System.out.format(
@@ -82,7 +82,7 @@ public class Solitaire {
 		System.out.println("");
 		System.out.println(
 			"running: turn "+Global.cards+" cards"+
-			((Global.tries==Integer.MAX_VALUE)?" until killed":" for "+Global.tries+" attempts")+
+			((Global.tries==Integer.MAX_VALUE)?" until killed":" for "+String.format("%,d",Global.tries)+" attempts")+
 			(Global.quiet?" quietly ":" ")+
 			(Global.debug?"with":"without")+" debug "+
 			(seeded?("with "+seed+" seed"):"without a seed")

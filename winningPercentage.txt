@@ -1,0 +1,4 @@
+
+running: turn 3 cards for 100,000,000 attempts quietly without debug with 1111 seed
+
+stats: won     85,900 of   1,000,000 for 8.59000%, with a standard deviation of 0.0000964 from the mean of 8.58999% with max of 8.59016% with min of 8.58979% after a duration of 0D, 00:17:57
