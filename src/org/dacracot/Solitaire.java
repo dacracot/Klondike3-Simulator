@@ -16,7 +16,7 @@ public class Solitaire {
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			Instant end = Instant.now();
 			System.out.println("");
-			System.out.println("success: won "+String.format("%,10d",Global.winner)+" of "+String.format("%,10d",Global.tried)+" for "+String.format("%7.5f",stats.getPercentage())+"%");
+			System.out.println("success: won "+String.format("%,10d",Global.winner)+" of "+String.format("%,11d",Global.tried)+" for "+String.format("%7.5f",stats.getPercentage())+"%");
 			Duration between = Duration.between(Global.start, end);
 			System.out.println("");
 			System.out.format(

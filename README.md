@@ -39,7 +39,7 @@
     	- Only winning games will be output.
     - Write standard error to debug.err.
     	- Without the debug switch, only errors will be output. With debug, all games are output.
-- run `java -jar simulator.jar --quiet --attempts 100000000 --seed 1111 > myWinningPercentage.txt` to determine your success rate verses the current record.
+- run `java -jar simulator.jar --quiet --three --attempts 100000000 --seed 1111 > myWinningPercentage.txt` to determine your success rate verses the current record.
 	- Compare your results with winningPercentage.txt and PR your file if better.
 
 ## Legend
