@@ -1,5 +1,5 @@
 # Solitaire simulator for finding the best winning strategy...
-# Current record is 8.590%.
+# Current record is detailed in winningPercentage.txt.
 
 ---
 
