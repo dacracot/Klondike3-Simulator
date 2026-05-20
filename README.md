@@ -16,6 +16,10 @@
   - Play unchanged. Cleaner output.
 - 1.4
   - Play unchanged. Added continuous mode and quiet operation.
+- 1.5, 1.5.1
+  - Play unchanged. Added more statistics and new criteria for best method.
+- 1.6
+  - Play altered to sort b2b to ascending or descending column length rather than left to right.
 
 ## How To:
 - run `ant`

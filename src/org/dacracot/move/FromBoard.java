@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.dacracot.Klondike;
 import org.dacracot.card.Card;
 //---------------------------------------------------
-public class FromBoard implements From {
+public class FromBoard {
 	//-----------------------------------------------
 	private Klondike game;
 	//-----------------------------------------------
@@ -15,12 +15,17 @@ public class FromBoard implements From {
 	//
 	// Move a card from the board to the board.
 	//
-	@Override
 	public boolean toBoard() {
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
 		// Get a list of the face-up top most cards starting with originally shortest column.
 		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
+
+
+// sort here
+// Collections.sort(topUpCards, new Comparator< T >( ){...} );
+
+
 		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
 			// Loop thru top up cards.
@@ -43,7 +48,6 @@ public class FromBoard implements From {
 	//
 	// Move a card from the board to the goal.
 	//
-	@Override
 	public boolean toGoal() {
 		boolean played = false;
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
