@@ -65,10 +65,8 @@ public class Board {
 		for(int i=0; i<SEVEN; i++) {
 			for(Card card : columns.get(i)) {
 				if (!card.isHidden()) {
-
-// set weight here
-// card.setWeight(columns.length());
-
+					// set weight
+					card.setWeight(columns.get(i).size());
 					up.add(card);
 					break;
 					}
