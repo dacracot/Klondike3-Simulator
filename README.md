@@ -4,22 +4,22 @@
 ---
 
 ## Versions
+- 1.6
+  - Play altered to sort b2b to ascending or descending column length rather than left to right. Winning percentage increased from 8.590% to 10.72780%.
+- 1.5, 1.5.1
+  - Play unchanged. Added more statistics and new criteria for best method.
+- 1.4
+  - Play unchanged. Added continuous mode and quiet operation.
+- 1.3
+  - Play unchanged. Cleaner output.
+- 1.2
+  - Play changed from {s2g, b2g, b2b, s2b} to {s2g, b2b, b2g, s2b} sequencing. Winning percentage increased from 7.915% to 8.590%.
+- 1.1
+  - Play is the same as 1.0, but deck shuffling can be repeatable via the seed parameter.
 - 1.0
   - Very basic play using s2g, b2g, b2b, s2b only.
   - No effort to using smart alternatives.
     - For example | 9♠︎ | and | 9♣︎ | are both playable on | 10♥︎ |, but nothing but first encounter will choose one over the other.
-- 1.1
-  - Play is the same as 1.0, but deck shuffling can be repeatable via the seed parameter.
-- 1.2
-  - Play changed from {s2g, b2g, b2b, s2b} to {s2g, b2b, b2g, s2b} sequencing.  Winning percentage increased from 7.915% to 8.590%.
-- 1.3
-  - Play unchanged. Cleaner output.
-- 1.4
-  - Play unchanged. Added continuous mode and quiet operation.
-- 1.5, 1.5.1
-  - Play unchanged. Added more statistics and new criteria for best method.
-- 1.6
-  - Play altered to sort b2b to ascending or descending column length rather than left to right.
 
 ## How To:
 - run `ant`
