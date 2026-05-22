@@ -1,10 +1,13 @@
 package org.dacracot.move;
 //---------------------------------------------------
 import java.util.ArrayList;
+import java.util.Collections;
 import org.dacracot.Klondike;
 import org.dacracot.card.Card;
+import org.dacracot.move.criteria.CardColumnLengthAscending;
+import org.dacracot.move.criteria.CardColumnLengthDescending;
 //---------------------------------------------------
-public class FromBoard implements From {
+public class FromBoard {
 	//-----------------------------------------------
 	private Klondike game;
 	//-----------------------------------------------
@@ -15,12 +18,31 @@ public class FromBoard implements From {
 	//
 	// Move a card from the board to the board.
 	//
-	@Override
 	public boolean toBoard() {
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
 		// Get a list of the face-up top most cards starting with originally shortest column.
 		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
+		//-------------------------------------------
+		// 
+		// Primary new strategy implements sorting the choice of two playable cards.
+		// For instance, two red Jacks at the top the face up cards in two separate
+		// columns can both be played on an exposed face up black Queen. So which do
+		// you choose? From the column with the most or least face down cards?  Some
+		// would say least, to make room for Kings, others would say most to expose
+		// face down cards as quickly as possible.  Trialed both scenarios with one
+		// million games:
+		//
+		// Left to right, no variance 					baseline =	8.59000%
+		// Least face down (shortest column) first 		least = 	8.89590%
+		// Most face down (longest column) first 		most = 		10.72780%
+		//
+		// While least is better than the baseline, most is the clear winner.
+		//
+		// sorted here
+		CardColumnLengthDescending ccld = new CardColumnLengthDescending();
+		Collections.sort(topUpCards,ccld);
+		//-------------------------------------------
 		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
 			// Loop thru top up cards.
@@ -43,7 +65,6 @@ public class FromBoard implements From {
 	//
 	// Move a card from the board to the goal.
 	//
-	@Override
 	public boolean toGoal() {
 		boolean played = false;
 		// Get a list of the face-up bottom most cards starting with originally shortest column.

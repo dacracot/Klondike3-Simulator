@@ -3,7 +3,7 @@ package org.dacracot.move;
 import org.dacracot.card.Card;
 import org.dacracot.Klondike;
 //---------------------------------------------------
-public class FromStack implements From {
+public class FromStack {
 	//-----------------------------------------------
 	private Klondike game;
 	//-----------------------------------------------
@@ -14,7 +14,6 @@ public class FromStack implements From {
 	//
 	// Move a card from the stack to the board.
 	//
-	@Override
 	public boolean toBoard() {
 		// Get upper most card from stack.
 		Card upCard = game.stack.getUpCard();
@@ -39,7 +38,6 @@ public class FromStack implements From {
 	//
 	// Move a card from the stack to the goal.
 	//
-	@Override
 	public boolean toGoal() {
 		// Get upper most card from stack.
 		Card upCard = game.stack.getUpCard();
