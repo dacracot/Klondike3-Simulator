@@ -5,7 +5,7 @@
 
 ## Versions
 - 1.6
-  - Play altered to sort b2b to ascending or descending column length rather than left to right. Winning percentage increased from 8.590% to 10.72780%.
+  - Play altered to sort b2b to ascending or descending column length rather than left to right. Winning percentage increased from 8.54274%[^1] to 10.68459%.
 - 1.5, 1.5.1
   - Play unchanged. Added more statistics and new criteria for best method.
 - 1.4
@@ -4443,3 +4443,5 @@
 		success: won          1 of          10 for 10.00000%
 		
 		duration: 0D, 00:00:00
+
+[^1]:The winning percentage was previously report as 8.590% rather than 8.54274%.  The point of issue-60 was to better calculate the true winning percentage.  As the deck shuffle is truly random the winning percentage dances around accordingly, the only remedy being sample size.  Therefore calculation of winning percentage is based off of 100,000,000 games, not just 1,000,000.  The larger sample size moved the winning percentage even though the game play remained the same.
