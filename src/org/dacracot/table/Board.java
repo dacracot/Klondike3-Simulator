@@ -59,6 +59,16 @@ public class Board {
 			}
 		}
 	//-----------------------------------------------
+	private int countFaceDown(ArrayList<Card> column){
+		int count=0;
+		for(Card card : column) {
+			if (card.isHidden()) {
+				count++;
+				}
+			}
+		return(count);
+		}
+	//-----------------------------------------------
 	public ArrayList<Card> getUpCardsFromTop() {
 		ArrayList<Card> up = new ArrayList<Card>();
 		// smallest initial to longest initial
@@ -66,7 +76,7 @@ public class Board {
 			for(Card card : columns.get(i)) {
 				if (!card.isHidden()) {
 					// set weight
-					card.setWeight(columns.get(i).size());
+					card.setWeight(countFaceDown(columns.get(i)));
 					up.add(card);
 					break;
 					}
