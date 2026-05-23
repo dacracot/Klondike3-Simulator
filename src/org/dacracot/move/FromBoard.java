@@ -33,9 +33,9 @@ public class FromBoard {
 		// face down cards as quickly as possible.  Trialed both scenarios with one
 		// million games:
 		//
-		// Left to right, no variance 					baseline =	8.59000%
-		// Least face down (shortest column) first 		least = 	8.89590%
-		// Most face down (longest column) first 		most = 		10.72780%
+		// Left to right, no variance 					baseline =	 8.54274%
+		// Least face down (shortest column) first 		least = 	 8.89590%
+		// Most face down (longest column) first 		most = 		11.74316%
 		//
 		// While least is better than the baseline, most is the clear winner.
 		//
