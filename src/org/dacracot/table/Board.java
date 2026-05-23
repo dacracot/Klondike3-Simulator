@@ -77,7 +77,6 @@ public class Board {
 				if (!card.isHidden()) {
 					// set weight
 					card.setWeight(countFaceDown(columns.get(i)));
-// 					card.setWeight(columns.get(i).size());
 					up.add(card);
 					break;
 					}
