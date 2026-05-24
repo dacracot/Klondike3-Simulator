@@ -9,6 +9,8 @@ public class Card {
 	//-----------------------------------------------
 	private boolean hidden;
 	//-----------------------------------------------
+	private int weight;
+	//-----------------------------------------------
 	public Card(Suit suit, int value, boolean hidden){
 		this.SUIT = suit;
 		this.VALUE = value;
@@ -37,6 +39,14 @@ public class Card {
 	//-----------------------------------------------
 	public void setHidden(boolean hidden){
 		this.hidden = hidden;
+		}
+	//-----------------------------------------------
+	public int getWeight(){
+		return weight;
+		}
+	//-----------------------------------------------
+	public void setWeight(int weight){
+		this.weight = weight;
 		}
 	//-----------------------------------------------
 	private String drawBack(){
