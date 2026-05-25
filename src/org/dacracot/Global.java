@@ -13,7 +13,6 @@ public class Global {
 	public static Random random = null;
 	public static boolean debug = false;
 	public static boolean quiet = false;
-	public static StringBuffer activeGame = new StringBuffer();
 	// statistics
 	public static double valueSum = 0;
 	public static double varianceSum = 0;
