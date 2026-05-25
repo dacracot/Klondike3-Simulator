@@ -92,11 +92,8 @@ public class Solitaire {
 		Global.tried=0;
 		while(Global.tried<Global.tries){
  			Player player = new Player(Global.cards);
- 			if (player.run()) {
- 				Global.winner++;
- 				}
+ 			player.run();
 			if (!Global.quiet) System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
-			Global.tried++;
 			if (Global.tried >= Global.waitForSteadyState) stats.setValue();
 			if ((Global.tried % Global.reportInterval) == 0) System.out.println(stats.show());
 			}

@@ -13,7 +13,7 @@ public class Player {
 		this.cards = cards;
 		}
 	//-----------------------------------------------
-	public boolean run() {
+	public void run() {
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
@@ -58,11 +58,11 @@ public class Player {
 					System.out.println("================== WINNER ==================");
 					activeGame.delete(0, activeGame.length());
 					}
-				return(true);
+				Global.winner++;
 				}
 			}
 		// Game is lost.
-		return(false);
+		Global.tried++;
 		//-------------------------------------------
 		}
 	//-----------------------------------------------
