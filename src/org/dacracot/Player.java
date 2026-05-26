@@ -15,6 +15,7 @@ public class Player extends Thread {
 		this.cards = cards;
 		}
 	//-----------------------------------------------
+	@Override
 	public void run() {
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);

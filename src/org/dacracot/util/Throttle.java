@@ -14,6 +14,10 @@ public class Throttle
 		return(max);
 		}
 	//-----------------------------------------------
+	public static int getCount() {
+		return(count);
+		}
+	//-----------------------------------------------
 	public static synchronized boolean more() {
 		boolean result = (count < max);
 		if (result) count++;

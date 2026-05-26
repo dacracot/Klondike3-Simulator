@@ -102,8 +102,13 @@ public class Solitaire {
 		while(Global.getTried()<Global.tries){
 			if (Throttle.more()) {
 				Player player = new Player(Global.cards);
+				player.setName("player-"+Throttle.getCount());
 				player.run();
 				}
+for (Thread t : Thread.getAllStackTraces().keySet()) {
+	if (t.getName().startsWith("player")) System.err.println(t.getName());
+	}
+System.err.println("-------------");
 			if (!Global.quiet) System.out.println("Game "+Global.getTried()+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 			if (Global.getTried() >= Global.waitForSteadyState) stats.setValue();
 			if ((Global.getTried() % Global.reportInterval) == 0) System.out.println(stats.show());
