@@ -1,10 +1,12 @@
 package org.dacracot;
 //---------------------------------------------------
+import java.lang.Thread;
 import org.dacracot.move.FromStack;
 import org.dacracot.move.FromBoard;
 import org.dacracot.move.FromGoal;
+// import org.dacracot.util.Throttle;
 //---------------------------------------------------
-public class Player {
+public class Player extends Thread {
 	//-----------------------------------------------
 	private int cards;
 	private StringBuffer activeGame = new StringBuffer();
@@ -13,7 +15,7 @@ public class Player {
 		this.cards = cards;
 		}
 	//-----------------------------------------------
-	public boolean run() {
+	public void run() {
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
@@ -58,11 +60,12 @@ public class Player {
 					System.out.println("================== WINNER ==================");
 					activeGame.delete(0, activeGame.length());
 					}
-				return(true);
+				Global.winner++;
 				}
 			}
 		// Game is lost.
-		return(false);
+		Global.tried++;
+//		Throttle.less();
 		//-------------------------------------------
 		}
 	//-----------------------------------------------
