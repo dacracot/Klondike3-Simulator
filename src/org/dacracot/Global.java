@@ -31,11 +31,11 @@ public class Global {
 		tried++;
 		}
 	//-----------------------------------------------
-	public static int getWins() {
+	public static synchronized int getWins() {
 		return(winner);
 		}
 	//-----------------------------------------------
-	public static int getTried() {
+	public static synchronized int getTried() {
 		return(tried);
 		}
 	//-----------------------------------------------

@@ -102,8 +102,8 @@ public class Solitaire {
 		while(Global.getTried()<Global.tries){
 			if (Throttle.more()) {
 				Player player = new Player(Global.cards);
-				player.setName("player-"+Throttle.getCount());
-				player.run();
+				player.setName("player-"+Global.getTried());
+				player.start();
 				}
 for (Thread t : Thread.getAllStackTraces().keySet()) {
 	if (t.getName().startsWith("player")) System.err.println(t.getName());
