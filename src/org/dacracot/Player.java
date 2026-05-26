@@ -7,6 +7,7 @@ import org.dacracot.move.FromGoal;
 public class Player {
 	//-----------------------------------------------
 	private int cards;
+	private StringBuffer activeGame = new StringBuffer();
 	//-----------------------------------------------
 	public Player(int cards){
 		this.cards = cards;
@@ -17,7 +18,7 @@ public class Player {
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
 		FromGoal fromGoal = new FromGoal(game);
-		game.showAll("Ready to Play");
+		if (Global.debug){activeGame.append(game.showAll("Ready to Play"));}
 		//-------------------------------------------
 		int loops = 0;
 		int flops = 0;
@@ -28,29 +29,35 @@ public class Player {
 				// Played a card
 				flops = 0;
 				}
-			game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+			if (Global.debug){activeGame.append(game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Play board to board until no more moves available
 			while(fromBoard.toBoard()) {
-				game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+				if (Global.debug){activeGame.append(game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
 			// Play only one (or none) from board to goal
 			if (fromBoard.toGoal()) {
 				// Played a card
 				flops = 0;
 				}
-			game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+			if (Global.debug){activeGame.append(game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Play stack to board until no more moves available
 			while(fromStack.toBoard()) {
-				game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+				if (Global.debug){activeGame.append(game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
 			// Turn over the stack
 			if (game.stack.flip()) {
 				flops++;
 				}
-			game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+			if (Global.debug){activeGame.append(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Did we win by putting all cards in the goal?
 			if (game.goal.winner()) {
-				game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));
+				if (Global.debug){activeGame.append(game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+ 				if (Global.debug) {
+					System.out.println("================== WINNER ==================");
+					System.out.println(activeGame);
+					System.out.println("================== WINNER ==================");
+					activeGame.delete(0, activeGame.length());
+					}
 				return(true);
 				}
 			}
