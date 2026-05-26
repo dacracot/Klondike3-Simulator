@@ -60,11 +60,11 @@ public class Player extends Thread {
 					System.out.println("================== WINNER ==================");
 					activeGame.delete(0, activeGame.length());
 					}
-				Global.winner++;
+				Global.win();
 				}
 			}
 		// Game is lost.
-		Global.tried++;
+		Global.gameOver();
 //		Throttle.less();
 		//-------------------------------------------
 		}

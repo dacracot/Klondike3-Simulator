@@ -16,7 +16,7 @@ public class Solitaire {
 		Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 			Instant end = Instant.now();
 			System.out.println("");
-			System.out.println("success: won "+String.format("%,10d",Global.winner)+" of "+String.format("%,11d",Global.tried)+" for "+String.format("%7.5f",stats.getPercentage())+"%");
+			System.out.println("success: won "+String.format("%,10d",Global.getWins())+" of "+String.format("%,11d",Global.getTried())+" for "+String.format("%7.5f",stats.getPercentage())+"%");
 			Duration between = Duration.between(Global.start, end);
 			System.out.println("");
 			System.out.format(
@@ -89,13 +89,12 @@ public class Solitaire {
 			);
 		System.out.println("");
 		//-------------------------------------------
-		Global.tried=0;
-		while(Global.tried<Global.tries){
+		while(Global.getTried()<Global.tries){
  			Player player = new Player(Global.cards);
  			player.run();
-			if (!Global.quiet) System.out.println("Game "+Global.tried+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
-			if (Global.tried >= Global.waitForSteadyState) stats.setValue();
-			if ((Global.tried % Global.reportInterval) == 0) System.out.println(stats.show());
+			if (!Global.quiet) System.out.println("Game "+Global.getTried()+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
+			if (Global.getTried() >= Global.waitForSteadyState) stats.setValue();
+			if ((Global.getTried() % Global.reportInterval) == 0) System.out.println(stats.show());
 			}
 		//-------------------------------------------
 		}
