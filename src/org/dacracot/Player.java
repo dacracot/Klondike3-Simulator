@@ -1,8 +1,10 @@
 package org.dacracot;
 //---------------------------------------------------
+import java.lang.Thread;
 import org.dacracot.move.FromStack;
 import org.dacracot.move.FromBoard;
 import org.dacracot.move.FromGoal;
+import org.dacracot.util.Throttle;
 //---------------------------------------------------
 public class Player {
 	//-----------------------------------------------
