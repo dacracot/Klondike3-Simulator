@@ -21,6 +21,7 @@ public class Player {
 		FromGoal fromGoal = new FromGoal(game);
 		if (Global.debug){activeGame.append(game.showAll("Ready to Play"));}
 		//-------------------------------------------
+		boolean won = false;
 		int loops = 0;
 		int flops = 0;
 		// Play until there are no moves for three loops.
@@ -57,11 +58,18 @@ public class Player {
 					System.out.println("================== WINNER ==================");
 					System.out.println(activeGame);
 					System.out.println("================== WINNER ==================");
-					activeGame.delete(0, activeGame.length());
 					}
+				won = true;
 				Global.win();
 				break;
 				}
+			}
+		//-------------------------------------------
+		if ((Global.debug) && (!won)){activeGame.append(game.showAll("loser >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+		if ((Global.debug) && (!won)) {
+			System.out.println("================== LOSER ==================");
+			System.out.println(activeGame);
+			System.out.println("================== LOSER ==================");
 			}
 		//-------------------------------------------
 		}
