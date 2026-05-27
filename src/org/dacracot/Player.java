@@ -1,12 +1,9 @@
 package org.dacracot;
 //---------------------------------------------------
-import java.lang.Thread;
 import org.dacracot.move.FromStack;
 import org.dacracot.move.FromBoard;
 import org.dacracot.move.FromGoal;
-// import org.dacracot.util.Throttle;
 //---------------------------------------------------
-// public class Player extends Thread {
 public class Player {
 	//-----------------------------------------------
 	private int cards;
@@ -16,8 +13,6 @@ public class Player {
 		this.cards = cards;
 		}
 	//-----------------------------------------------
-// 	@Override
-// 	public void run() {
 	public void play() {
 		Global.play();
 		Klondike game = new Klondike(cards);
@@ -68,7 +63,6 @@ public class Player {
 				break;
 				}
 			}
-// 		Throttle.less();
 		//-------------------------------------------
 		}
 	//-----------------------------------------------

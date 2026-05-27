@@ -5,7 +5,6 @@ import java.time.Instant;
 import java.util.Random;
 import java.util.Scanner;
 import org.dacracot.util.Statistics;
-// import org.dacracot.util.Throttle;
 //---------------------------------------------------
 public class Solitaire {
 	//-----------------------------------------------
@@ -50,13 +49,6 @@ public class Solitaire {
 			if (params.indexOf("--continuous") != -1){
 				Global.tries = Integer.MAX_VALUE;
 				}
-// 			if (params.indexOf("--players") != -1){
-// 				Scanner cli = new Scanner(params);
-// 				if ("--players".equals(cli.findInLine("--players"))){
-// 					Throttle.setLimit(cli.nextInt());
-// 					}
-// 				cli.close();
-// 				}
 			if (params.indexOf("--seed") != -1){
 				Scanner cli = new Scanner(params);
 				if ("--seed".equals(cli.findInLine("--seed"))){
@@ -83,7 +75,6 @@ public class Solitaire {
 			System.out.println("    --continuous: Attempt games until killed.");
 			System.out.println("    --debug: Verbose output about each game.");
 			System.out.println("    --quiet: Minimal output about each game.");
-			System.out.println("    --players: Number of simultaneous players to permit.");
 			System.out.println("    --seed: Random seed for repeatable play.");
 			System.out.println("");
 			Global.random = new Random(); // truly Random for no parameters
@@ -94,18 +85,13 @@ public class Solitaire {
 			((Global.tries==Integer.MAX_VALUE)?" until killed":" for "+String.format("%,d",Global.tries)+" attempts")+
 			(Global.quiet?" quietly ":" ")+
 			(Global.debug?"with":"without")+" debug "+
-// 			((Throttle.getLimit() != 1)?("with "+Throttle.getLimit()+" players "):"with one player ")+
 			(seeded?("with "+seed+" seed"):"without a seed")
 			);
 		System.out.println("");
 		//-------------------------------------------
 		while(Global.getTried()<Global.tries){
-// 			if (Throttle.more()) {
-				Player player = new Player(Global.cards);
-				player.play();
-// 				player.setName("player-"+Global.getTried());
-// 				player.start();
-// 				}
+			Player player = new Player(Global.cards);
+			player.play();
 			if (!Global.quiet) System.out.println("Game "+Global.getTried()+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 			if (Global.getTried() >= Global.waitForSteadyState) stats.setValue();
 			if ((Global.getTried() >= Global.waitForSteadyState) && ((Global.getTried()) % Global.reportInterval) == 0) System.out.println(stats.show());
