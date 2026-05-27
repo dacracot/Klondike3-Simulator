@@ -24,14 +24,14 @@ public class Statistics {
 		}
 	//-----------------------------------------------
 	public double getPercentage() {
-		return(((1.0*Global.winner)/Global.tried)*100);
+		return(((1.0*Global.getWins())/Global.getTried())*100);
 		}
 	//-----------------------------------------------
 	public String show() {
 		Duration between = Duration.between(Global.start, Instant.now());
 		return(
-			"stats: won "+String.format("%,10d",Global.winner)+
-			" of "+String.format("%,11d",Global.tried)+
+			"stats: won "+String.format("%,10d",Global.getWins())+
+			" of "+String.format("%,11d",Global.getTried())+
 			" for "+String.format("%7.5f",getPercentage())+"%,"+
 			" with a standard deviation of "+String.format("%9.7f",getStdDev())+
 			" from the mean of "+String.format("%7.5f",getMean())+"%"+
