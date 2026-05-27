@@ -4,6 +4,8 @@
 ---
 
 ## Versions
+- 1.7
+  - While the intent was to create multi-threaded players, the change to better log buffer management resulted in a nearly 20 times increase in speed.
 - 1.6
   - Play altered to sort b2b to ascending or descending column's hidden card count rather than left to right. Winning percentage increased from 8.54274%[^1] to 11.74316%.
 - 1.5, 1.5.1

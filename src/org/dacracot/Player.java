@@ -4,9 +4,10 @@ import java.lang.Thread;
 import org.dacracot.move.FromStack;
 import org.dacracot.move.FromBoard;
 import org.dacracot.move.FromGoal;
-import org.dacracot.util.Throttle;
+// import org.dacracot.util.Throttle;
 //---------------------------------------------------
-public class Player extends Thread {
+// public class Player extends Thread {
+public class Player {
 	//-----------------------------------------------
 	private int cards;
 	private StringBuffer activeGame = new StringBuffer();
@@ -15,8 +16,9 @@ public class Player extends Thread {
 		this.cards = cards;
 		}
 	//-----------------------------------------------
-	@Override
-	public void run() {
+// 	@Override
+// 	public void run() {
+	public void play() {
 		Global.play();
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);
@@ -66,7 +68,7 @@ public class Player extends Thread {
 				break;
 				}
 			}
-		Throttle.less();
+// 		Throttle.less();
 		//-------------------------------------------
 		}
 	//-----------------------------------------------
