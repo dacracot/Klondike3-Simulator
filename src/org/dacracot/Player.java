@@ -53,8 +53,8 @@ public class Player {
 			if (Global.debug){activeGame.append(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Did we win by putting all cards in the goal?
 			if (game.goal.winner()) {
-				if (Global.debug){activeGame.append(game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
  				if (Global.debug) {
+ 					activeGame.append(game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));
 					System.out.println("================== WINNER ==================");
 					System.out.println(activeGame);
 					System.out.println("================== WINNER ==================");
@@ -65,8 +65,8 @@ public class Player {
 				}
 			}
 		//-------------------------------------------
-		if ((Global.debug) && (!won)){activeGame.append(game.showAll("loser >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 		if ((Global.debug) && (!won)) {
+			activeGame.append(game.showAll("loser >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));
 			System.out.println("================== LOSER ==================");
 			System.out.println(activeGame);
 			System.out.println("================== LOSER ==================");
