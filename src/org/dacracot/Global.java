@@ -27,7 +27,7 @@ public class Global {
 		winner++;
 		}
 	//-----------------------------------------------
-	public static synchronized void gameOver() {
+	public static synchronized void play() {
 		tried++;
 		}
 	//-----------------------------------------------

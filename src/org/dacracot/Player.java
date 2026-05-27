@@ -17,6 +17,7 @@ public class Player extends Thread {
 	//-----------------------------------------------
 	@Override
 	public void run() {
+		Global.play();
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
@@ -65,7 +66,6 @@ public class Player extends Thread {
 				break;
 				}
 			}
-		Global.gameOver();
 		Throttle.less();
 		//-------------------------------------------
 		}

@@ -105,13 +105,9 @@ public class Solitaire {
 				player.setName("player-"+Global.getTried());
 				player.start();
 				}
-for (Thread t : Thread.getAllStackTraces().keySet()) {
-	if (t.getName().startsWith("player")) System.err.println(t.getName());
-	}
-System.err.println("-------------");
 			if (!Global.quiet) System.out.println("Game "+Global.getTried()+((Global.tries==Integer.MAX_VALUE)?" until killed":" of "+Global.tries));
 			if (Global.getTried() >= Global.waitForSteadyState) stats.setValue();
-			if ((Global.getTried() % Global.reportInterval) == 0) System.out.println(stats.show());
+			if ((Global.getTried() >= Global.waitForSteadyState) && ((Global.getTried()) % Global.reportInterval) == 0) System.out.println(stats.show());
 			}
 		//-------------------------------------------
 		}
