@@ -22,7 +22,7 @@ public class Klondike{
 		stack = new Stack(deck.getStack(),flips);
 		}
 	//-----------------------------------------------
-	public void showAll(String title) {
+	public String showAll(String title) {
 		StringBuffer sb = new StringBuffer();
 		sb.append("~~~~~~~~~~~~~~~~~~\n");
 		sb.append("~~~ "+title+" ~~~~~~~~~\n");
@@ -30,10 +30,7 @@ public class Klondike{
 		sb.append(board.show());
 		sb.append(stack.show());
 		sb.append("~~~~~~~~~~~~~~~~~~\n");
-		Global.activeGame.append(sb);
-		if (Global.debug){
-			System.err.println(sb.toString());
-			}
+		return(sb.toString());
 		}
 	//-----------------------------------------------
 }
