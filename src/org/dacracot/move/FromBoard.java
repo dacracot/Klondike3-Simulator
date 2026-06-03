@@ -69,6 +69,14 @@ public class FromBoard {
 		boolean played = false;
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
+		//-------------------------------------------
+		// 
+		// Primary new strategy implements sorting the choice of two playable cards.
+		//
+		// sorted here
+		CardColumnLengthAscending ccla = new CardColumnLengthAscending();
+		Collections.sort(bottomUpCards,ccla);
+		//-------------------------------------------
 		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
 			// Play card on goal.
