@@ -39,7 +39,6 @@ public class FromBoard {
 		//
 		// While least is better than the baseline, most is the clear winner.
 		//
-		// sorted here
 		CardColumnLengthDescending ccld = new CardColumnLengthDescending();
 		Collections.sort(topUpCards,ccld);
 		//-------------------------------------------
@@ -69,6 +68,13 @@ public class FromBoard {
 		boolean played = false;
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
+		//-------------------------------------------
+		// 
+		// Primary new strategy implements sorting the choice of two playable cards.
+		//
+		CardColumnLengthAscending ccla = new CardColumnLengthAscending();
+		Collections.sort(bottomUpCards,ccla);
+		//-------------------------------------------
 		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
 			// Play card on goal.
