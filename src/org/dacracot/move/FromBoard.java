@@ -39,7 +39,6 @@ public class FromBoard {
 		//
 		// While least is better than the baseline, most is the clear winner.
 		//
-		// sorted here
 		CardColumnLengthDescending ccld = new CardColumnLengthDescending();
 		Collections.sort(topUpCards,ccld);
 		//-------------------------------------------
@@ -73,7 +72,6 @@ public class FromBoard {
 		// 
 		// Primary new strategy implements sorting the choice of two playable cards.
 		//
-		// sorted here
 		CardColumnLengthAscending ccla = new CardColumnLengthAscending();
 		Collections.sort(bottomUpCards,ccla);
 		//-------------------------------------------
