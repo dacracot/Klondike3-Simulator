@@ -5,7 +5,7 @@
 
 ## Versions
 - 1.8
-  - Play altered to sort b2g to descending column's hidden card count rather than left to right.  Winning percentage increased from 11.74316% to xx.xxxxx%.
+  - Play altered to sort b2g to ascending column's hidden card count rather than left to right.  Winning percentage increased from 11.74316% to 11.74461%.
 - 1.7, 1.7.1
   - While the intent was to create multi-threaded players, the change to better log buffer management resulted in a nearly 20 times increase in speed.
 - 1.6
