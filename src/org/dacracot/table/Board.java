@@ -90,7 +90,9 @@ public class Board {
 		// smallest initial to longest initial
 		for(int i=0; i<SEVEN; i++) {
 			try {
-				bottom.add(columns.get(i).get(columns.get(i).size()-1));
+				Card card = columns.get(i).get(columns.get(i).size()-1);
+				card.setWeight(countFaceDown(columns.get(i)));
+				bottom.add(card);
 				}
 			catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 			}
