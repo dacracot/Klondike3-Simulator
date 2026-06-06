@@ -25,6 +25,8 @@ public class FromStack {
 			game.stack.removeUpCard();
 			return(true);
 			}
+		// if the stack is not empty and you only have a single up card, do not play it unless it is an Ace or a King	
+		if ((game.stack.sizeDown() > 0) && (game.stack.sizeUp() == 1) && ((upCard.getValue() != 1) || (upCard.getValue() != 13))) return(false);
 		// Play card to first available column.
 		if (game.board.playCard(upCard)){
 			// Remove played card from stack.
