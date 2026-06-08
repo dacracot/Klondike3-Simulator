@@ -8,7 +8,7 @@ import org.dacracot.card.Deck;
 public class Board {
 	//-----------------------------------------------
 	private final int SEVEN = 7;
-	private ArrayList<ArrayList<Card>> columns = new ArrayList(SEVEN);
+	private ArrayList<ArrayList<Card>> columns = new ArrayList<>(SEVEN);
 	//-----------------------------------------------
 	public Board(Deck d){
 		for(int i=0; i<SEVEN; i++) {
