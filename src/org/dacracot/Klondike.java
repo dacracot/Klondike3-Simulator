@@ -23,7 +23,7 @@ public class Klondike{
 		}
 	//-----------------------------------------------
 	public String showAll(String title) {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append("~~~~~~~~~~~~~~~~~~\n");
 		sb.append("~~~ "+title+" ~~~~~~~~~\n");
 		sb.append(goal.show());

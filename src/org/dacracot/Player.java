@@ -7,7 +7,7 @@ import org.dacracot.move.FromGoal;
 public class Player {
 	//-----------------------------------------------
 	private int cards;
-	private StringBuffer activeGame = new StringBuffer();
+	private StringBuilder activeGame = new StringBuilder();
 	//-----------------------------------------------
 	public Player(int cards){
 		this.cards = cards;
