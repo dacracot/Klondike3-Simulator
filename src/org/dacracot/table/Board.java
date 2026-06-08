@@ -4,12 +4,11 @@ import java.lang.IndexOutOfBoundsException;
 import java.util.ArrayList;
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;
-import org.dacracot.util.TypedArray;
 //---------------------------------------------------
 public class Board {
 	//-----------------------------------------------
 	private final int SEVEN = 7;
-	private TypedArray<ArrayList<Card>> columns = new TypedArray(SEVEN);
+	private ArrayList<ArrayList<Card>> columns = new ArrayList(SEVEN);
 	//-----------------------------------------------
 	public Board(Deck d){
 		for(int i=0; i<SEVEN; i++) {
