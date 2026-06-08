@@ -189,7 +189,7 @@ public class Board {
 		return(playable);
 		}
 	//-----------------------------------------------
-	private void showColumn(ArrayList<Card> g, StringBuffer sb) {
+	private void showColumn(ArrayList<Card> g, StringBuilder sb) {
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
 			}
@@ -197,7 +197,7 @@ public class Board {
 		}
 	//-----------------------------------------------
 	public String show(){
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append("======================\n");
 		sb.append("=== Board ============\n");
 		for(int i=0; i<SEVEN; i++) {

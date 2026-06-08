@@ -53,7 +53,7 @@ public class Goal {
 		return(false);
 		}
 	//-----------------------------------------------
-	private void showGoal(ArrayList<Card> g, StringBuffer sb){
+	private void showGoal(ArrayList<Card> g, StringBuilder sb){
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
 			}
@@ -61,7 +61,7 @@ public class Goal {
 		}
 	//-----------------------------------------------
 	public String show(){
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append("======================\n");
 		sb.append("=== Goal =============\n");
 		showGoal(spades,sb);
