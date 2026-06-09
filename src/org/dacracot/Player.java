@@ -31,20 +31,20 @@ public class Player {
 				// Played a card
 				flops = 0;
 				}
-			if (Global.debug){activeGame.append(game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+			if (Global.debug){activeGame.append(game.showAll("d2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Play tableau to tableau until no more moves available
 			while(fromTableau.toTableau()) {
-				if (Global.debug){activeGame.append(game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
 			// Play only one (or none) from tableau to foundation
 			if (fromTableau.toFoundation()) {
 				// Played a card
 				flops = 0;
 				}
-			if (Global.debug){activeGame.append(game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+			if (Global.debug){activeGame.append(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Play deck to tableau until no more moves available
 			while(fromDeck.toTableau()) {
-				if (Global.debug){activeGame.append(game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+				if (Global.debug){activeGame.append(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
 			// Turn over the deck
 			if (game.deck.flip()) {
