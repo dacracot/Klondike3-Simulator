@@ -31,7 +31,7 @@ public class Player {
 				// Played a card
 				flops = 0;
 				}
-			if (Global.debug){activeGame.append(game.showAll("d2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+			if (Global.debug){activeGame.append(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Play tableau to tableau until no more moves available
 			while(fromTableau.toTableau()) {
 				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
