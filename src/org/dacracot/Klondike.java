@@ -1,25 +1,26 @@
 package org.dacracot;
 //---------------------------------------------------
 import org.dacracot.card.Card;
-import org.dacracot.card.Deck;
+// fully qualified below
+// import org.dacracot.card.Deck;
 import org.dacracot.table.Foundation;
 import org.dacracot.table.Tableau;
-import org.dacracot.table.Stack;
+import org.dacracot.table.Deck;
 //---------------------------------------------------
 public class Klondike{
 	//-----------------------------------------------
 	private int flips;
-	private Deck deck;
+	private org.dacracot.card.Deck deckOfCards;
 	public Foundation foundation;
 	public Tableau tableau;
-	public Stack stack;
+	public Deck deck;
 	//-----------------------------------------------
 	public Klondike(int f) {
 		flips = f;
-		deck = new Deck();
+		deckOfCards = new org.dacracot.card.Deck();
 		foundation = new Foundation();
-		tableau = new Tableau(deck);
-		stack = new Stack(deck.getStack(),flips);
+		tableau = new Tableau(deckOfCards);
+		deck = new Deck(deckOfCards.getDeck(),flips);
 		}
 	//-----------------------------------------------
 	public String showAll(String title) {
@@ -28,7 +29,7 @@ public class Klondike{
 		sb.append("~~~ "+title+" ~~~~~~~~~\n");
 		sb.append(foundation.show());
 		sb.append(tableau.show());
-		sb.append(stack.show());
+		sb.append(deck.show());
 		sb.append("~~~~~~~~~~~~~~~~~~\n");
 		return(sb.toString());
 		}

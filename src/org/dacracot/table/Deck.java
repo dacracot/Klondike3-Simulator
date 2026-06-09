@@ -3,13 +3,13 @@ package org.dacracot.table;
 import java.util.ArrayList;
 import org.dacracot.card.Card;
 //---------------------------------------------------
-public class Stack {
+public class Deck {
 	//-----------------------------------------------
 	private ArrayList<Card> up = new ArrayList<Card>();
 	private ArrayList<Card> down = new ArrayList<Card>();
 	private int cardsToFlip;
 	//-----------------------------------------------
-	public Stack(ArrayList<Card> d, int f){
+	public Deck(ArrayList<Card> d, int f){
 		flop(d);
 		cardsToFlip = f;
 		}
@@ -66,7 +66,7 @@ public class Stack {
 		return(down.size());
 		}
 	//-----------------------------------------------
-	private void showStack(ArrayList<Card> g, StringBuilder sb){
+	private void showDeck(ArrayList<Card> g, StringBuilder sb){
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
 			}
@@ -76,9 +76,9 @@ public class Stack {
 	public String show(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("======================\n");
-		sb.append("=== Stack ============\n");
-		showStack(down,sb);
-		showStack(up,sb);
+		sb.append("=== Deck ============\n");
+		showDeck(down,sb);
+		showDeck(up,sb);
 		return(sb.toString());
 		}
 	//-----------------------------------------------
