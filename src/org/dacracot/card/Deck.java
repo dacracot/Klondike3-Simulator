@@ -27,7 +27,7 @@ public class Deck {
 		deck = tmp;
 		}
 	//-----------------------------------------------
-	public ArrayList<Card> getStack(){
+	public ArrayList<Card> getDeck(){
 		return(deck);
 		}
 	//-----------------------------------------------

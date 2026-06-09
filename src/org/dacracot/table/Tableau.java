@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;
 //---------------------------------------------------
-public class Board {
+public class Tableau {
 	//-----------------------------------------------
 	private final int SEVEN = 7;
 	private ArrayList<ArrayList<Card>> columns = new ArrayList<>(SEVEN);
 	//-----------------------------------------------
-	public Board(Deck d){
+	public Tableau(Deck d){
 		for(int i=0; i<SEVEN; i++) {
 			columns.add(i, new ArrayList<Card>());
 			}
@@ -118,7 +118,7 @@ public class Board {
 		return(playable);
 		}
 	//-----------------------------------------------
-	public boolean playKingFromStack(Card source) {
+	public boolean playKingFromDeck(Card source) {
 		if (source.getValue() == 13) {
 			for(int i=0; i<SEVEN; i++) {
 				if (columns.get(i).isEmpty()) {
@@ -130,7 +130,7 @@ public class Board {
 		return(false);
 		}
 	//-----------------------------------------------
-	public boolean playKingFromBoard(Card source) {
+	public boolean playKingFromTableau(Card source) {
 		ArrayList<Card> sourceColumn = null;
 		if (source.getValue() == 13) {
 			for(int i=0; i<SEVEN; i++) {
@@ -198,7 +198,7 @@ public class Board {
 	public String show(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("======================\n");
-		sb.append("=== Board ============\n");
+		sb.append("=== Tableau ============\n");
 		for(int i=0; i<SEVEN; i++) {
 			showColumn(columns.get(i),sb);
 			}

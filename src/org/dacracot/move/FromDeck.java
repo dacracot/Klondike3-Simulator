@@ -3,32 +3,32 @@ package org.dacracot.move;
 import org.dacracot.card.Card;
 import org.dacracot.Klondike;
 //---------------------------------------------------
-public class FromStack {
+public class FromDeck {
 	//-----------------------------------------------
 	private Klondike game;
 	//-----------------------------------------------
-	public FromStack (Klondike game) {
+	public FromDeck (Klondike game) {
 		this.game = game;
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the stack to the board.
+	// Move a card from the deck to the tableau.
 	//
-	public boolean toBoard() {
-		// Get upper most card from stack.
-		Card upCard = game.stack.getUpCard();
-		// Stack is empty.
+	public boolean toTableau() {
+		// Get upper most card from deck.
+		Card upCard = game.deck.getUpCard();
+		// Deck is empty.
 		if (upCard == null) return(false);
 		// Play any kings to any empty colum.
-		if (game.board.playKingFromStack(upCard)){
-			// Remove played card from stack.
-			game.stack.removeUpCard();
+		if (game.tableau.playKingFromDeck(upCard)){
+			// Remove played card from deck.
+			game.deck.removeUpCard();
 			return(true);
 			}
 		// Play card to first available column.
-		if (game.board.playCard(upCard)){
-			// Remove played card from stack.
-			game.stack.removeUpCard();
+		if (game.tableau.playCard(upCard)){
+			// Remove played card from deck.
+			game.deck.removeUpCard();
 			return(true);
 			}
 		// Return false if no play as available.
@@ -36,17 +36,17 @@ public class FromStack {
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the stack to the goal.
+	// Move a card from the deck to the foundation.
 	//
-	public boolean toGoal() {
-		// Get upper most card from stack.
-		Card upCard = game.stack.getUpCard();
-		// Stack is empty.
+	public boolean toFoundation() {
+		// Get upper most card from deck.
+		Card upCard = game.deck.getUpCard();
+		// Deck is empty.
 		if (upCard == null) return(false);
-		// Play card to goal.
-		if (game.goal.playCard(upCard)){
-			// Remove played card from stack.
-			game.stack.removeUpCard();
+		// Play card to foundation.
+		if (game.foundation.playCard(upCard)){
+			// Remove played card from deck.
+			game.deck.removeUpCard();
 			return(true);
 			}
 		// Return false if no play as available.
