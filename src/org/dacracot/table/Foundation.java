@@ -3,14 +3,14 @@ package org.dacracot.table;
 import java.util.ArrayList;
 import org.dacracot.card.Card;
 //---------------------------------------------------
-public class Goal {
+public class Foundation {
 	//-----------------------------------------------
 	ArrayList<Card> spades;
 	ArrayList<Card> hearts;
 	ArrayList<Card> clubs;
 	ArrayList<Card> diamonds;
 	//-----------------------------------------------
-	public Goal(){
+	public Foundation(){
 		spades = new ArrayList<Card>();
 		hearts = new ArrayList<Card>();
 		clubs = new ArrayList<Card>();
@@ -53,7 +53,7 @@ public class Goal {
 		return(false);
 		}
 	//-----------------------------------------------
-	private void showGoal(ArrayList<Card> g, StringBuilder sb){
+	private void showFoundation(ArrayList<Card> g, StringBuilder sb){
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
 			}
@@ -63,11 +63,11 @@ public class Goal {
 	public String show(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("======================\n");
-		sb.append("=== Goal =============\n");
-		showGoal(spades,sb);
-		showGoal(diamonds,sb);
-		showGoal(clubs,sb);
-		showGoal(hearts,sb);
+		sb.append("=== Foundation =============\n");
+		showFoundation(spades,sb);
+		showFoundation(diamonds,sb);
+		showFoundation(clubs,sb);
+		showFoundation(hearts,sb);
 		return(sb.toString());
 		}
 	//-----------------------------------------------
