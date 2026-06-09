@@ -4,6 +4,8 @@
 ---
 
 ## Versions
+- 1.9
+  - Play unchanged. Changed terminology to commonly used, board -> tableau, goal -> foundation, and stack -> deck.
 - 1.8, 1.8.1
   - Play altered to sort t2f to ascending column's hidden card count rather than left to right.  Winning percentage increased from 11.74316% to 11.74461%.
 - 1.7, 1.7.1
