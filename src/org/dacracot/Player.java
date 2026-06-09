@@ -26,22 +26,22 @@ public class Player {
 		int flops = 0;
 		// Play until there are no moves for three loops.
 		while(flops < 3) {
-			// Play only one (or none) from deck to foundation
-			if (fromDeck.toFoundation()) {
-				// Played a card
-				flops = 0;
-				}
-			if (Global.debug){activeGame.append(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			// Play tableau to tableau until no more moves available
-			while(fromTableau.toTableau()) {
-				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-				}
 			// Play only one (or none) from tableau to foundation
 			if (fromTableau.toFoundation()) {
 				// Played a card
 				flops = 0;
 				}
 			if (Global.debug){activeGame.append(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+			// Play tableau to tableau until no more moves available
+			while(fromTableau.toTableau()) {
+				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+				}
+			// Play only one (or none) from deck to foundation
+			if (fromDeck.toFoundation()) {
+				// Played a card
+				flops = 0;
+				}
+			if (Global.debug){activeGame.append(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Play deck to tableau until no more moves available
 			while(fromDeck.toTableau()) {
 				if (Global.debug){activeGame.append(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
