@@ -36,15 +36,15 @@ public class FromStack {
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the stack to the goal.
+	// Move a card from the stack to the foundation.
 	//
-	public boolean toGoal() {
+	public boolean toFoundation() {
 		// Get upper most card from stack.
 		Card upCard = game.stack.getUpCard();
 		// Stack is empty.
 		if (upCard == null) return(false);
-		// Play card to goal.
-		if (game.goal.playCard(upCard)){
+		// Play card to foundation.
+		if (game.foundation.playCard(upCard)){
 			// Remove played card from stack.
 			game.stack.removeUpCard();
 			return(true);

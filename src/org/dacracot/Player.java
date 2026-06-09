@@ -2,7 +2,7 @@ package org.dacracot;
 //---------------------------------------------------
 import org.dacracot.move.FromStack;
 import org.dacracot.move.FromBoard;
-import org.dacracot.move.FromGoal;
+import org.dacracot.move.FromFoundation;
 //---------------------------------------------------
 public class Player {
 	//-----------------------------------------------
@@ -18,7 +18,7 @@ public class Player {
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);
 		FromBoard fromBoard = new FromBoard(game);
-		FromGoal fromGoal = new FromGoal(game);
+		FromFoundation fromFoundation = new FromFoundation(game);
 		if (Global.debug){activeGame.append(game.showAll("Ready to Play"));}
 		//-------------------------------------------
 		boolean won = false;
@@ -26,8 +26,8 @@ public class Player {
 		int flops = 0;
 		// Play until there are no moves for three loops.
 		while(flops < 3) {
-			// Play only one (or none) from stack to goal
-			if (fromStack.toGoal()) {
+			// Play only one (or none) from stack to foundation
+			if (fromStack.toFoundation()) {
 				// Played a card
 				flops = 0;
 				}
@@ -36,8 +36,8 @@ public class Player {
 			while(fromBoard.toBoard()) {
 				if (Global.debug){activeGame.append(game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
-			// Play only one (or none) from board to goal
-			if (fromBoard.toGoal()) {
+			// Play only one (or none) from board to foundation
+			if (fromBoard.toFoundation()) {
 				// Played a card
 				flops = 0;
 				}
@@ -51,8 +51,8 @@ public class Player {
 				flops++;
 				}
 			if (Global.debug){activeGame.append(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			// Did we win by putting all cards in the goal?
-			if (game.goal.winner()) {
+			// Did we win by putting all cards in the foundation?
+			if (game.foundation.winner()) {
  				if (Global.debug) {
  					activeGame.append(game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));
 					System.out.println("================== WINNER ==================");

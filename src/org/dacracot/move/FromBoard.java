@@ -62,9 +62,9 @@ public class FromBoard {
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the board to the goal.
+	// Move a card from the board to the foundation.
 	//
-	public boolean toGoal() {
+	public boolean toFoundation() {
 		boolean played = false;
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
 		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
@@ -77,8 +77,8 @@ public class FromBoard {
 		//-------------------------------------------
 		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
-			// Play card on goal.
-			if (game.goal.playCard(bottomUpCard)) {
+			// Play card on foundation.
+			if (game.foundation.playCard(bottomUpCard)) {
 				// Remove played card from board.
 				game.board.removeCard(bottomUpCard);
 				played = true;
