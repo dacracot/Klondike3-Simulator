@@ -1,7 +1,7 @@
 package org.dacracot;
 //---------------------------------------------------
 import org.dacracot.move.FromStack;
-import org.dacracot.move.FromBoard;
+import org.dacracot.move.FromTableau;
 import org.dacracot.move.FromFoundation;
 //---------------------------------------------------
 public class Player {
@@ -17,7 +17,7 @@ public class Player {
 		Global.play();
 		Klondike game = new Klondike(cards);
 		FromStack fromStack = new FromStack(game);
-		FromBoard fromBoard = new FromBoard(game);
+		FromTableau fromTableau = new FromTableau(game);
 		FromFoundation fromFoundation = new FromFoundation(game);
 		if (Global.debug){activeGame.append(game.showAll("Ready to Play"));}
 		//-------------------------------------------
@@ -32,18 +32,18 @@ public class Player {
 				flops = 0;
 				}
 			if (Global.debug){activeGame.append(game.showAll("s2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			// Play board to board until no more moves available
-			while(fromBoard.toBoard()) {
+			// Play tableau to tableau until no more moves available
+			while(fromTableau.toTableau()) {
 				if (Global.debug){activeGame.append(game.showAll("b2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
-			// Play only one (or none) from board to foundation
-			if (fromBoard.toFoundation()) {
+			// Play only one (or none) from tableau to foundation
+			if (fromTableau.toFoundation()) {
 				// Played a card
 				flops = 0;
 				}
 			if (Global.debug){activeGame.append(game.showAll("b2g   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			// Play stack to board until no more moves available
-			while(fromStack.toBoard()) {
+			// Play stack to tableau until no more moves available
+			while(fromStack.toTableau()) {
 				if (Global.debug){activeGame.append(game.showAll("s2b   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
 			// Turn over the stack

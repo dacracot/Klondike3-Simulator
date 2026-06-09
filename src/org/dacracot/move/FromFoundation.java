@@ -11,9 +11,9 @@ public class FromFoundation {
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the foundation to the board.
+	// Move a card from the foundation to the tableau.
 	//
-	public boolean toBoard() {
+	public boolean toTableau() {
 		// This is yet to be implemented.
 		return(false);
 		}

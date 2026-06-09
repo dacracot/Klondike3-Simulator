@@ -7,22 +7,22 @@ import org.dacracot.card.Card;
 import org.dacracot.move.criteria.CardColumnLengthAscending;
 import org.dacracot.move.criteria.CardColumnLengthDescending;
 //---------------------------------------------------
-public class FromBoard {
+public class FromTableau {
 	//-----------------------------------------------
 	private Klondike game;
 	//-----------------------------------------------
-	public FromBoard (Klondike game) {
+	public FromTableau (Klondike game) {
 		this.game = game;
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the board to the board.
+	// Move a card from the tableau to the tableau.
 	//
-	public boolean toBoard() {
+	public boolean toTableau() {
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
-		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
+		ArrayList<Card> bottomUpCards = game.tableau.getUpCardsFromBottom();
 		// Get a list of the face-up top most cards starting with originally shortest column.
-		ArrayList<Card> topUpCards = game.board.getUpCardsFromTop();
+		ArrayList<Card> topUpCards = game.tableau.getUpCardsFromTop();
 		//-------------------------------------------
 		// 
 		// Primary new strategy implements sorting the choice of two playable cards.
@@ -47,11 +47,11 @@ public class FromBoard {
 			// Loop thru top up cards.
 			for(Card topUpCard : topUpCards) {
 				// Play any kings to any empty colum.
-				if (game.board.playKingFromBoard(topUpCard)) {
+				if (game.tableau.playKingFromTableau(topUpCard)) {
 					return(true);
 					}
 				// Play any top card to any matching bottom card.
-				if (game.board.playCard(bottomUpCard,topUpCard)) {
+				if (game.tableau.playCard(bottomUpCard,topUpCard)) {
 					return(true);
 					}
 				}
@@ -62,12 +62,12 @@ public class FromBoard {
 		}
 	//-----------------------------------------------
 	//
-	// Move a card from the board to the foundation.
+	// Move a card from the tableau to the foundation.
 	//
 	public boolean toFoundation() {
 		boolean played = false;
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
-		ArrayList<Card> bottomUpCards = game.board.getUpCardsFromBottom();
+		ArrayList<Card> bottomUpCards = game.tableau.getUpCardsFromBottom();
 		//-------------------------------------------
 		// 
 		// Primary new strategy implements sorting the choice of two playable cards.
@@ -79,8 +79,8 @@ public class FromBoard {
 		for(Card bottomUpCard : bottomUpCards) {
 			// Play card on foundation.
 			if (game.foundation.playCard(bottomUpCard)) {
-				// Remove played card from board.
-				game.board.removeCard(bottomUpCard);
+				// Remove played card from tableau.
+				game.tableau.removeCard(bottomUpCard);
 				played = true;
 				}
 			// Play all playable cards, return true.

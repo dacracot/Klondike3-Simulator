@@ -3,7 +3,7 @@ package org.dacracot;
 import org.dacracot.card.Card;
 import org.dacracot.card.Deck;
 import org.dacracot.table.Foundation;
-import org.dacracot.table.Board;
+import org.dacracot.table.Tableau;
 import org.dacracot.table.Stack;
 //---------------------------------------------------
 public class Klondike{
@@ -11,14 +11,14 @@ public class Klondike{
 	private int flips;
 	private Deck deck;
 	public Foundation foundation;
-	public Board board;
+	public Tableau tableau;
 	public Stack stack;
 	//-----------------------------------------------
 	public Klondike(int f) {
 		flips = f;
 		deck = new Deck();
 		foundation = new Foundation();
-		board = new Board(deck);
+		tableau = new Tableau(deck);
 		stack = new Stack(deck.getStack(),flips);
 		}
 	//-----------------------------------------------
@@ -27,7 +27,7 @@ public class Klondike{
 		sb.append("~~~~~~~~~~~~~~~~~~\n");
 		sb.append("~~~ "+title+" ~~~~~~~~~\n");
 		sb.append(foundation.show());
-		sb.append(board.show());
+		sb.append(tableau.show());
 		sb.append(stack.show());
 		sb.append("~~~~~~~~~~~~~~~~~~\n");
 		return(sb.toString());
