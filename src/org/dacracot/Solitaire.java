@@ -108,13 +108,6 @@ public class Solitaire {
 				(seeded?("with "+seed+" seed"):"without a seed")
 				);
 			}
-		System.out.println(
-			"running: turn "+Global.cards+" cards"+
-			((Global.tries==Integer.MAX_VALUE)?" until killed":" for "+String.format("%,d",Global.tries)+" attempts")+
-			(Global.quiet?" quietly ":" ")+
-			(Global.debug?"with":"without")+" debug "+
-			(seeded?("with "+seed+" seed"):"without a seed")
-			);
 		System.out.println("");
 		//-------------------------------------------
 		while(Global.getTried()<Global.tries){
