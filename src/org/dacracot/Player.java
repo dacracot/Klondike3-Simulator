@@ -24,6 +24,7 @@ public class Player {
 		boolean won = false;
 		int loops = 0;
 		int flops = 0;
+int bang = 0;
 		// Play until there are no moves for three loops.
 		while(flops < 3) {
 			// Play only one (or none) from deck to foundation
@@ -46,11 +47,6 @@ public class Player {
 			while(fromDeck.toTableau()) {
 				if (Global.debug){activeGame.append(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				}
-			// Turn over the deck
-			if (game.deck.flip()) {
-				flops++;
-				}
-			if (Global.debug){activeGame.append(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			// Did we win by putting all cards in the foundation?
 			if (game.foundation.winner()) {
  				if (Global.debug) {
@@ -63,6 +59,22 @@ public class Player {
 				Global.win();
 				break;
 				}
+			// Play foundation to tableau if it looks like we are about to lose
+			if (fromFoundation.toTableau()) {
+				// Played a card
+
+bang++;
+if (bang == 20) {
+	System.out.println("BANG!");
+	break;
+	}
+				}
+			if (Global.debug){activeGame.append(game.showAll("f2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
+			// Turn over the deck
+			if (game.deck.flip()) {
+				flops++;
+				}
+			if (Global.debug){activeGame.append(game.showAll("d.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 			}
 		//-------------------------------------------
 		if ((Global.debug) && (!won)) {
