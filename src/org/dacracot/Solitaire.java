@@ -67,30 +67,51 @@ public class Solitaire {
 			if ((Global.quiet)||(Global.watch)) {
 				Global.debug = false;
 				}
-			if (Global.quiet) {
-				Global.watch = false;
+			if (Global.watch) {
+				Global.quiet = false;
+				Global.random = new Random(1L);
+				Global.tries = 1;
 				}
 			}
 		else{
-			System.out.println("usage: [--one|--three] [--attempts #|--continuous] [--debug|--watch|--quiet] [--seed #]");
+			System.out.println("usage: [--watch | [--one|--three] [--attempts #|--continuous] [--debug|--quiet] [--seed #]]");
 			System.out.println("    --one: Turn only one card each play.");
 			System.out.println("    --three: Turn three cards each play.");
 			System.out.println("    --attempts: Number of games to attempt.");
 			System.out.println("    --continuous: Attempt games until killed.");
 			System.out.println("    --debug: Verbose output about each game.");
-			System.out.println("    --watch: Verbose output about each game played out in the console.");
 			System.out.println("    --quiet: Minimal output about each game.");
 			System.out.println("    --seed: Random seed for repeatable play.");
+			System.out.println("    --watch: Outputs at one second per move, a single winnable game. No other switch is considered.");
 			System.out.println("");
 			Global.random = new Random(); // truly Random for no parameters
 			}
 		System.out.println("");
+		if (Global.watch) {
+			System.out.println("running: turn "+Global.cards+" cards for one winnable game watching play on console");
+			System.out.println("PRESS ENTER TO CONTINUE");
+			try {
+				System.in.read();
+				}
+			catch (Exception e) {
+				System.err.println(e);
+				System.exit(1);
+				}
+			}
+		else {
+			System.out.println(
+				"running: turn "+Global.cards+" cards"+
+				((Global.tries==Integer.MAX_VALUE)?" until killed":" for "+String.format("%,d",Global.tries)+" attempts")+
+				(Global.quiet?" quietly ":" ")+
+				(Global.debug?"with":"without")+" debug "+
+				(seeded?("with "+seed+" seed"):"without a seed")
+				);
+			}
 		System.out.println(
 			"running: turn "+Global.cards+" cards"+
 			((Global.tries==Integer.MAX_VALUE)?" until killed":" for "+String.format("%,d",Global.tries)+" attempts")+
 			(Global.quiet?" quietly ":" ")+
 			(Global.debug?"with":"without")+" debug "+
-			(Global.watch?"with":"without")+" console watch  "+
 			(seeded?("with "+seed+" seed"):"without a seed")
 			);
 		System.out.println("");
