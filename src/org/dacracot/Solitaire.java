@@ -62,18 +62,23 @@ public class Solitaire {
 				Global.random = new Random(); // truly Random
 				}
 			Global.debug = (params.indexOf("--debug") != -1);
+			Global.watch = (params.indexOf("--watch") != -1);
 			Global.quiet = (params.indexOf("--quiet") != -1);
-			if (Global.quiet) {
+			if ((Global.quiet)||(Global.watch)) {
 				Global.debug = false;
+				}
+			if (Global.quiet) {
+				Global.watch = false;
 				}
 			}
 		else{
-			System.out.println("usage: [--one|--three] [--attempts #|--continuous] [--debug|--quiet] [--seed #]");
+			System.out.println("usage: [--one|--three] [--attempts #|--continuous] [--debug|--watch|--quiet] [--seed #]");
 			System.out.println("    --one: Turn only one card each play.");
 			System.out.println("    --three: Turn three cards each play.");
 			System.out.println("    --attempts: Number of games to attempt.");
 			System.out.println("    --continuous: Attempt games until killed.");
 			System.out.println("    --debug: Verbose output about each game.");
+			System.out.println("    --watch: Verbose output about each game played out in the console.");
 			System.out.println("    --quiet: Minimal output about each game.");
 			System.out.println("    --seed: Random seed for repeatable play.");
 			System.out.println("");
