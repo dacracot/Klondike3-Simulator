@@ -20,10 +20,12 @@ public class Player {
 		FromTableau fromTableau = new FromTableau(game);
 		FromFoundation fromFoundation = new FromFoundation(game);
 		if (Global.debug){activeGame.append(game.showAll("Ready to Play"));}
+		if (Global.watch){System.out.println(game.showAll("Ready to Play"));}
 		//-------------------------------------------
 		boolean won = false;
 		int loops = 0;
 		int flops = 0;
+	try {
 		// Play until there are no moves for three loops.
 		while(flops < 3) {
 			// Play only one (or none) from deck to foundation
@@ -32,11 +34,11 @@ public class Player {
 				flops = 0;
 				}
 			if (Global.debug){activeGame.append(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			if (Global.watch){game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));System.out.print("\033[23F");}
+			if (Global.watch){System.out.println(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops))+"\033[23F");Thread.sleep(1000);}
 			// Play tableau to tableau until no more moves available
 			while(fromTableau.toTableau()) {
 				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-				if (Global.watch){game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));System.out.print("\033[23F");}
+				if (Global.watch){System.out.println(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops))+"\033[23F");Thread.sleep(1000);}
 				}
 			// Play only one (or none) from tableau to foundation
 			if (fromTableau.toFoundation()) {
@@ -44,18 +46,18 @@ public class Player {
 				flops = 0;
 				}
 			if (Global.debug){activeGame.append(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			if (Global.watch){game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));System.out.print("\033[23F");}
+			if (Global.watch){System.out.println(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops))+"\033[23F");Thread.sleep(1000);}
 			// Play deck to tableau until no more moves available
 			while(fromDeck.toTableau()) {
 				if (Global.debug){activeGame.append(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-				if (Global.watch){game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));System.out.print("\033[23F");}
+				if (Global.watch){System.out.println(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops))+"\033[23F");Thread.sleep(1000);}
 				}
 			// Turn over the deck
 			if (game.deck.flip()) {
 				flops++;
 				}
 			if (Global.debug){activeGame.append(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			if (Global.watch){game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops));System.out.print("\033[23F");}
+			if (Global.watch){System.out.println(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops))+"\033[23F");Thread.sleep(1000);}
 			// Did we win by putting all cards in the foundation?
 			if (game.foundation.winner()) {
  				if (Global.debug) {
@@ -69,6 +71,10 @@ public class Player {
 				break;
 				}
 			}
+		}
+	catch (Exception e) {
+		System.err.println(e);
+		}
 		//-------------------------------------------
 		if ((Global.debug) && (!won)) {
 			activeGame.append(game.showAll("loser >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));
