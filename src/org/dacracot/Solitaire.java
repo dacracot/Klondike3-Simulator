@@ -90,6 +90,7 @@ public class Solitaire {
 			((Global.tries==Integer.MAX_VALUE)?" until killed":" for "+String.format("%,d",Global.tries)+" attempts")+
 			(Global.quiet?" quietly ":" ")+
 			(Global.debug?"with":"without")+" debug "+
+			(Global.watch?"with":"without")+" console watch  "+
 			(seeded?("with "+seed+" seed"):"without a seed")
 			);
 		System.out.println("");
