@@ -69,6 +69,7 @@ public class Solitaire {
 				}
 			if (Global.watch) {
 				Global.quiet = false;
+				Global.cards = 3;
 				Global.random = new Random(1L);
 				Global.tries = 1;
 				}
