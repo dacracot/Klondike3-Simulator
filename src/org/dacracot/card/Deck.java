@@ -45,10 +45,10 @@ public class Deck {
 	//-----------------------------------------------
 	public void show(){
 		for(int i=0; i<deck.size(); i++){
-			deck.get(i).draw();
+			System.out.print(deck.get(i).draw());
 			}
-		System.err.println();
-		System.err.println("----------------------");
+		System.out.println();
+		System.out.println("----------------------");
 		}
 	//-----------------------------------------------
 }
