@@ -4,7 +4,7 @@
 ---
 
 ## Versions
-- 1.10
+- 1.10, 1.10.1
   - Play unchanged. Added switch --watch, which plays a single, turn three, winnable game, one second per move, to the console.
 - 1.9
   - Play unchanged. Changed terminology to commonly used, board -> tableau, goal -> foundation, and stack -> deck.
