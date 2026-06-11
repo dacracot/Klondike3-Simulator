@@ -4,6 +4,8 @@
 ---
 
 ## Versions
+- 1.10
+  - Play unchanged. Added switch --watch, which plays a single, turn three, winnable game, one second per move, to the console.
 - 1.9
   - Play unchanged. Changed terminology to commonly used, board -> tableau, goal -> foundation, and stack -> deck.
 - 1.8, 1.8.1
@@ -32,7 +34,7 @@
   - Using Apache Ant to build project with default build.xml.
     - Targets are "clean" and "compile.java".  Default runs both.
 - run `java -jar simulator.jar`
-  - usage: `[--one|--three] [--attempts #|--continuous] [--debug|--quiet] [--seed #]`
+  - usage: `usage: [--watch | [--one|--three] [--attempts #|--continuous] [--debug|--quiet] [--seed #]]`
     - `--one`: Turn only one card each play.
     - `--three`: Turn three cards each play.
     - `--attempts`: Number of games to attempt.
@@ -40,6 +42,7 @@
     - `--debug`: Verbose output about each game.
     - `--quiet`: Minimal output about each game.
     - `--seed`: Random seed for repeatable play.
+    - `--watch`: Outputs at one second per move, a single winnable game. No other switch is considered.
   - For example: `java -jar simulator.jar --three --attempts 10 --seed 1111 > debug.out 2> debug.err`
     - Run java with the simulator jar.
     - Turn three cards for each turn.
@@ -47,6 +50,11 @@
     - Shuffle the deck starting with the seed 1111.
     - Write standard output to debug.out.
     - Write standard error to debug.err.
+  - Another example: `java -jar simulator.jar --watch`
+    - Run java with the simulator jar.
+    - Turn three cards for each turn.
+    - Play a single winnable game.
+    - Display each move in the console.
 - run `java -jar simulator.jar --quiet --three --attempts 100000000 --seed 1111 > myWinningPercentage.txt` to determine your success rate verses the current record.
 	- Compare your results with winningPercentage.txt and PR your file if better.
 
