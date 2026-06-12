@@ -83,7 +83,7 @@ public class Player {
 				break;
 				}
 			// Saved by the foundation
-			if ((flops >= 3) && (saves > 3)) {
+			if ((flops >= 3) && (saves < 3)) {
 				// Play tableau to tableau until no more moves available
 				while(fromFoundation.toTableau()) {
 					if (Global.debug){activeGame.append(game.showAll("f2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));}

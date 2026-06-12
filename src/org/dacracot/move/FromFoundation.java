@@ -31,9 +31,10 @@ public class FromFoundation {
 		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
 			// Loop thru top up cards.
-			for(Card returnCard : returnCards) {
+			for(Card returningCard : returnCards) {
 				// Play any top card to any matching bottom card.
-				if (game.tableau.playCard(bottomUpCard,returnCard)) {
+				if (game.tableau.returnCard(bottomUpCard,returningCard)) {
+					game.foundation.removeCard(returningCard);
 					return(true);
 					}
 				}

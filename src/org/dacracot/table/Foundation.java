@@ -5,10 +5,10 @@ import org.dacracot.card.Card;
 //---------------------------------------------------
 public class Foundation {
 	//-----------------------------------------------
-	ArrayList<Card> spades;
-	ArrayList<Card> hearts;
-	ArrayList<Card> clubs;
-	ArrayList<Card> diamonds;
+	private ArrayList<Card> spades;
+	private ArrayList<Card> hearts;
+	private ArrayList<Card> clubs;
+	private ArrayList<Card> diamonds;
 	//-----------------------------------------------
 	public Foundation(){
 		spades = new ArrayList<Card>();
@@ -20,21 +20,33 @@ public class Foundation {
 	public ArrayList<Card> getUpCardsFromBottom() {
 		ArrayList<Card> bottom = new ArrayList<Card>();
 		// Spades
-		Card spade = spades.get(spades.size()-1);
-		spade.setWeight(spades.size());
-		bottom.add(spade);
+		try {
+			Card spade = spades.get(spades.size()-1);
+			spade.setWeight(spades.size());
+			bottom.add(spade);
+			}
+		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 		// hearts
-		Card heart = hearts.get(hearts.size()-1);
-		heart.setWeight(hearts.size());
-		bottom.add(heart);
+		try {
+			Card heart = hearts.get(hearts.size()-1);
+			heart.setWeight(hearts.size());
+			bottom.add(heart);
+			}
+		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 		// clubs
-		Card club = clubs.get(clubs.size()-1);
-		club.setWeight(clubs.size());
-		bottom.add(club);
+		try {
+			Card club = clubs.get(clubs.size()-1);
+			club.setWeight(clubs.size());
+			bottom.add(club);
+			}
+		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 		// diamonds
-		Card diamond = diamonds.get(diamonds.size()-1);
-		diamond.setWeight(diamonds.size());
-		bottom.add(diamond);
+		try {
+			Card diamond = diamonds.get(diamonds.size()-1);
+			diamond.setWeight(diamonds.size());
+			bottom.add(diamond);
+			}
+		catch(IndexOutOfBoundsException e) {} // empty columns have no up card
 		//-------------------------------------------		
 		return(bottom);
 		}
@@ -73,6 +85,29 @@ public class Foundation {
 			System.exit(1);
 			}
 		return(false);
+		}
+	//-----------------------------------------------
+	public void removeCard(Card c){
+		try{
+			switch(c.getSuit()){
+				case SPADES:
+					spades.remove(c);
+					break;
+				case HEARTS:
+					hearts.remove(c);
+					break;
+				case CLUBS:
+					clubs.remove(c);
+					break;
+				case DIAMONDS:
+					diamonds.remove(c);
+					break;
+				}
+			}
+		catch(Exception e){
+			System.err.println(e);
+			System.exit(1);
+			}
 		}
 	//-----------------------------------------------
 	private void showFoundation(ArrayList<Card> g, StringBuilder sb){
