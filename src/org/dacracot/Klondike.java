@@ -3,9 +3,9 @@ package org.dacracot;
 import org.dacracot.card.Card;
 // fully qualified below
 // import org.dacracot.card.Deck;
+import org.dacracot.table.Deck;
 import org.dacracot.table.Foundation;
 import org.dacracot.table.Tableau;
-import org.dacracot.table.Deck;
 //---------------------------------------------------
 public class Klondike{
 	//-----------------------------------------------

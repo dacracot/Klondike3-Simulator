@@ -1,7 +1,7 @@
 package org.dacracot;
 //---------------------------------------------------
-import java.util.Random;
 import java.time.Instant;
+import java.util.Random;
 //---------------------------------------------------
 public class Global {
 	//-----------------------------------------------

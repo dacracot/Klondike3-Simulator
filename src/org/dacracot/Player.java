@@ -1,8 +1,8 @@
 package org.dacracot;
 //---------------------------------------------------
 import org.dacracot.move.FromDeck;
-import org.dacracot.move.FromTableau;
 import org.dacracot.move.FromFoundation;
+import org.dacracot.move.FromTableau;
 //---------------------------------------------------
 public class Player {
 	//-----------------------------------------------
@@ -37,6 +37,7 @@ public class Player {
 		boolean won = false;
 		int loops = 0;
 		int flops = 0;
+		int saves = 0;
 		// Play until there are no moves for three loops.
 		while(flops < 3) {
 			// Play only one (or none) from deck to foundation
@@ -44,35 +45,35 @@ public class Player {
 				// Played a card
 				flops = 0;
 				}
-			if (Global.debug){activeGame.append(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			if (Global.watch){System.out.println(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
+			if (Global.debug){activeGame.append(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));}
+			if (Global.watch){System.out.println(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));watcher();}
 			// Play tableau to tableau until no more moves available
 			while(fromTableau.toTableau()) {
-				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-				if (Global.watch){System.out.println(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
+				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));}
+				if (Global.watch){System.out.println(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));watcher();}
 				}
 			// Play only one (or none) from tableau to foundation
 			if (fromTableau.toFoundation()) {
 				// Played a card
 				flops = 0;
 				}
-			if (Global.debug){activeGame.append(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			if (Global.watch){System.out.println(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
+			if (Global.debug){activeGame.append(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));}
+			if (Global.watch){System.out.println(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));watcher();}
 			// Play deck to tableau until no more moves available
 			while(fromDeck.toTableau()) {
-				if (Global.debug){activeGame.append(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-				if (Global.watch){System.out.println(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
+				if (Global.debug){activeGame.append(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));}
+				if (Global.watch){System.out.println(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));watcher();}
 				}
 			// Turn over the deck
 			if (game.deck.flip()) {
 				flops++;
 				}
-			if (Global.debug){activeGame.append(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
-			if (Global.watch){System.out.println(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
+			if (Global.debug){activeGame.append(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));}
+			if (Global.watch){System.out.println(game.showAll("s.flip >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));watcher();}
 			// Did we win by putting all cards in the foundation?
 			if (game.foundation.winner()) {
  				if (Global.debug) {
- 					activeGame.append(game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));
+ 					activeGame.append(game.showAll("winner >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));
 					System.out.println("================== WINNER ==================");
 					System.out.println(activeGame);
 					System.out.println("================== WINNER ==================");
@@ -81,10 +82,19 @@ public class Player {
 				Global.win();
 				break;
 				}
+			// Saved by the foundation
+			if ((flops >= 3) && (saves > 3)) {
+				// Play tableau to tableau until no more moves available
+				while(fromFoundation.toTableau()) {
+					if (Global.debug){activeGame.append(game.showAll("f2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));}
+					if (Global.watch){System.out.println(game.showAll("f2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));watcher();}
+					}
+				saves++;
+				}
 			}
 		//-------------------------------------------
 		if ((Global.debug) && (!won)) {
-			activeGame.append(game.showAll("loser >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));
+			activeGame.append(game.showAll("loser >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)+" | saves:"+Integer.toString(saves)));
 			System.out.println("================== LOSER ==================");
 			System.out.println(activeGame);
 			System.out.println("================== LOSER ==================");

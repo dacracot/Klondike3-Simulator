@@ -2,8 +2,8 @@ package org.dacracot.move;
 //---------------------------------------------------
 import java.util.ArrayList;
 import java.util.Collections;
-import org.dacracot.Klondike;
 import org.dacracot.card.Card;
+import org.dacracot.Klondike;
 import org.dacracot.move.criteria.CardColumnLengthAscending;
 import org.dacracot.move.criteria.CardColumnLengthDescending;
 //---------------------------------------------------

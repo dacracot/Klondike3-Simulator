@@ -17,6 +17,28 @@ public class Foundation {
 		diamonds = new ArrayList<Card>();
 		}
 	//-----------------------------------------------
+	public ArrayList<Card> getUpCardsFromBottom() {
+		ArrayList<Card> bottom = new ArrayList<Card>();
+		// Spades
+		Card spade = spades.get(spades.size()-1);
+		spade.setWeight(spades.size());
+		bottom.add(spade);
+		// hearts
+		Card heart = hearts.get(hearts.size()-1);
+		heart.setWeight(hearts.size());
+		bottom.add(heart);
+		// clubs
+		Card club = clubs.get(clubs.size()-1);
+		club.setWeight(clubs.size());
+		bottom.add(club);
+		// diamonds
+		Card diamond = diamonds.get(diamonds.size()-1);
+		diamond.setWeight(diamonds.size());
+		bottom.add(diamond);
+		//-------------------------------------------		
+		return(bottom);
+		}
+	//-----------------------------------------------
 	public boolean playCard(Card c){
 		try{
 			switch(c.getSuit()){

@@ -1,7 +1,7 @@
 package org.dacracot.card;
 //---------------------------------------------------
-import org.dacracot.Global;
 import java.util.ArrayList;
+import org.dacracot.Global;
 //---------------------------------------------------
 public class Deck {
 	//-----------------------------------------------
