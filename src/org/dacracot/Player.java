@@ -34,11 +34,9 @@ public class Player {
 		}
 	//-----------------------------------------------
 	private void playRescue() {
-		activeGame.append("================== playRescue ==================");
 		}
 	//-----------------------------------------------
 	private boolean playNormal() {
-		activeGame.append("================== playNormal ==================");
 		int loops = 0;
 		int flops = 0;
 		// Play until there are no moves for three loops.
@@ -99,7 +97,6 @@ public class Player {
 		won = playNormal();
 		if (!won) {
 			playRescue();
-// 			won = playNormal();
 			}
 		//-------------------------------------------
 		if ((Global.debug) && (!won)) {
