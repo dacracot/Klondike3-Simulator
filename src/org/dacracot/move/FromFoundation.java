@@ -35,10 +35,10 @@ public class FromFoundation {
 				// Play any top card to any matching bottom card.
 				if (game.tableau.returnCard(bottomUpCard,returningCard)) {
 					game.foundation.removeCard(returningCard);
+					// Return true for the successful first play.
 					return(true);
 					}
 				}
-			// Return true for the successful first play.
 			}
 		// Return false if no play as available.
 		return(false);
