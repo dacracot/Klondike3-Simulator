@@ -1,9 +1,11 @@
 # Solitaire simulator for finding the best winning strategy...
-# Current record is detailed in winningPercentage.txt.
+## Current record is detailed in winningPercentage.txt.
 
 ---
 
 ## Versions
+- 1.11
+  - Play altered to properly play until the end. Winnable games were left behind.  Winning percentage increased from 11.74316% to 17.81353%.
 - 1.10, 1.10.1
   - Play unchanged. Added switch --watch, which plays a single, turn three, winnable game, one second per move, to the console.
 - 1.9
