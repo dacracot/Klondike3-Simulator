@@ -1,6 +1,11 @@
 package org.dacracot.move;
 //---------------------------------------------------
+import java.util.ArrayList;
+import java.util.Collections;
+import org.dacracot.card.Card;
 import org.dacracot.Klondike;
+import org.dacracot.move.criteria.CardColumnLengthAscending;
+import org.dacracot.move.criteria.CardColumnLengthDescending;
 //---------------------------------------------------
 public class FromFoundation {
 	//-----------------------------------------------
@@ -14,7 +19,28 @@ public class FromFoundation {
 	// Move a card from the foundation to the tableau.
 	//
 	public boolean toTableau() {
-		// This is yet to be implemented.
+		// Get a list of the face-up bottom most cards starting with originally shortest column.
+		ArrayList<Card> bottomUpCards = game.tableau.getUpCardsFromBottom();
+		// Get a list of the face-up top most cards starting with originally shortest column.
+		ArrayList<Card> returnCards = game.foundation.getUpCardsFromBottom();
+		//-------------------------------------------
+		// Sort the longest foundation column first
+		CardColumnLengthDescending ccld = new CardColumnLengthDescending();
+		Collections.sort(returnCards,ccld);
+		//-------------------------------------------
+		// Loop thru bottom up cards.
+		for(Card bottomUpCard : bottomUpCards) {
+			// Loop thru top up cards.
+			for(Card returningCard : returnCards) {
+				// Play any top card to any matching bottom card.
+				if (game.tableau.returnCard(bottomUpCard,returningCard)) {
+					game.foundation.removeCard(returningCard);
+					// Return true for the successful first play.
+					return(true);
+					}
+				}
+			}
+		// Return false if no play as available.
 		return(false);
 		}
 	//-----------------------------------------------

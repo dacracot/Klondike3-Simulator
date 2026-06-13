@@ -188,6 +188,26 @@ public class Tableau {
 		return(playable);
 		}
 	//-----------------------------------------------
+	public boolean returnCard(Card destination, Card source) {
+		ArrayList<Card> destinationColumn = null;
+		ArrayList<Card> sourceColumn = null;
+		boolean playable = (
+			(destination.getColor() != source.getColor())
+			&&
+			(source.getValue() == (destination.getValue() - 1))
+			);
+		if (playable) {
+			for(int i=0; i<SEVEN; i++) {
+				if (columns.get(i).contains(destination)) {
+					destinationColumn = columns.get(i);
+					break; // it can only be one
+					}
+				}
+			destinationColumn.add(source);
+			}
+		return(playable);
+		}
+	//-----------------------------------------------
 	private void showColumn(ArrayList<Card> g, StringBuilder sb) {
 		for(int i=0; i<g.size(); i++){
 			sb.append(g.get(i).draw());
