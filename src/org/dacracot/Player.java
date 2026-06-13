@@ -6,11 +6,19 @@ import org.dacracot.move.FromFoundation;
 //---------------------------------------------------
 public class Player {
 	//-----------------------------------------------
-	private int cards;
-	private StringBuilder activeGame = new StringBuilder();
+	private final int FLOPLIMIT = 10;
+	private Klondike game;
+	private FromDeck fromDeck;
+	private FromTableau fromTableau;
+	private FromFoundation fromFoundation;
+	private StringBuilder activeGame;
 	//-----------------------------------------------
 	public Player(int cards){
-		this.cards = cards;
+		game = new Klondike(cards);
+		fromDeck = new FromDeck(game);
+		fromTableau = new FromTableau(game);
+		fromFoundation = new FromFoundation(game);
+		activeGame = new StringBuilder();
 		}
 	//-----------------------------------------------
 	private void watcher() {
@@ -25,20 +33,16 @@ public class Player {
 			}
 		}
 	//-----------------------------------------------
-	public void play() {
-		Global.play();
-		Klondike game = new Klondike(cards);
-		FromDeck fromDeck = new FromDeck(game);
-		FromTableau fromTableau = new FromTableau(game);
-		FromFoundation fromFoundation = new FromFoundation(game);
-		if (Global.debug){activeGame.append(game.showAll("Ready to Play"));}
-		if (Global.watch){System.out.print("\033[H\033[2J");System.out.flush();System.out.println(game.showAll("Ready to Play"));watcher();}
-		//-------------------------------------------
-		boolean won = false;
+	private void playRescue() {
+		activeGame.append("================== playRescue ==================");
+		}
+	//-----------------------------------------------
+	private boolean playNormal() {
+		activeGame.append("================== playNormal ==================");
 		int loops = 0;
 		int flops = 0;
 		// Play until there are no moves for three loops.
-		while(flops < 3) {
+		while(flops < FLOPLIMIT) {
 			// Play only one (or none) from deck to foundation
 			if (fromDeck.toFoundation()) {
 				// Played a card
@@ -77,14 +81,27 @@ public class Player {
 					System.out.println(activeGame);
 					System.out.println("================== WINNER ==================");
 					}
-				won = true;
 				Global.win();
-				break;
+				return(true);
 				}
+			}
+		return(false);
+		}
+	//-----------------------------------------------
+	public void play() {
+		Global.play();
+		if (Global.debug){activeGame.append(game.showAll("Ready to Play"));}
+		if (Global.watch){System.out.print("\033[H\033[2J");System.out.flush();System.out.println(game.showAll("Ready to Play"));watcher();}
+		//-------------------------------------------
+		boolean won;
+		won = playNormal();
+		if (!won) {
+			playRescue();
+// 			won = playNormal();
 			}
 		//-------------------------------------------
 		if ((Global.debug) && (!won)) {
-			activeGame.append(game.showAll("loser >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));
+			activeGame.append(game.showAll(" Lost Game "));
 			System.out.println("================== LOSER ==================");
 			System.out.println(activeGame);
 			System.out.println("================== LOSER ==================");
