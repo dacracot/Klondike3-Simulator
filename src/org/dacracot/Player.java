@@ -6,7 +6,7 @@ import org.dacracot.move.FromFoundation;
 //---------------------------------------------------
 public class Player {
 	//-----------------------------------------------
-	private final int FLOPLIMIT = 10;
+	private final int FLOPLIMIT = 3;
 	private Klondike game;
 	private FromDeck fromDeck;
 	private FromTableau fromTableau;
@@ -52,6 +52,7 @@ public class Player {
 			if (Global.watch){System.out.println(game.showAll("d2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
 			// Play tableau to tableau until no more moves available
 			while(fromTableau.toTableau()) {
+				flops = 0;
 				if (Global.debug){activeGame.append(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				if (Global.watch){System.out.println(game.showAll("t2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
 				}
@@ -64,6 +65,7 @@ public class Player {
 			if (Global.watch){System.out.println(game.showAll("t2f   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
 			// Play deck to tableau until no more moves available
 			while(fromDeck.toTableau()) {
+				flops = 0;
 				if (Global.debug){activeGame.append(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));}
 				if (Global.watch){System.out.println(game.showAll("d2t   >> loops: "+Integer.toString(loops++)+" | flops:"+Integer.toString(flops)));watcher();}
 				}
