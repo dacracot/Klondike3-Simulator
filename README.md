@@ -5,7 +5,7 @@ Current record of **19.7%** is detailed in winningPercentage.txt.gz.
 ---
 
 ## Versions
-- 1.12
+- 1.12, 1.12.1
   - Play altered to rescue a loss by returning foundation cards to the tableau.  Winning percentage increased from 17.81353% to 19.70935%.
 - 1.11
   - Play altered to properly play until the end. Winnable games were left behind.  Winning percentage increased from 11.74316% to 17.81353%.
@@ -73,7 +73,7 @@ Current record of **19.7%** is detailed in winningPercentage.txt.gz.
 - d2f: from Deck to Foundation
 
 ## Example Output
-- Output from a debug only parameter run:
+- Output from `java -jar simulator.jar --watch`:
 
 ![watch example](example.gif)
 
