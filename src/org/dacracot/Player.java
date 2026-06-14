@@ -33,7 +33,26 @@ public class Player {
 			}
 		}
 	//-----------------------------------------------
-	private void playRescue() {
+	private boolean playRescue() {
+		boolean moved = false;
+		// Return cards from foundation to tableau one at a time
+		while (fromFoundation.toTableau()) {
+			if (Global.debug){activeGame.append(game.showAll("f2t"));}
+			if (Global.watch){System.out.println(game.showAll("f2t"));watcher();}
+			// Play tableau to tableau until no more moves available
+			while(fromTableau.toTableau()) {
+				moved = true;
+				if (Global.debug){activeGame.append(game.showAll("t2t rescue"));}
+				if (Global.watch){System.out.println(game.showAll("t2t rescue"));watcher();}
+				}
+			// Play deck to tableau until no more moves available
+			while(fromDeck.toTableau()) {
+				moved = true;
+				if (Global.debug){activeGame.append(game.showAll("d2t rescue"));}
+				if (Global.watch){System.out.println(game.showAll("d2t rescue"));watcher();}
+				}
+			}
+		return(moved);
 		}
 	//-----------------------------------------------
 	private boolean playNormal() {
@@ -96,7 +115,9 @@ public class Player {
 		boolean won;
 		won = playNormal();
 		if (!won) {
-			playRescue();
+			if (playRescue()) {
+				won = playNormal();
+				}
 			}
 		//-------------------------------------------
 		if ((Global.debug) && (!won)) {
