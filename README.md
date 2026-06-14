@@ -73,7 +73,7 @@ Current record of **19.7%** is detailed in winningPercentage.txt.gz.
 - d2f: from Deck to Foundation
 
 ## Example Output
-- Output from a debug only parameter run:
+- Output from `java -jar simulator.jar --watch`:
 
 ![watch example](example.gif)
 
