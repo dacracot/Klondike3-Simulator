@@ -115,8 +115,9 @@ public class Player {
 		boolean won;
 		won = playNormal();
 		if (!won) {
-			playRescue();
-			won = playNormal();
+			if (playRescue()) {
+				won = playNormal();
+				}
 			}
 		//-------------------------------------------
 		if ((Global.debug) && (!won)) {
