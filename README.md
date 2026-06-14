@@ -1,9 +1,12 @@
 # Solitaire simulator for finding the best winning strategy...
-## Current record is detailed in winningPercentage.txt.
+
+Current record of **19.7%** is detailed in winningPercentage.txt.gz.
 
 ---
 
 ## Versions
+- 1.12
+  - Play altered to rescue a loss by returning foundation cards to the tableau.  Winning percentage increased from 17.81353% to 19.70956%.
 - 1.11
   - Play altered to properly play until the end. Winnable games were left behind.  Winning percentage increased from 11.74316% to 17.81353%.
 - 1.10, 1.10.1
