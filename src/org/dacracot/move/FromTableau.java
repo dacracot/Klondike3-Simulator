@@ -69,11 +69,7 @@ public class FromTableau {
 		// Get a list of the face-up bottom most cards starting with originally shortest column.
 		ArrayList<Card> bottomUpCards = game.tableau.getUpCardsFromBottom();
 		//-------------------------------------------
-		// 
-		// Primary new strategy implements sorting the choice of two playable cards.
-		//
-		CardColumnLengthAscending ccla = new CardColumnLengthAscending();
-		Collections.sort(bottomUpCards,ccla);
+		// No sort results in slightly higher winning percentage
 		//-------------------------------------------
 		// Loop thru bottom up cards.
 		for(Card bottomUpCard : bottomUpCards) {
