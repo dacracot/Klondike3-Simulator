@@ -5,6 +5,8 @@ Current record of **19.7%** is detailed in winningPercentage.txt.gz.
 ---
 
 ## Versions
+- 1.13
+  - Play altered to rescue a loss by returning foundation cards to the tableau three times, rather than just once as in the previous version.  Winning percentage increased from 19.70935% to 19.72637%.
 - 1.12, 1.12.1
   - Play altered to rescue a loss by returning foundation cards to the tableau.  Winning percentage increased from 17.81353% to 19.70935%.
 - 1.11
