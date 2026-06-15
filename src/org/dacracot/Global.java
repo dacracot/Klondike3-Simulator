@@ -24,6 +24,9 @@ public class Global {
 	public static int reportInterval = 1000000;
 	public static int waitForSteadyState = reportInterval-100;
 	//-----------------------------------------------
+	// getter/setters were because of synchronization
+	// with no threads, it was removed, but not these
+	//-----------------------------------------------
 	public static void win() {
 		winner++;
 		}
