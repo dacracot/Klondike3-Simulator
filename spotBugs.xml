@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.10.2" sequence="0" timestamp="1781533626000" analysisTimestamp="1781537043780" release="">
+  <Project projectName="klondike">
+    <Jar>/Users/dacracot/Desktop/CodeMonkey/Zim/simulation/Klondike3-Simulator/simulator.jar</Jar>
+    <SrcDir>/Users/dacracot/Desktop/CodeMonkey/Zim/simulation/Klondike3-Simulator/src</SrcDir>
+  </Project>
+  <BugInstance type="MS_CANNOT_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="count" signature="I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="21" end="21" startBytecode="48" endBytecode="48" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_CANNOT_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="random" signature="Ljava/util/Random;" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="14" end="14" startBytecode="24" endBytecode="24" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_CANNOT_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="valueHigh" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="22" end="22" startBytecode="52" endBytecode="52" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_CANNOT_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="valueLow" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="23" end="23" startBytecode="58" endBytecode="58" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_CANNOT_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="valueSum" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="19" end="19" startBytecode="40" endBytecode="40" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_CANNOT_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="varianceSum" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="20" end="20" startBytecode="44" endBytecode="44" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="cards" signature="I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="12" end="12" startBytecode="15" endBytecode="15" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="debug" signature="Z" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="15" end="15" startBytecode="28" endBytecode="28" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="quiet" signature="Z" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="17" end="17" startBytecode="36" endBytecode="36" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="tries" signature="I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="13" end="13" startBytecode="20" endBytecode="20" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="watch" signature="Z" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="16" end="16" startBytecode="32" endBytecode="32" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" rank="16" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="start" signature="Ljava/time/Instant;" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="11" end="11" startBytecode="11" endBytecode="11" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="reportInterval" signature="I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="24" end="24" startBytecode="63" endBytecode="63" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="2" rank="18" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Field classname="org.dacracot.Global" name="waitForSteadyState" signature="I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Global" start="25" end="25" startBytecode="72" endBytecode="72" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+  </BugInstance>
+  <BugInstance type="USO_UNSAFE_STATIC_METHOD_SYNCHRONIZATION" priority="2" rank="7" abbrev="USO" category="SECURITY">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Method classname="org.dacracot.Global" name="getTried" signature="()I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" start="40" end="40" startBytecode="0" endBytecode="27" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="USO_UNSAFE_STATIC_METHOD_SYNCHRONIZATION" priority="2" rank="7" abbrev="USO" category="SECURITY">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Method classname="org.dacracot.Global" name="getWins" signature="()I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" start="36" end="36" startBytecode="0" endBytecode="27" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="USO_UNSAFE_STATIC_METHOD_SYNCHRONIZATION" priority="2" rank="7" abbrev="USO" category="SECURITY">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Method classname="org.dacracot.Global" name="play" signature="()V" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" start="32" end="33" startBytecode="0" endBytecode="36" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="USO_UNSAFE_STATIC_METHOD_SYNCHRONIZATION" priority="2" rank="7" abbrev="USO" category="SECURITY">
+    <Class classname="org.dacracot.Global">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Class>
+    <Method classname="org.dacracot.Global" name="win" signature="()V" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" start="28" end="29" startBytecode="0" endBytecode="36" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="DM_EXIT" priority="2" rank="16" abbrev="Dm" category="BAD_PRACTICE">
+    <Class classname="org.dacracot.Player">
+      <SourceLine classname="org.dacracot.Player" sourcefile="Player.java" sourcepath="org/dacracot/Player.java"/>
+    </Class>
+    <Method classname="org.dacracot.Player" name="watcher" signature="()V" isStatic="false">
+      <SourceLine classname="org.dacracot.Player" start="26" end="34" startBytecode="0" endBytecode="136" sourcefile="Player.java" sourcepath="org/dacracot/Player.java"/>
+    </Method>
+    <SourceLine classname="org.dacracot.Player" start="32" end="32" startBytecode="32" endBytecode="32" sourcefile="Player.java" sourcepath="org/dacracot/Player.java"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE">
+    <Class classname="org.dacracot.Player">
+      <SourceLine classname="org.dacracot.Player" sourcefile="Player.java" sourcepath="org/dacracot/Player.java"/>
+    </Class>
+    <Field classname="org.dacracot.Player" name="FLOPLIMIT" signature="I" isStatic="false">
+      <SourceLine classname="org.dacracot.Player" sourcefile="Player.java" sourcepath="org/dacracot/Player.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.Player" start="9" end="9" startBytecode="6" endBytecode="6" sourcefile="Player.java" sourcepath="org/dacracot/Player.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" rank="18" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.dacracot.card.Deck">
+      <SourceLine classname="org.dacracot.card.Deck" sourcefile="Deck.java" sourcepath="org/dacracot/card/Deck.java"/>
+    </Class>
+    <Method classname="org.dacracot.card.Deck" name="getDeck" signature="()Ljava/util/ArrayList;" isStatic="false">
+      <SourceLine classname="org.dacracot.card.Deck" start="31" end="31" startBytecode="0" endBytecode="46" sourcefile="Deck.java" sourcepath="org/dacracot/card/Deck.java"/>
+    </Method>
+    <Field classname="org.dacracot.card.Deck" name="deck" signature="Ljava/util/ArrayList;" isStatic="false">
+      <SourceLine classname="org.dacracot.card.Deck" sourcefile="Deck.java" sourcepath="org/dacracot/card/Deck.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.card.Deck" start="31" end="31" startBytecode="4" endBytecode="4" sourcefile="Deck.java" sourcepath="org/dacracot/card/Deck.java"/>
+  </BugInstance>
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="org.dacracot.move.criteria.CardColumnLengthAscending">
+      <SourceLine classname="org.dacracot.move.criteria.CardColumnLengthAscending" start="6" end="10" sourcefile="CardColumnLengthAscending.java" sourcepath="org/dacracot/move/criteria/CardColumnLengthAscending.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="org.dacracot.move.criteria.CardColumnLengthDescending">
+      <SourceLine classname="org.dacracot.move.criteria.CardColumnLengthDescending" start="6" end="10" sourcefile="CardColumnLengthDescending.java" sourcepath="org/dacracot/move/criteria/CardColumnLengthDescending.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="DM_EXIT" priority="2" rank="16" abbrev="Dm" category="BAD_PRACTICE">
+    <Class classname="org.dacracot.table.Foundation">
+      <SourceLine classname="org.dacracot.table.Foundation" sourcefile="Foundation.java" sourcepath="org/dacracot/table/Foundation.java"/>
+    </Class>
+    <Method classname="org.dacracot.table.Foundation" name="playCard" signature="(Lorg/dacracot/card/Card;)Z" isStatic="false">
+      <SourceLine classname="org.dacracot.table.Foundation" start="56" end="87" startBytecode="0" endBytecode="344" sourcefile="Foundation.java" sourcepath="org/dacracot/table/Foundation.java"/>
+    </Method>
+    <SourceLine classname="org.dacracot.table.Foundation" start="85" end="85" startBytecode="160" endBytecode="160" sourcefile="Foundation.java" sourcepath="org/dacracot/table/Foundation.java"/>
+  </BugInstance>
+  <BugInstance type="DM_EXIT" priority="2" rank="16" abbrev="Dm" category="BAD_PRACTICE">
+    <Class classname="org.dacracot.table.Foundation">
+      <SourceLine classname="org.dacracot.table.Foundation" sourcefile="Foundation.java" sourcepath="org/dacracot/table/Foundation.java"/>
+    </Class>
+    <Method classname="org.dacracot.table.Foundation" name="removeCard" signature="(Lorg/dacracot/card/Card;)V" isStatic="false">
+      <SourceLine classname="org.dacracot.table.Foundation" start="92" end="111" startBytecode="0" endBytecode="236" sourcefile="Foundation.java" sourcepath="org/dacracot/table/Foundation.java"/>
+    </Method>
+    <SourceLine classname="org.dacracot.table.Foundation" start="109" end="109" startBytecode="97" endBytecode="97" sourcefile="Foundation.java" sourcepath="org/dacracot/table/Foundation.java"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="2" rank="8" abbrev="NP" category="CORRECTNESS">
+    <Class classname="org.dacracot.table.Tableau">
+      <SourceLine classname="org.dacracot.table.Tableau" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java"/>
+    </Class>
+    <Method classname="org.dacracot.table.Tableau" name="playCard" signature="(Lorg/dacracot/card/Card;Lorg/dacracot/card/Card;)Z" isStatic="false">
+      <SourceLine classname="org.dacracot.table.Tableau" start="158" end="188" startBytecode="0" endBytecode="543" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java"/>
+    </Method>
+    <LocalVariable name="sourceColumn" register="4" pc="97" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="org.dacracot.table.Tableau" start="179" end="179" startBytecode="155" endBytecode="155" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java" role="SOURCE_LINE_DEREF"/>
+    <SourceLine classname="org.dacracot.table.Tableau" start="159" end="159" startBytecode="2" endBytecode="2" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java" role="SOURCE_LINE_NULL_VALUE"/>
+    <SourceLine classname="org.dacracot.table.Tableau" start="172" end="172" startBytecode="99" endBytecode="99" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java" role="SOURCE_LINE_KNOWN_NULL"/>
+    <Property name="edu.umd.cs.findbugs.detect.NullDerefProperty.LONG_RANGE_NULL_SOURCE" value="true"/>
+  </BugInstance>
+  <BugInstance type="NP_NULL_ON_SOME_PATH" priority="2" rank="8" abbrev="NP" category="CORRECTNESS">
+    <Class classname="org.dacracot.table.Tableau">
+      <SourceLine classname="org.dacracot.table.Tableau" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java"/>
+    </Class>
+    <Method classname="org.dacracot.table.Tableau" name="returnCard" signature="(Lorg/dacracot/card/Card;Lorg/dacracot/card/Card;)Z" isStatic="false">
+      <SourceLine classname="org.dacracot.table.Tableau" start="192" end="208" startBytecode="0" endBytecode="307" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java"/>
+    </Method>
+    <LocalVariable name="destinationColumn" register="3" pc="46" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="org.dacracot.table.Tableau" start="206" end="206" startBytecode="94" endBytecode="94" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java" role="SOURCE_LINE_DEREF"/>
+    <SourceLine classname="org.dacracot.table.Tableau" start="192" end="192" startBytecode="0" endBytecode="0" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java" role="SOURCE_LINE_NULL_VALUE"/>
+    <SourceLine classname="org.dacracot.table.Tableau" start="200" end="200" startBytecode="48" endBytecode="48" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java" role="SOURCE_LINE_KNOWN_NULL"/>
+  </BugInstance>
+  <BugInstance type="SS_SHOULD_BE_STATIC" priority="2" rank="18" abbrev="SS" category="PERFORMANCE">
+    <Class classname="org.dacracot.table.Tableau">
+      <SourceLine classname="org.dacracot.table.Tableau" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java"/>
+    </Class>
+    <Field classname="org.dacracot.table.Tableau" name="SEVEN" signature="I" isStatic="false">
+      <SourceLine classname="org.dacracot.table.Tableau" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.table.Tableau" start="10" end="10" startBytecode="7" endBytecode="7" sourcefile="Tableau.java" sourcepath="org/dacracot/table/Tableau.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="org.dacracot.util.Statistics">
+      <SourceLine classname="org.dacracot.util.Statistics" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Class>
+    <Method classname="org.dacracot.util.Statistics" name="setValue" signature="()V" isStatic="false">
+      <SourceLine classname="org.dacracot.util.Statistics" start="10" end="16" startBytecode="0" endBytecode="153" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Method>
+    <Field classname="org.dacracot.Global" name="count" signature="I" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.util.Statistics" start="11" end="11" startBytecode="10" endBytecode="10" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="org.dacracot.util.Statistics">
+      <SourceLine classname="org.dacracot.util.Statistics" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Class>
+    <Method classname="org.dacracot.util.Statistics" name="setValue" signature="()V" isStatic="false">
+      <SourceLine classname="org.dacracot.util.Statistics" start="10" end="16" startBytecode="0" endBytecode="153" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Method>
+    <Field classname="org.dacracot.Global" name="valueHigh" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.util.Statistics" start="14" end="14" startBytecode="49" endBytecode="49" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="org.dacracot.util.Statistics">
+      <SourceLine classname="org.dacracot.util.Statistics" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Class>
+    <Method classname="org.dacracot.util.Statistics" name="setValue" signature="()V" isStatic="false">
+      <SourceLine classname="org.dacracot.util.Statistics" start="10" end="16" startBytecode="0" endBytecode="153" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Method>
+    <Field classname="org.dacracot.Global" name="valueLow" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.util.Statistics" start="15" end="15" startBytecode="61" endBytecode="61" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="org.dacracot.util.Statistics">
+      <SourceLine classname="org.dacracot.util.Statistics" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Class>
+    <Method classname="org.dacracot.util.Statistics" name="setValue" signature="()V" isStatic="false">
+      <SourceLine classname="org.dacracot.util.Statistics" start="10" end="16" startBytecode="0" endBytecode="153" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Method>
+    <Field classname="org.dacracot.Global" name="valueSum" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.util.Statistics" start="12" end="12" startBytecode="18" endBytecode="18" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="2" rank="17" abbrev="ST" category="STYLE">
+    <Class classname="org.dacracot.util.Statistics">
+      <SourceLine classname="org.dacracot.util.Statistics" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Class>
+    <Method classname="org.dacracot.util.Statistics" name="setValue" signature="()V" isStatic="false">
+      <SourceLine classname="org.dacracot.util.Statistics" start="10" end="16" startBytecode="0" endBytecode="153" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+    </Method>
+    <Field classname="org.dacracot.Global" name="varianceSum" signature="D" isStatic="true">
+      <SourceLine classname="org.dacracot.Global" sourcefile="Global.java" sourcepath="org/dacracot/Global.java"/>
+    </Field>
+    <SourceLine classname="org.dacracot.util.Statistics" start="13" end="13" startBytecode="37" endBytecode="37" sourcefile="Statistics.java" sourcepath="org/dacracot/util/Statistics.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Mon, 15 Jun 2026 07:27:06 -0700" total_classes="18" referenced_classes="85" total_bugs="33" total_size="762" num_packages="6" java_version="25.0.2" vm_version="25.0.2+10-LTS-69" cpu_seconds="7.77" clock_seconds="40.80" peak_mbytes="223.48" alloc_mbytes="768.00" gc_seconds="0.03" priority_2="32" priority_1="1">
+    <PackageStats package="org.dacracot" total_bugs="20" total_types="4" total_size="242" priority_2="19" priority_1="1">
+      <ClassStats class="org.dacracot.Global" sourceFile="Global.java" interface="false" size="46" bugs="18" priority_2="17" priority_1="1"/>
+      <ClassStats class="org.dacracot.Klondike" sourceFile="Klondike.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.dacracot.Player" sourceFile="Player.java" interface="false" size="86" bugs="2" priority_2="2"/>
+      <ClassStats class="org.dacracot.Solitaire" sourceFile="Solitaire.java" interface="false" size="87" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.dacracot.card" total_bugs="1" total_types="4" total_size="119" priority_2="1">
+      <ClassStats class="org.dacracot.card.Card" sourceFile="Card.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="org.dacracot.card.Deck" sourceFile="Deck.java" interface="false" size="33" bugs="1" priority_2="1"/>
+      <ClassStats class="org.dacracot.card.Suit" sourceFile="Suit.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.dacracot.card.Suit$Color" sourceFile="Suit.java" interface="false" size="10" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.dacracot.move" total_bugs="0" total_types="3" total_size="73">
+      <ClassStats class="org.dacracot.move.FromDeck" sourceFile="FromDeck.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.dacracot.move.FromFoundation" sourceFile="FromFoundation.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.dacracot.move.FromTableau" sourceFile="FromTableau.java" interface="false" size="29" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.dacracot.move.criteria" total_bugs="2" total_types="2" total_size="12" priority_2="2">
+      <ClassStats class="org.dacracot.move.criteria.CardColumnLengthAscending" sourceFile="CardColumnLengthAscending.java" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="org.dacracot.move.criteria.CardColumnLengthDescending" sourceFile="CardColumnLengthDescending.java" interface="false" size="6" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="org.dacracot.table" total_bugs="5" total_types="4" total_size="288" priority_2="5">
+      <ClassStats class="org.dacracot.table.Deck" sourceFile="Deck.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.dacracot.table.Foundation" sourceFile="Foundation.java" interface="false" size="80" bugs="2" priority_2="2"/>
+      <ClassStats class="org.dacracot.table.Foundation$1" sourceFile="Foundation.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="org.dacracot.table.Tableau" sourceFile="Tableau.java" interface="false" size="146" bugs="3" priority_2="3"/>
+    </PackageStats>
+    <PackageStats package="org.dacracot.util" total_bugs="5" total_types="1" total_size="28" priority_2="5">
+      <ClassStats class="org.dacracot.util.Statistics" sourceFile="Statistics.java" interface="false" size="28" bugs="5" priority_2="5"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="173" invocations="727" avgMicrosecondsPerInvocation="238" maxMicrosecondsPerInvocation="5915" standardDeviationMicrosecondsPerInvocation="583"/>
+      <ClassProfile name="edu.umd.cs.findbugs.FindBugs2" totalMilliseconds="150" invocations="2" avgMicrosecondsPerInvocation="75076" maxMicrosecondsPerInvocation="76653" standardDeviationMicrosecondsPerInvocation="1553"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="53" invocations="85" avgMicrosecondsPerInvocation="625" maxMicrosecondsPerInvocation="6416" standardDeviationMicrosecondsPerInvocation="1102"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="51" invocations="732" avgMicrosecondsPerInvocation="70" maxMicrosecondsPerInvocation="1668" standardDeviationMicrosecondsPerInvocation="125"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="40" invocations="85" avgMicrosecondsPerInvocation="470" maxMicrosecondsPerInvocation="4494" standardDeviationMicrosecondsPerInvocation="835"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="38" invocations="320" avgMicrosecondsPerInvocation="120" maxMicrosecondsPerInvocation="1312" standardDeviationMicrosecondsPerInvocation="168"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="33" invocations="49" avgMicrosecondsPerInvocation="680" maxMicrosecondsPerInvocation="4278" standardDeviationMicrosecondsPerInvocation="760"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="32" invocations="117" avgMicrosecondsPerInvocation="279" maxMicrosecondsPerInvocation="3872" standardDeviationMicrosecondsPerInvocation="537"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="30" invocations="114" avgMicrosecondsPerInvocation="268" maxMicrosecondsPerInvocation="4144" standardDeviationMicrosecondsPerInvocation="496"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="30" invocations="104" avgMicrosecondsPerInvocation="291" maxMicrosecondsPerInvocation="3885" standardDeviationMicrosecondsPerInvocation="595"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="28" invocations="102" avgMicrosecondsPerInvocation="283" maxMicrosecondsPerInvocation="3824" standardDeviationMicrosecondsPerInvocation="520"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="28" invocations="104" avgMicrosecondsPerInvocation="270" maxMicrosecondsPerInvocation="3720" standardDeviationMicrosecondsPerInvocation="511"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="27" invocations="141" avgMicrosecondsPerInvocation="197" maxMicrosecondsPerInvocation="8649" standardDeviationMicrosecondsPerInvocation="766"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="21" invocations="110" avgMicrosecondsPerInvocation="195" maxMicrosecondsPerInvocation="3569" standardDeviationMicrosecondsPerInvocation="372"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="18" invocations="110" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="8588" standardDeviationMicrosecondsPerInvocation="828"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="17" invocations="85" avgMicrosecondsPerInvocation="208" maxMicrosecondsPerInvocation="3091" standardDeviationMicrosecondsPerInvocation="422"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="17" invocations="88" avgMicrosecondsPerInvocation="199" maxMicrosecondsPerInvocation="2043" standardDeviationMicrosecondsPerInvocation="306"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="16" invocations="85" avgMicrosecondsPerInvocation="190" maxMicrosecondsPerInvocation="2525" standardDeviationMicrosecondsPerInvocation="407"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="15" invocations="680" avgMicrosecondsPerInvocation="22" maxMicrosecondsPerInvocation="439" standardDeviationMicrosecondsPerInvocation="45"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="14" invocations="85" avgMicrosecondsPerInvocation="165" maxMicrosecondsPerInvocation="4449" standardDeviationMicrosecondsPerInvocation="538"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="13" invocations="85" avgMicrosecondsPerInvocation="154" maxMicrosecondsPerInvocation="2862" standardDeviationMicrosecondsPerInvocation="367"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="11" invocations="85" avgMicrosecondsPerInvocation="134" maxMicrosecondsPerInvocation="1102" standardDeviationMicrosecondsPerInvocation="220"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="11" invocations="18" avgMicrosecondsPerInvocation="614" maxMicrosecondsPerInvocation="5475" standardDeviationMicrosecondsPerInvocation="1472"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
