@@ -24,19 +24,19 @@ public class Global {
 	public static int reportInterval = 1000000;
 	public static int waitForSteadyState = reportInterval-100;
 	//-----------------------------------------------
-	public static synchronized void win() {
+	public static void win() {
 		winner++;
 		}
 	//-----------------------------------------------
-	public static synchronized void play() {
+	public static void play() {
 		tried++;
 		}
 	//-----------------------------------------------
-	public static synchronized int getWins() {
+	public static int getWins() {
 		return(winner);
 		}
 	//-----------------------------------------------
-	public static synchronized int getTried() {
+	public static int getTried() {
 		return(tried);
 		}
 	//-----------------------------------------------
