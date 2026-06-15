@@ -117,6 +117,16 @@ public class Player {
 		if (!won) {
 			if (playRescue()) {
 				won = playNormal();
+				if (!won) {
+					if (playRescue()) {
+						won = playNormal();
+						if (!won) {
+							if (playRescue()) {
+								won = playNormal();
+								}
+							}
+						}
+					}
 				}
 			}
 		//-------------------------------------------
